@@ -1,0 +1,2352 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/14/2021 2:18:31 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="AN000529"
+  DTS:CreatorName="JHG\smendu"
+  DTS:DTSID="{D1988B18-81E6-4602-8D9D-7030BE9D262F}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.113"
+  DTS:LocaleID="3081"
+  DTS:ObjectName="audit_questionnnaire_ETL_Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{8BB5F986-9BA6-428A-9D84-29FC37027B6B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{E92C4202-F7AC-481C-95A3-B5E7099FE004}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\OData Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="OData Source Component;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Read data from OData services"
+              name="OData Source"
+              usesDispositions="true">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Name of the collection to be retrieved from the service."
+                  expressionType="Notify"
+                  name="CollectionName">audit_questionnaire</property>
+                <property
+                  dataType="System.Int32"
+                  description="The default maximum length for a string that has no maxlength specified in the schema."
+                  name="DefaultStringLength">4000</property>
+                <property
+                  dataType="System.String"
+                  description="Query in the url. "
+                  expressionType="Notify"
+                  name="Query"></property>
+                <property
+                  dataType="System.String"
+                  description="Resource path of the collection to be retrieved from the service."
+                  expressionType="Notify"
+                  name="ResourcePath"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="When set to true, use the resource path as requested collection; otherwise, use the collection name."
+                  expressionType="Notify"
+                  name="UseResourcePath">false</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.OData</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OData Source.Connections[Connection]"
+                  connectionManagerID="{90FAE95A-EC7E-4E7C-8873-7921E61F762F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OData Source]"
+                  description="Connection to OData Service"
+                  name="Connection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OData Source.Outputs[Output]"
+                  name="Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwi_audit02]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwi_audit02]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwi_audit02]"
+                      name="dwi_audit02"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[audit_id]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[audit_id]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[audit_id]"
+                      name="audit_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[audit_result]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[audit_result]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[audit_result]"
+                      name="audit_result"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_audit_result]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_audit_result]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_audit_result]"
+                      name="li_audit_result"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_audit_result]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_audit_result]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_audit_result]"
+                      name="lo_audit_result"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[audit_result_percentage]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[audit_result_percentage]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[audit_result_percentage]"
+                      name="audit_result_percentage"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[audit_type]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[audit_type]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[audit_type]"
+                      name="audit_type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_audit_type]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_audit_type]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_audit_type]"
+                      name="li_audit_type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_audit_type]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_audit_type]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_audit_type]"
+                      name="lo_audit_type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[close_this_record]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[close_this_record]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[close_this_record]"
+                      name="close_this_record"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_close_this_record]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_close_this_record]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_close_this_record]"
+                      name="li_close_this_record"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_close_this_record]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_close_this_record]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_close_this_record]"
+                      name="lo_close_this_record"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[ready_for_sign_off]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[ready_for_sign_off]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[ready_for_sign_off]"
+                      name="ready_for_sign_off"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_ready_for_sign_off]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_ready_for_sign_off]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_ready_for_sign_off]"
+                      name="li_ready_for_sign_off"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_ready_for_sign_off]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_ready_for_sign_off]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_ready_for_sign_off]"
+                      name="lo_ready_for_sign_off"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_scheduled_audit]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sys_scheduled_audit]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_scheduled_audit]"
+                      name="sys_scheduled_audit"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_sys_scheduled_audit]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_sys_scheduled_audit]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_sys_scheduled_audit]"
+                      name="li_sys_scheduled_audit"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_sys_scheduled_audit]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_sys_scheduled_audit]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_sys_scheduled_audit]"
+                      name="lo_sys_scheduled_audit"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_send_new_audit_email]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sys_send_new_audit_email]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_send_new_audit_email]"
+                      name="sys_send_new_audit_email"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_sys_send_new_audit_email]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_sys_send_new_audit_email]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_sys_send_new_audit_email]"
+                      name="li_sys_send_new_audit_email"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_sys_send_new_audit_email]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_sys_send_new_audit_email]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_sys_send_new_audit_email]"
+                      name="lo_sys_send_new_audit_email"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[audit_category]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[audit_category]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[audit_category]"
+                      name="audit_category"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_audit_category]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_audit_category]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_audit_category]"
+                      name="li_audit_category"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_audit_category]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_audit_category]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_audit_category]"
+                      name="lo_audit_category"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[zzgmr_assessment_type]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[zzgmr_assessment_type]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[zzgmr_assessment_type]"
+                      name="zzgmr_assessment_type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_zzgmr_assessment_type]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_zzgmr_assessment_type]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_zzgmr_assessment_type]"
+                      name="li_zzgmr_assessment_type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_zzgmr_assessment_type]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_zzgmr_assessment_type]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_zzgmr_assessment_type]"
+                      name="lo_zzgmr_assessment_type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[audit_team_members_count]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[audit_team_members_count]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[audit_team_members_count]"
+                      name="audit_team_members_count"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[file_storage_count]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[file_storage_count]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[file_storage_count]"
+                      name="file_storage_count"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[actions_count]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[actions_count]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[actions_count]"
+                      name="actions_count"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[obligations_audited_count]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[obligations_audited_count]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[obligations_audited_count]"
+                      name="obligations_audited_count"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[meetings_count]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[meetings_count]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[meetings_count]"
+                      name="meetings_count"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[audit_findings_count]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[audit_findings_count]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[audit_findings_count]"
+                      name="audit_findings_count"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[audit_updating_obligation_compliance_status_count]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[audit_updating_obligation_compliance_status_count]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[audit_updating_obligation_compliance_status_count]"
+                      name="audit_updating_obligation_compliance_status_count"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_auditor]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_auditor]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_auditor]"
+                      name="dwk_auditor"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_entity_being_audited]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_entity_being_audited]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_entity_being_audited]"
+                      name="dwk_entity_being_audited"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_entity_in_charge_of_audit]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_entity_in_charge_of_audit]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_entity_in_charge_of_audit]"
+                      name="dwk_entity_in_charge_of_audit"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_entered_by]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_entered_by]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_entered_by]"
+                      name="dwk_entered_by"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_location_being_audited]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_location_being_audited]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_location_being_audited]"
+                      name="dwk_location_being_audited"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_person_asked_to_sign_off_audit]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_person_asked_to_sign_off_audit]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_person_asked_to_sign_off_audit]"
+                      name="dwk_person_asked_to_sign_off_audit"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_person_signing_off]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_person_signing_off]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_person_signing_off]"
+                      name="dwk_person_signing_off"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_questionnaire]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_questionnaire]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_questionnaire]"
+                      name="dwk_questionnaire"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_company_conducting_audit]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_company_conducting_audit]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_company_conducting_audit]"
+                      name="dwk_company_conducting_audit"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_audit_date]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_audit_date]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_audit_date]"
+                      name="dwk_audit_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_audit_end_date]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_audit_end_date]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_audit_end_date]"
+                      name="dwk_audit_end_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_entered_date]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_entered_date]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_entered_date]"
+                      name="dwk_entered_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_sign_off_date]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_sign_off_date]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_sign_off_date]"
+                      name="dwk_sign_off_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_entered_time]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_entered_time]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_entered_time]"
+                      name="dwk_entered_time"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[si_status]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[si_status]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[si_status]"
+                      name="si_status"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sn_status]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sn_status]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sn_status]"
+                      name="sn_status"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[si_base_state]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[si_base_state]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[si_base_state]"
+                      name="si_base_state"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sn_base_state]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sn_base_state]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sn_base_state]"
+                      name="sn_base_state"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[questionnaire_name]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[questionnaire_name]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[questionnaire_name]"
+                      name="questionnaire_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[questionnaire_score]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[questionnaire_score]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[questionnaire_score]"
+                      name="questionnaire_score"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[questionnaire_result]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[questionnaire_result]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[questionnaire_result]"
+                      name="questionnaire_result"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[questionnaire_keyword]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[questionnaire_keyword]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[questionnaire_keyword]"
+                      name="questionnaire_keyword"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[section_number]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[section_number]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[section_number]"
+                      name="section_number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[section_name]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[section_name]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[section_name]"
+                      name="section_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[section_keyword]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[section_keyword]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[section_keyword]"
+                      name="section_keyword"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[section_max_score]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[section_max_score]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[section_max_score]"
+                      name="section_max_score"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[section_weight]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[section_weight]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[section_weight]"
+                      name="section_weight"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[section_score]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[section_score]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[section_score]"
+                      name="section_score"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[section_result]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[section_result]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[section_result]"
+                      name="section_result"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[section_percentage]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[section_percentage]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[section_percentage]"
+                      name="section_percentage"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[section_na]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[section_na]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[section_na]"
+                      name="section_na"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[question_number]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[question_number]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[question_number]"
+                      name="question_number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[question_text]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[question_text]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[question_text]"
+                      name="question_text"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[question_weight]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[question_weight]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[question_weight]"
+                      name="question_weight"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[question_keyword]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[question_keyword]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[question_keyword]"
+                      name="question_keyword"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[question_answer]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[question_answer]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[question_answer]"
+                      name="question_answer"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[question_comments]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[question_comments]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[question_comments]"
+                      name="question_comments"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[question_result]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[question_result]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[question_result]"
+                      name="question_result"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[question_na]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[question_na]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[question_na]"
+                      name="question_na"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwi_audit02]"
+                      dataType="i4"
+                      name="dwi_audit02" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[audit_id]"
+                      dataType="nText"
+                      name="audit_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[audit_result]"
+                      dataType="nText"
+                      name="audit_result" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_audit_result]"
+                      dataType="nText"
+                      name="li_audit_result" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_audit_result]"
+                      dataType="i4"
+                      name="lo_audit_result" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[audit_result_percentage]"
+                      dataType="r8"
+                      name="audit_result_percentage" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[audit_type]"
+                      dataType="nText"
+                      name="audit_type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_audit_type]"
+                      dataType="nText"
+                      name="li_audit_type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_audit_type]"
+                      dataType="i4"
+                      name="lo_audit_type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[close_this_record]"
+                      dataType="nText"
+                      name="close_this_record" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_close_this_record]"
+                      dataType="nText"
+                      name="li_close_this_record" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_close_this_record]"
+                      dataType="i4"
+                      name="lo_close_this_record" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[ready_for_sign_off]"
+                      dataType="nText"
+                      name="ready_for_sign_off" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_ready_for_sign_off]"
+                      dataType="nText"
+                      name="li_ready_for_sign_off" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_ready_for_sign_off]"
+                      dataType="i4"
+                      name="lo_ready_for_sign_off" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sys_scheduled_audit]"
+                      dataType="nText"
+                      name="sys_scheduled_audit" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_sys_scheduled_audit]"
+                      dataType="nText"
+                      name="li_sys_scheduled_audit" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_sys_scheduled_audit]"
+                      dataType="i4"
+                      name="lo_sys_scheduled_audit" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sys_send_new_audit_email]"
+                      dataType="nText"
+                      name="sys_send_new_audit_email" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_sys_send_new_audit_email]"
+                      dataType="nText"
+                      name="li_sys_send_new_audit_email" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_sys_send_new_audit_email]"
+                      dataType="i4"
+                      name="lo_sys_send_new_audit_email" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[audit_category]"
+                      dataType="nText"
+                      name="audit_category" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_audit_category]"
+                      dataType="nText"
+                      name="li_audit_category" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_audit_category]"
+                      dataType="i4"
+                      name="lo_audit_category" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[zzgmr_assessment_type]"
+                      dataType="nText"
+                      name="zzgmr_assessment_type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_zzgmr_assessment_type]"
+                      dataType="nText"
+                      name="li_zzgmr_assessment_type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_zzgmr_assessment_type]"
+                      dataType="i4"
+                      name="lo_zzgmr_assessment_type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[audit_team_members_count]"
+                      dataType="i4"
+                      name="audit_team_members_count" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[file_storage_count]"
+                      dataType="i4"
+                      name="file_storage_count" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[actions_count]"
+                      dataType="i4"
+                      name="actions_count" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[obligations_audited_count]"
+                      dataType="i4"
+                      name="obligations_audited_count" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[meetings_count]"
+                      dataType="i4"
+                      name="meetings_count" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[audit_findings_count]"
+                      dataType="i4"
+                      name="audit_findings_count" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[audit_updating_obligation_compliance_status_count]"
+                      dataType="i4"
+                      name="audit_updating_obligation_compliance_status_count" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_auditor]"
+                      dataType="i4"
+                      name="dwk_auditor" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_entity_being_audited]"
+                      dataType="i4"
+                      name="dwk_entity_being_audited" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_entity_in_charge_of_audit]"
+                      dataType="i4"
+                      name="dwk_entity_in_charge_of_audit" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_entered_by]"
+                      dataType="i4"
+                      name="dwk_entered_by" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_location_being_audited]"
+                      dataType="i4"
+                      name="dwk_location_being_audited" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_person_asked_to_sign_off_audit]"
+                      dataType="i4"
+                      name="dwk_person_asked_to_sign_off_audit" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_person_signing_off]"
+                      dataType="i4"
+                      name="dwk_person_signing_off" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_questionnaire]"
+                      dataType="i4"
+                      name="dwk_questionnaire" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_company_conducting_audit]"
+                      dataType="i4"
+                      name="dwk_company_conducting_audit" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_audit_date]"
+                      dataType="i4"
+                      name="dwk_audit_date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_audit_end_date]"
+                      dataType="i4"
+                      name="dwk_audit_end_date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_entered_date]"
+                      dataType="i4"
+                      name="dwk_entered_date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_sign_off_date]"
+                      dataType="i4"
+                      name="dwk_sign_off_date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_entered_time]"
+                      dataType="i4"
+                      name="dwk_entered_time" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[si_status]"
+                      dataType="nText"
+                      name="si_status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sn_status]"
+                      dataType="nText"
+                      name="sn_status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[si_base_state]"
+                      dataType="nText"
+                      name="si_base_state" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sn_base_state]"
+                      dataType="nText"
+                      name="sn_base_state" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[questionnaire_name]"
+                      dataType="nText"
+                      name="questionnaire_name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[questionnaire_score]"
+                      dataType="r8"
+                      name="questionnaire_score" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[questionnaire_result]"
+                      dataType="nText"
+                      name="questionnaire_result" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[questionnaire_keyword]"
+                      dataType="nText"
+                      name="questionnaire_keyword" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[section_number]"
+                      dataType="nText"
+                      name="section_number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[section_name]"
+                      dataType="nText"
+                      name="section_name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[section_keyword]"
+                      dataType="nText"
+                      name="section_keyword" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[section_max_score]"
+                      dataType="r8"
+                      name="section_max_score" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[section_weight]"
+                      dataType="r8"
+                      name="section_weight" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[section_score]"
+                      dataType="r8"
+                      name="section_score" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[section_result]"
+                      dataType="nText"
+                      name="section_result" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[section_percentage]"
+                      dataType="r8"
+                      name="section_percentage" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[section_na]"
+                      dataType="bool"
+                      name="section_na" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[question_number]"
+                      dataType="nText"
+                      name="question_number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[question_text]"
+                      dataType="nText"
+                      name="question_text" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[question_weight]"
+                      dataType="r8"
+                      name="question_weight" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[question_keyword]"
+                      dataType="nText"
+                      name="question_keyword" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[question_answer]"
+                      dataType="r8"
+                      name="question_answer" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[question_comments]"
+                      dataType="nText"
+                      name="question_comments" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[question_result]"
+                      dataType="nText"
+                      name="question_result" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[question_na]"
+                      dataType="bool"
+                      name="question_na" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\OData Source.Outputs[Error output]"
+                  isErrorOut="true"
+                  name="Error output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwi_audit02]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwi_audit02]"
+                      name="dwi_audit02" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[audit_id]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[audit_id]"
+                      name="audit_id" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[audit_result]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[audit_result]"
+                      name="audit_result" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_audit_result]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_audit_result]"
+                      name="li_audit_result" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_audit_result]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_audit_result]"
+                      name="lo_audit_result" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[audit_result_percentage]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[audit_result_percentage]"
+                      name="audit_result_percentage" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[audit_type]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[audit_type]"
+                      name="audit_type" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_audit_type]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_audit_type]"
+                      name="li_audit_type" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_audit_type]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_audit_type]"
+                      name="lo_audit_type" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[close_this_record]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[close_this_record]"
+                      name="close_this_record" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_close_this_record]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_close_this_record]"
+                      name="li_close_this_record" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_close_this_record]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_close_this_record]"
+                      name="lo_close_this_record" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[ready_for_sign_off]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[ready_for_sign_off]"
+                      name="ready_for_sign_off" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_ready_for_sign_off]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_ready_for_sign_off]"
+                      name="li_ready_for_sign_off" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_ready_for_sign_off]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_ready_for_sign_off]"
+                      name="lo_ready_for_sign_off" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sys_scheduled_audit]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sys_scheduled_audit]"
+                      name="sys_scheduled_audit" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_sys_scheduled_audit]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_sys_scheduled_audit]"
+                      name="li_sys_scheduled_audit" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_sys_scheduled_audit]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_sys_scheduled_audit]"
+                      name="lo_sys_scheduled_audit" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sys_send_new_audit_email]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sys_send_new_audit_email]"
+                      name="sys_send_new_audit_email" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_sys_send_new_audit_email]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_sys_send_new_audit_email]"
+                      name="li_sys_send_new_audit_email" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_sys_send_new_audit_email]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_sys_send_new_audit_email]"
+                      name="lo_sys_send_new_audit_email" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[audit_category]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[audit_category]"
+                      name="audit_category" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_audit_category]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_audit_category]"
+                      name="li_audit_category" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_audit_category]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_audit_category]"
+                      name="lo_audit_category" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[zzgmr_assessment_type]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[zzgmr_assessment_type]"
+                      name="zzgmr_assessment_type" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_zzgmr_assessment_type]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_zzgmr_assessment_type]"
+                      name="li_zzgmr_assessment_type" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_zzgmr_assessment_type]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_zzgmr_assessment_type]"
+                      name="lo_zzgmr_assessment_type" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[audit_team_members_count]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[audit_team_members_count]"
+                      name="audit_team_members_count" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[file_storage_count]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[file_storage_count]"
+                      name="file_storage_count" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[actions_count]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[actions_count]"
+                      name="actions_count" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[obligations_audited_count]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[obligations_audited_count]"
+                      name="obligations_audited_count" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[meetings_count]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[meetings_count]"
+                      name="meetings_count" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[audit_findings_count]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[audit_findings_count]"
+                      name="audit_findings_count" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[audit_updating_obligation_compliance_status_count]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[audit_updating_obligation_compliance_status_count]"
+                      name="audit_updating_obligation_compliance_status_count" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_auditor]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_auditor]"
+                      name="dwk_auditor" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_entity_being_audited]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_entity_being_audited]"
+                      name="dwk_entity_being_audited" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_entity_in_charge_of_audit]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_entity_in_charge_of_audit]"
+                      name="dwk_entity_in_charge_of_audit" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_entered_by]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_entered_by]"
+                      name="dwk_entered_by" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_location_being_audited]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_location_being_audited]"
+                      name="dwk_location_being_audited" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_person_asked_to_sign_off_audit]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_person_asked_to_sign_off_audit]"
+                      name="dwk_person_asked_to_sign_off_audit" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_person_signing_off]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_person_signing_off]"
+                      name="dwk_person_signing_off" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_questionnaire]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_questionnaire]"
+                      name="dwk_questionnaire" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_company_conducting_audit]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_company_conducting_audit]"
+                      name="dwk_company_conducting_audit" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_audit_date]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_audit_date]"
+                      name="dwk_audit_date" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_audit_end_date]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_audit_end_date]"
+                      name="dwk_audit_end_date" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_entered_date]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_entered_date]"
+                      name="dwk_entered_date" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_sign_off_date]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_sign_off_date]"
+                      name="dwk_sign_off_date" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_entered_time]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_entered_time]"
+                      name="dwk_entered_time" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[si_status]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[si_status]"
+                      name="si_status" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sn_status]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sn_status]"
+                      name="sn_status" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[si_base_state]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[si_base_state]"
+                      name="si_base_state" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sn_base_state]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sn_base_state]"
+                      name="sn_base_state" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[questionnaire_name]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[questionnaire_name]"
+                      name="questionnaire_name" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[questionnaire_score]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[questionnaire_score]"
+                      name="questionnaire_score" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[questionnaire_result]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[questionnaire_result]"
+                      name="questionnaire_result" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[questionnaire_keyword]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[questionnaire_keyword]"
+                      name="questionnaire_keyword" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[section_number]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[section_number]"
+                      name="section_number" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[section_name]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[section_name]"
+                      name="section_name" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[section_keyword]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[section_keyword]"
+                      name="section_keyword" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[section_max_score]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[section_max_score]"
+                      name="section_max_score" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[section_weight]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[section_weight]"
+                      name="section_weight" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[section_score]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[section_score]"
+                      name="section_score" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[section_result]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[section_result]"
+                      name="section_result" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[section_percentage]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[section_percentage]"
+                      name="section_percentage" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[section_na]"
+                      dataType="bool"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[section_na]"
+                      name="section_na" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[question_number]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[question_number]"
+                      name="question_number" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[question_text]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[question_text]"
+                      name="question_text" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[question_weight]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[question_weight]"
+                      name="question_weight" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[question_keyword]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[question_keyword]"
+                      name="question_keyword" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[question_answer]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[question_answer]"
+                      name="question_answer" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[question_comments]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[question_comments]"
+                      name="question_comments" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[question_result]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[question_result]"
+                      name="question_result" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[question_na]"
+                      dataType="bool"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[question_na]"
+                      name="question_na" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Soteria].[audit_questionnaire]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{861C8A50-5C77-49AF-B297-DA5302DCDDB7}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[JHAUAWDWHSQLNP1.WAREHOUSE]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dwi_audit02]"
+                      cachedDataType="i4"
+                      cachedName="dwi_audit02"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwi_audit02]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwi_audit02]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[audit_id]"
+                      cachedDataType="nText"
+                      cachedName="audit_id"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[audit_id]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[audit_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[audit_result]"
+                      cachedDataType="nText"
+                      cachedName="audit_result"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[audit_result]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[audit_result]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[li_audit_result]"
+                      cachedDataType="nText"
+                      cachedName="li_audit_result"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_audit_result]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_audit_result]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[lo_audit_result]"
+                      cachedDataType="i4"
+                      cachedName="lo_audit_result"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_audit_result]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_audit_result]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[audit_result_percentage]"
+                      cachedDataType="r8"
+                      cachedName="audit_result_percentage"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[audit_result_percentage]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[audit_result_percentage]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[audit_type]"
+                      cachedDataType="nText"
+                      cachedName="audit_type"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[audit_type]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[audit_type]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[li_audit_type]"
+                      cachedDataType="nText"
+                      cachedName="li_audit_type"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_audit_type]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_audit_type]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[lo_audit_type]"
+                      cachedDataType="i4"
+                      cachedName="lo_audit_type"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_audit_type]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_audit_type]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[close_this_record]"
+                      cachedDataType="nText"
+                      cachedName="close_this_record"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[close_this_record]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[close_this_record]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[li_close_this_record]"
+                      cachedDataType="nText"
+                      cachedName="li_close_this_record"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_close_this_record]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_close_this_record]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[lo_close_this_record]"
+                      cachedDataType="i4"
+                      cachedName="lo_close_this_record"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_close_this_record]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_close_this_record]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ready_for_sign_off]"
+                      cachedDataType="nText"
+                      cachedName="ready_for_sign_off"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ready_for_sign_off]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[ready_for_sign_off]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[li_ready_for_sign_off]"
+                      cachedDataType="nText"
+                      cachedName="li_ready_for_sign_off"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_ready_for_sign_off]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_ready_for_sign_off]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[lo_ready_for_sign_off]"
+                      cachedDataType="i4"
+                      cachedName="lo_ready_for_sign_off"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_ready_for_sign_off]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_ready_for_sign_off]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sys_scheduled_audit]"
+                      cachedDataType="nText"
+                      cachedName="sys_scheduled_audit"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sys_scheduled_audit]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_scheduled_audit]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[li_sys_scheduled_audit]"
+                      cachedDataType="nText"
+                      cachedName="li_sys_scheduled_audit"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_sys_scheduled_audit]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_sys_scheduled_audit]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[lo_sys_scheduled_audit]"
+                      cachedDataType="i4"
+                      cachedName="lo_sys_scheduled_audit"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_sys_scheduled_audit]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_sys_scheduled_audit]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sys_send_new_audit_email]"
+                      cachedDataType="nText"
+                      cachedName="sys_send_new_audit_email"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sys_send_new_audit_email]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_send_new_audit_email]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[li_sys_send_new_audit_email]"
+                      cachedDataType="nText"
+                      cachedName="li_sys_send_new_audit_email"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_sys_send_new_audit_email]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_sys_send_new_audit_email]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[lo_sys_send_new_audit_email]"
+                      cachedDataType="i4"
+                      cachedName="lo_sys_send_new_audit_email"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_sys_send_new_audit_email]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_sys_send_new_audit_email]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[audit_category]"
+                      cachedDataType="nText"
+                      cachedName="audit_category"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[audit_category]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[audit_category]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[li_audit_category]"
+                      cachedDataType="nText"
+                      cachedName="li_audit_category"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_audit_category]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_audit_category]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[lo_audit_category]"
+                      cachedDataType="i4"
+                      cachedName="lo_audit_category"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_audit_category]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_audit_category]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[zzgmr_assessment_type]"
+                      cachedDataType="nText"
+                      cachedName="zzgmr_assessment_type"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[zzgmr_assessment_type]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[zzgmr_assessment_type]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[li_zzgmr_assessment_type]"
+                      cachedDataType="nText"
+                      cachedName="li_zzgmr_assessment_type"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_zzgmr_assessment_type]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_zzgmr_assessment_type]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[lo_zzgmr_assessment_type]"
+                      cachedDataType="i4"
+                      cachedName="lo_zzgmr_assessment_type"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_zzgmr_assessment_type]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_zzgmr_assessment_type]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[audit_team_members_count]"
+                      cachedDataType="i4"
+                      cachedName="audit_team_members_count"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[audit_team_members_count]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[audit_team_members_count]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[file_storage_count]"
+                      cachedDataType="i4"
+                      cachedName="file_storage_count"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[file_storage_count]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[file_storage_count]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[actions_count]"
+                      cachedDataType="i4"
+                      cachedName="actions_count"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[actions_count]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[actions_count]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[obligations_audited_count]"
+                      cachedDataType="i4"
+                      cachedName="obligations_audited_count"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[obligations_audited_count]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[obligations_audited_count]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[meetings_count]"
+                      cachedDataType="i4"
+                      cachedName="meetings_count"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[meetings_count]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[meetings_count]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[audit_findings_count]"
+                      cachedDataType="i4"
+                      cachedName="audit_findings_count"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[audit_findings_count]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[audit_findings_count]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[audit_updating_obligation_compliance_status_count]"
+                      cachedDataType="i4"
+                      cachedName="audit_updating_obligation_compliance_status_count"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[audit_updating_obligation_compliance_status_count]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[audit_updating_obligation_compliance_status_count]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dwk_auditor]"
+                      cachedDataType="i4"
+                      cachedName="dwk_auditor"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_auditor]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_auditor]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dwk_entity_being_audited]"
+                      cachedDataType="i4"
+                      cachedName="dwk_entity_being_audited"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_entity_being_audited]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_entity_being_audited]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dwk_entity_in_charge_of_audit]"
+                      cachedDataType="i4"
+                      cachedName="dwk_entity_in_charge_of_audit"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_entity_in_charge_of_audit]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_entity_in_charge_of_audit]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dwk_entered_by]"
+                      cachedDataType="i4"
+                      cachedName="dwk_entered_by"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_entered_by]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_entered_by]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dwk_location_being_audited]"
+                      cachedDataType="i4"
+                      cachedName="dwk_location_being_audited"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_location_being_audited]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_location_being_audited]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dwk_person_asked_to_sign_off_audit]"
+                      cachedDataType="i4"
+                      cachedName="dwk_person_asked_to_sign_off_audit"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_person_asked_to_sign_off_audit]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_person_asked_to_sign_off_audit]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dwk_person_signing_off]"
+                      cachedDataType="i4"
+                      cachedName="dwk_person_signing_off"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_person_signing_off]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_person_signing_off]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dwk_questionnaire]"
+                      cachedDataType="i4"
+                      cachedName="dwk_questionnaire"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_questionnaire]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_questionnaire]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dwk_company_conducting_audit]"
+                      cachedDataType="i4"
+                      cachedName="dwk_company_conducting_audit"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_company_conducting_audit]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_company_conducting_audit]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dwk_audit_date]"
+                      cachedDataType="i4"
+                      cachedName="dwk_audit_date"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_audit_date]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_audit_date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dwk_audit_end_date]"
+                      cachedDataType="i4"
+                      cachedName="dwk_audit_end_date"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_audit_end_date]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_audit_end_date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dwk_entered_date]"
+                      cachedDataType="i4"
+                      cachedName="dwk_entered_date"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_entered_date]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_entered_date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dwk_sign_off_date]"
+                      cachedDataType="i4"
+                      cachedName="dwk_sign_off_date"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_sign_off_date]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_sign_off_date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dwk_entered_time]"
+                      cachedDataType="i4"
+                      cachedName="dwk_entered_time"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_entered_time]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_entered_time]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[si_status]"
+                      cachedDataType="nText"
+                      cachedName="si_status"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[si_status]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[si_status]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sn_status]"
+                      cachedDataType="nText"
+                      cachedName="sn_status"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sn_status]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sn_status]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[si_base_state]"
+                      cachedDataType="nText"
+                      cachedName="si_base_state"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[si_base_state]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[si_base_state]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sn_base_state]"
+                      cachedDataType="nText"
+                      cachedName="sn_base_state"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sn_base_state]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sn_base_state]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[questionnaire_name]"
+                      cachedDataType="nText"
+                      cachedName="questionnaire_name"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[questionnaire_name]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[questionnaire_name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[questionnaire_score]"
+                      cachedDataType="r8"
+                      cachedName="questionnaire_score"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[questionnaire_score]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[questionnaire_score]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[questionnaire_result]"
+                      cachedDataType="nText"
+                      cachedName="questionnaire_result"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[questionnaire_result]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[questionnaire_result]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[questionnaire_keyword]"
+                      cachedDataType="nText"
+                      cachedName="questionnaire_keyword"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[questionnaire_keyword]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[questionnaire_keyword]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[section_number]"
+                      cachedDataType="nText"
+                      cachedName="section_number"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[section_number]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[section_number]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[section_name]"
+                      cachedDataType="nText"
+                      cachedName="section_name"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[section_name]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[section_name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[section_keyword]"
+                      cachedDataType="nText"
+                      cachedName="section_keyword"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[section_keyword]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[section_keyword]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[section_max_score]"
+                      cachedDataType="r8"
+                      cachedName="section_max_score"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[section_max_score]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[section_max_score]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[section_weight]"
+                      cachedDataType="r8"
+                      cachedName="section_weight"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[section_weight]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[section_weight]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[section_score]"
+                      cachedDataType="r8"
+                      cachedName="section_score"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[section_score]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[section_score]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[section_result]"
+                      cachedDataType="nText"
+                      cachedName="section_result"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[section_result]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[section_result]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[section_percentage]"
+                      cachedDataType="r8"
+                      cachedName="section_percentage"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[section_percentage]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[section_percentage]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[section_na]"
+                      cachedDataType="bool"
+                      cachedName="section_na"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[section_na]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[section_na]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[question_number]"
+                      cachedDataType="nText"
+                      cachedName="question_number"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[question_number]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[question_number]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[question_text]"
+                      cachedDataType="nText"
+                      cachedName="question_text"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[question_text]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[question_text]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[question_weight]"
+                      cachedDataType="r8"
+                      cachedName="question_weight"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[question_weight]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[question_weight]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[question_keyword]"
+                      cachedDataType="nText"
+                      cachedName="question_keyword"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[question_keyword]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[question_keyword]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[question_answer]"
+                      cachedDataType="r8"
+                      cachedName="question_answer"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[question_answer]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[question_answer]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[question_comments]"
+                      cachedDataType="nText"
+                      cachedName="question_comments"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[question_comments]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[question_comments]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[question_result]"
+                      cachedDataType="nText"
+                      cachedName="question_result"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[question_result]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[question_result]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[question_na]"
+                      cachedDataType="bool"
+                      cachedName="question_na"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[question_na]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[question_na]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwi_audit02]"
+                      dataType="i4"
+                      name="dwi_audit02" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[audit_id]"
+                      dataType="nText"
+                      name="audit_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[audit_result]"
+                      dataType="nText"
+                      name="audit_result" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_audit_result]"
+                      dataType="nText"
+                      name="li_audit_result" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_audit_result]"
+                      dataType="i4"
+                      name="lo_audit_result" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[audit_result_percentage]"
+                      dataType="r8"
+                      name="audit_result_percentage" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[audit_type]"
+                      dataType="nText"
+                      name="audit_type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_audit_type]"
+                      dataType="nText"
+                      name="li_audit_type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_audit_type]"
+                      dataType="i4"
+                      name="lo_audit_type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[close_this_record]"
+                      dataType="nText"
+                      name="close_this_record" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_close_this_record]"
+                      dataType="nText"
+                      name="li_close_this_record" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_close_this_record]"
+                      dataType="i4"
+                      name="lo_close_this_record" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ready_for_sign_off]"
+                      dataType="nText"
+                      name="ready_for_sign_off" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_ready_for_sign_off]"
+                      dataType="nText"
+                      name="li_ready_for_sign_off" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_ready_for_sign_off]"
+                      dataType="i4"
+                      name="lo_ready_for_sign_off" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sys_scheduled_audit]"
+                      dataType="nText"
+                      name="sys_scheduled_audit" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_sys_scheduled_audit]"
+                      dataType="nText"
+                      name="li_sys_scheduled_audit" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_sys_scheduled_audit]"
+                      dataType="i4"
+                      name="lo_sys_scheduled_audit" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sys_send_new_audit_email]"
+                      dataType="nText"
+                      name="sys_send_new_audit_email" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_sys_send_new_audit_email]"
+                      dataType="nText"
+                      name="li_sys_send_new_audit_email" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_sys_send_new_audit_email]"
+                      dataType="i4"
+                      name="lo_sys_send_new_audit_email" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[audit_category]"
+                      dataType="nText"
+                      name="audit_category" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_audit_category]"
+                      dataType="nText"
+                      name="li_audit_category" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_audit_category]"
+                      dataType="i4"
+                      name="lo_audit_category" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[zzgmr_assessment_type]"
+                      dataType="nText"
+                      name="zzgmr_assessment_type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_zzgmr_assessment_type]"
+                      dataType="nText"
+                      name="li_zzgmr_assessment_type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_zzgmr_assessment_type]"
+                      dataType="i4"
+                      name="lo_zzgmr_assessment_type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[audit_team_members_count]"
+                      dataType="i4"
+                      name="audit_team_members_count" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[file_storage_count]"
+                      dataType="i4"
+                      name="file_storage_count" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[actions_count]"
+                      dataType="i4"
+                      name="actions_count" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[obligations_audited_count]"
+                      dataType="i4"
+                      name="obligations_audited_count" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[meetings_count]"
+                      dataType="i4"
+                      name="meetings_count" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[audit_findings_count]"
+                      dataType="i4"
+                      name="audit_findings_count" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[audit_updating_obligation_compliance_status_count]"
+                      dataType="i4"
+                      name="audit_updating_obligation_compliance_status_count" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_auditor]"
+                      dataType="i4"
+                      name="dwk_auditor" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_entity_being_audited]"
+                      dataType="i4"
+                      name="dwk_entity_being_audited" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_entity_in_charge_of_audit]"
+                      dataType="i4"
+                      name="dwk_entity_in_charge_of_audit" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_entered_by]"
+                      dataType="i4"
+                      name="dwk_entered_by" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_location_being_audited]"
+                      dataType="i4"
+                      name="dwk_location_being_audited" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_person_asked_to_sign_off_audit]"
+                      dataType="i4"
+                      name="dwk_person_asked_to_sign_off_audit" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_person_signing_off]"
+                      dataType="i4"
+                      name="dwk_person_signing_off" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_questionnaire]"
+                      dataType="i4"
+                      name="dwk_questionnaire" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_company_conducting_audit]"
+                      dataType="i4"
+                      name="dwk_company_conducting_audit" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_audit_date]"
+                      dataType="i4"
+                      name="dwk_audit_date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_audit_end_date]"
+                      dataType="i4"
+                      name="dwk_audit_end_date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_entered_date]"
+                      dataType="i4"
+                      name="dwk_entered_date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_sign_off_date]"
+                      dataType="i4"
+                      name="dwk_sign_off_date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_entered_time]"
+                      dataType="i4"
+                      name="dwk_entered_time" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[si_status]"
+                      dataType="nText"
+                      name="si_status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sn_status]"
+                      dataType="nText"
+                      name="sn_status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[si_base_state]"
+                      dataType="nText"
+                      name="si_base_state" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sn_base_state]"
+                      dataType="nText"
+                      name="sn_base_state" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[questionnaire_name]"
+                      dataType="nText"
+                      name="questionnaire_name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[questionnaire_score]"
+                      dataType="r8"
+                      name="questionnaire_score" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[questionnaire_result]"
+                      dataType="nText"
+                      name="questionnaire_result" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[questionnaire_keyword]"
+                      dataType="nText"
+                      name="questionnaire_keyword" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[section_number]"
+                      dataType="nText"
+                      name="section_number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[section_name]"
+                      dataType="nText"
+                      name="section_name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[section_keyword]"
+                      dataType="nText"
+                      name="section_keyword" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[section_max_score]"
+                      dataType="r8"
+                      name="section_max_score" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[section_weight]"
+                      dataType="r8"
+                      name="section_weight" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[section_score]"
+                      dataType="r8"
+                      name="section_score" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[section_result]"
+                      dataType="nText"
+                      name="section_result" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[section_percentage]"
+                      dataType="r8"
+                      name="section_percentage" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[section_na]"
+                      dataType="bool"
+                      name="section_na" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[question_number]"
+                      dataType="nText"
+                      name="question_number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[question_text]"
+                      dataType="nText"
+                      name="question_text" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[question_weight]"
+                      dataType="r8"
+                      name="question_weight" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[question_keyword]"
+                      dataType="nText"
+                      name="question_keyword" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[question_answer]"
+                      dataType="r8"
+                      name="question_answer" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[question_comments]"
+                      dataType="nText"
+                      name="question_comments" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[question_result]"
+                      dataType="nText"
+                      name="question_result" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[question_na]"
+                      dataType="bool"
+                      name="question_na" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Output]"
+              endId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Output"
+              startId="Package\Data Flow Task\OData Source.Outputs[Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="151.5,42"
+          Id="Package\Data Flow Task"
+          TopLeft="41.5,35.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Data Flow Task\OData Source"
+          TopLeft="350,90" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Data Flow Task\OLE DB Destination"
+          TopLeft="541.25,443.75" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Output]"
+          TopLeft="422,132">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="204.75,311.75"
+              Start="0,0"
+              End="204.75,304.25">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,151.875" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,151.875"
+                    Point2="0,155.875"
+                    Point3="4,155.875" />
+                  <mssgle:LineSegment
+                    End="200.75,155.875" />
+                  <mssgle:CubicBezierSegment
+                    Point1="200.75,155.875"
+                    Point2="204.75,155.875"
+                    Point3="204.75,159.875" />
+                  <mssgle:LineSegment
+                    End="204.75,304.25" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,2489 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/14/2021 5:02:30 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="AN000529"
+  DTS:CreatorName="JHG\smendu"
+  DTS:DTSID="{B200AC65-58F2-4BE5-81EF-E6E3377FEA62}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.113"
+  DTS:LocaleID="3081"
+  DTS:ObjectName="hazard_identification_ETL_package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{A9B53E47-F6DD-4C5B-BABB-276E60EDB9D0}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{FB9D524D-383A-4516-81D1-6A47F761C89D}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\OData Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="OData Source Component;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Read data from OData services"
+              name="OData Source"
+              usesDispositions="true">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Name of the collection to be retrieved from the service."
+                  expressionType="Notify"
+                  name="CollectionName">hazard_identification</property>
+                <property
+                  dataType="System.Int32"
+                  description="The default maximum length for a string that has no maxlength specified in the schema."
+                  name="DefaultStringLength">4000</property>
+                <property
+                  dataType="System.String"
+                  description="Query in the url. "
+                  expressionType="Notify"
+                  name="Query"></property>
+                <property
+                  dataType="System.String"
+                  description="Resource path of the collection to be retrieved from the service."
+                  expressionType="Notify"
+                  name="ResourcePath"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="When set to true, use the resource path as requested collection; otherwise, use the collection name."
+                  expressionType="Notify"
+                  name="UseResourcePath">false</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.OData</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OData Source.Connections[Connection]"
+                  connectionManagerID="{28A2A01C-BE1C-4441-8399-C64267D9C344}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OData Source]"
+                  description="Connection to OData Service"
+                  name="Connection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OData Source.Outputs[Output]"
+                  name="Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwi_hazard_identification]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwi_hazard_identification]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwi_hazard_identification]"
+                      name="dwi_hazard_identification"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[date_identified]"
+                      dataType="dbTimeStampOffset"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[date_identified]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[date_identified]"
+                      name="date_identified"
+                      scale="7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[detailed_description]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[detailed_description]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[detailed_description]"
+                      name="detailed_description"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[entered_date]"
+                      dataType="dbTimeStampOffset"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[entered_date]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[entered_date]"
+                      name="entered_date"
+                      scale="7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[entered_time]"
+                      dataType="dbTime2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[entered_time]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[entered_time]"
+                      name="entered_time"
+                      scale="7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[exact_location]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[exact_location]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[exact_location]"
+                      name="exact_location"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[hazard_analysis_close_this_hazard]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[hazard_analysis_close_this_hazard]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[hazard_analysis_close_this_hazard]"
+                      name="hazard_analysis_close_this_hazard"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_hazard_analysis_close_this_hazard]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_hazard_analysis_close_this_hazard]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_hazard_analysis_close_this_hazard]"
+                      name="li_hazard_analysis_close_this_hazard"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_hazard_analysis_close_this_hazard]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_hazard_analysis_close_this_hazard]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_hazard_analysis_close_this_hazard]"
+                      name="lo_hazard_analysis_close_this_hazard"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[hazard_analysis_comments]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[hazard_analysis_comments]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[hazard_analysis_comments]"
+                      name="hazard_analysis_comments"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[hazard_analysis_completion_date]"
+                      dataType="dbTimeStampOffset"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[hazard_analysis_completion_date]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[hazard_analysis_completion_date]"
+                      name="hazard_analysis_completion_date"
+                      scale="7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register]"
+                      name="hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register]"
+                      name="li_hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register]"
+                      name="lo_hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[hazard_analysis_is_this_hazard_managed_by_physical_controls]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[hazard_analysis_is_this_hazard_managed_by_physical_controls]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[hazard_analysis_is_this_hazard_managed_by_physical_controls]"
+                      name="hazard_analysis_is_this_hazard_managed_by_physical_controls"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_hazard_analysis_is_this_hazard_managed_by_physical_controls]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_hazard_analysis_is_this_hazard_managed_by_physical_controls]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_hazard_analysis_is_this_hazard_managed_by_physical_controls]"
+                      name="li_hazard_analysis_is_this_hazard_managed_by_physical_controls"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_hazard_analysis_is_this_hazard_managed_by_physical_controls]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_hazard_analysis_is_this_hazard_managed_by_physical_controls]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_hazard_analysis_is_this_hazard_managed_by_physical_controls]"
+                      name="lo_hazard_analysis_is_this_hazard_managed_by_physical_controls"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures]"
+                      name="hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures]"
+                      name="li_hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures]"
+                      name="lo_hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[hazard_analysis_risk_assessment]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[hazard_analysis_risk_assessment]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[hazard_analysis_risk_assessment]"
+                      name="hazard_analysis_risk_assessment"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[hazard_analysis_risk_assessment_matrix_axis_consequence]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[hazard_analysis_risk_assessment_matrix_axis_consequence]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[hazard_analysis_risk_assessment_matrix_axis_consequence]"
+                      name="hazard_analysis_risk_assessment_matrix_axis_consequence"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_hazard_analysis_risk_assessment_matrix_axis_consequence]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_hazard_analysis_risk_assessment_matrix_axis_consequence]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_hazard_analysis_risk_assessment_matrix_axis_consequence]"
+                      name="li_hazard_analysis_risk_assessment_matrix_axis_consequence"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_hazard_analysis_risk_assessment_matrix_axis_consequence]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_hazard_analysis_risk_assessment_matrix_axis_consequence]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_hazard_analysis_risk_assessment_matrix_axis_consequence]"
+                      name="lo_hazard_analysis_risk_assessment_matrix_axis_consequence"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[hazard_analysis_risk_assessment_matrix_axis_likelihood]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[hazard_analysis_risk_assessment_matrix_axis_likelihood]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[hazard_analysis_risk_assessment_matrix_axis_likelihood]"
+                      name="hazard_analysis_risk_assessment_matrix_axis_likelihood"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_hazard_analysis_risk_assessment_matrix_axis_likelihood]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_hazard_analysis_risk_assessment_matrix_axis_likelihood]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_hazard_analysis_risk_assessment_matrix_axis_likelihood]"
+                      name="li_hazard_analysis_risk_assessment_matrix_axis_likelihood"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_hazard_analysis_risk_assessment_matrix_axis_likelihood]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_hazard_analysis_risk_assessment_matrix_axis_likelihood]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_hazard_analysis_risk_assessment_matrix_axis_likelihood]"
+                      name="lo_hazard_analysis_risk_assessment_matrix_axis_likelihood"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[hazard_identification_number]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[hazard_identification_number]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[hazard_identification_number]"
+                      name="hazard_identification_number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[if_other_hazard_category_please_specify]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[if_other_hazard_category_please_specify]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[if_other_hazard_category_please_specify]"
+                      name="if_other_hazard_category_please_specify"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[immediate_action_taken]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[immediate_action_taken]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[immediate_action_taken]"
+                      name="immediate_action_taken"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[latitude]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[latitude]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[latitude]"
+                      name="latitude"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[longitude]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[longitude]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[longitude]"
+                      name="longitude"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[map_data]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[map_data]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[map_data]"
+                      name="map_data"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[potential_severity]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[potential_severity]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[potential_severity]"
+                      name="potential_severity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_potential_severity]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_potential_severity]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_potential_severity]"
+                      name="li_potential_severity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_potential_severity]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_potential_severity]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_potential_severity]"
+                      name="lo_potential_severity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[summary]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[summary]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[summary]"
+                      name="summary"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_has_open_actions]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sys_has_open_actions]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_has_open_actions]"
+                      name="sys_has_open_actions"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_sys_has_open_actions]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_sys_has_open_actions]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_sys_has_open_actions]"
+                      name="li_sys_has_open_actions"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_sys_has_open_actions]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_sys_has_open_actions]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_sys_has_open_actions]"
+                      name="lo_sys_has_open_actions"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_legacy_hazard_identification_id]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sys_legacy_hazard_identification_id]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_legacy_hazard_identification_id]"
+                      name="sys_legacy_hazard_identification_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[change_severity]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[change_severity]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[change_severity]"
+                      name="change_severity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_change_severity]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_change_severity]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_change_severity]"
+                      name="li_change_severity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_change_severity]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_change_severity]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_change_severity]"
+                      name="lo_change_severity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_form_initialised]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sys_form_initialised]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_form_initialised]"
+                      name="sys_form_initialised"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_sys_form_initialised]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_sys_form_initialised]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_sys_form_initialised]"
+                      name="li_sys_form_initialised"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_sys_form_initialised]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_sys_form_initialised]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_sys_form_initialised]"
+                      name="lo_sys_form_initialised"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_show_severity_history]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sys_show_severity_history]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_show_severity_history]"
+                      name="sys_show_severity_history"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_sys_show_severity_history]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_sys_show_severity_history]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_sys_show_severity_history]"
+                      name="li_sys_show_severity_history"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_sys_show_severity_history]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_sys_show_severity_history]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_sys_show_severity_history]"
+                      name="lo_sys_show_severity_history"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[severity_change_history]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[severity_change_history]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[severity_change_history]"
+                      name="severity_change_history"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[severity_change_reason]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[severity_change_reason]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[severity_change_reason]"
+                      name="severity_change_reason"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_initial_potential_severity]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sys_initial_potential_severity]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_initial_potential_severity]"
+                      name="sys_initial_potential_severity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_sys_initial_potential_severity]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_sys_initial_potential_severity]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_sys_initial_potential_severity]"
+                      name="li_sys_initial_potential_severity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_sys_initial_potential_severity]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_sys_initial_potential_severity]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_sys_initial_potential_severity]"
+                      name="lo_sys_initial_potential_severity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_new_potential_severity]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sys_new_potential_severity]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_new_potential_severity]"
+                      name="sys_new_potential_severity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_sys_new_potential_severity]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_sys_new_potential_severity]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_sys_new_potential_severity]"
+                      name="li_sys_new_potential_severity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_sys_new_potential_severity]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_sys_new_potential_severity]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_sys_new_potential_severity]"
+                      name="lo_sys_new_potential_severity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_previous_potential_severity]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sys_previous_potential_severity]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_previous_potential_severity]"
+                      name="sys_previous_potential_severity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_sys_previous_potential_severity]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_sys_previous_potential_severity]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_sys_previous_potential_severity]"
+                      name="li_sys_previous_potential_severity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_sys_previous_potential_severity]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_sys_previous_potential_severity]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_sys_previous_potential_severity]"
+                      name="lo_sys_previous_potential_severity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_completed_by]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_completed_by]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_completed_by]"
+                      name="dwk_completed_by"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_entered_by]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_entered_by]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_entered_by]"
+                      name="dwk_entered_by"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_entity_responsible]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_entity_responsible]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_entity_responsible]"
+                      name="dwk_entity_responsible"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_hazard_register]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_hazard_register]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_hazard_register]"
+                      name="dwk_hazard_register"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_hazard_register_owner]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_hazard_register_owner]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_hazard_register_owner]"
+                      name="dwk_hazard_register_owner"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_identified_by]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_identified_by]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_identified_by]"
+                      name="dwk_identified_by"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_location]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_location]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_location]"
+                      name="dwk_location"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_responsible_supervisor]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_responsible_supervisor]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_responsible_supervisor]"
+                      name="dwk_responsible_supervisor"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_sys_logged_on_person]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_sys_logged_on_person]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_sys_logged_on_person]"
+                      name="dwk_sys_logged_on_person"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[si_status]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[si_status]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[si_status]"
+                      name="si_status"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sn_status]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sn_status]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sn_status]"
+                      name="sn_status"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[si_base_state]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[si_base_state]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[si_base_state]"
+                      name="si_base_state"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sn_base_state]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sn_base_state]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sn_base_state]"
+                      name="sn_base_state"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[UniqueId]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[UniqueId]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[UniqueId]"
+                      name="UniqueId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[bms_ID]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[bms_ID]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[bms_ID]"
+                      name="bms_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[bms_LastModified]"
+                      dataType="dbTimeStampOffset"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[bms_LastModified]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[bms_LastModified]"
+                      name="bms_LastModified"
+                      scale="7"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwi_hazard_identification]"
+                      dataType="i4"
+                      name="dwi_hazard_identification" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[date_identified]"
+                      dataType="dbTimeStampOffset"
+                      name="date_identified"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[detailed_description]"
+                      dataType="nText"
+                      name="detailed_description" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[entered_date]"
+                      dataType="dbTimeStampOffset"
+                      name="entered_date"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[entered_time]"
+                      dataType="dbTime2"
+                      name="entered_time"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[exact_location]"
+                      dataType="nText"
+                      name="exact_location" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[hazard_analysis_close_this_hazard]"
+                      dataType="nText"
+                      name="hazard_analysis_close_this_hazard" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_hazard_analysis_close_this_hazard]"
+                      dataType="nText"
+                      name="li_hazard_analysis_close_this_hazard" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_hazard_analysis_close_this_hazard]"
+                      dataType="i4"
+                      name="lo_hazard_analysis_close_this_hazard" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[hazard_analysis_comments]"
+                      dataType="nText"
+                      name="hazard_analysis_comments" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[hazard_analysis_completion_date]"
+                      dataType="dbTimeStampOffset"
+                      name="hazard_analysis_completion_date"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register]"
+                      dataType="nText"
+                      name="hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register]"
+                      dataType="nText"
+                      name="li_hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register]"
+                      dataType="i4"
+                      name="lo_hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[hazard_analysis_is_this_hazard_managed_by_physical_controls]"
+                      dataType="nText"
+                      name="hazard_analysis_is_this_hazard_managed_by_physical_controls" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_hazard_analysis_is_this_hazard_managed_by_physical_controls]"
+                      dataType="nText"
+                      name="li_hazard_analysis_is_this_hazard_managed_by_physical_controls" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_hazard_analysis_is_this_hazard_managed_by_physical_controls]"
+                      dataType="i4"
+                      name="lo_hazard_analysis_is_this_hazard_managed_by_physical_controls" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures]"
+                      dataType="nText"
+                      name="hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures]"
+                      dataType="nText"
+                      name="li_hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures]"
+                      dataType="i4"
+                      name="lo_hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[hazard_analysis_risk_assessment]"
+                      dataType="nText"
+                      name="hazard_analysis_risk_assessment" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[hazard_analysis_risk_assessment_matrix_axis_consequence]"
+                      dataType="nText"
+                      name="hazard_analysis_risk_assessment_matrix_axis_consequence" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_hazard_analysis_risk_assessment_matrix_axis_consequence]"
+                      dataType="nText"
+                      name="li_hazard_analysis_risk_assessment_matrix_axis_consequence" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_hazard_analysis_risk_assessment_matrix_axis_consequence]"
+                      dataType="i4"
+                      name="lo_hazard_analysis_risk_assessment_matrix_axis_consequence" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[hazard_analysis_risk_assessment_matrix_axis_likelihood]"
+                      dataType="nText"
+                      name="hazard_analysis_risk_assessment_matrix_axis_likelihood" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_hazard_analysis_risk_assessment_matrix_axis_likelihood]"
+                      dataType="nText"
+                      name="li_hazard_analysis_risk_assessment_matrix_axis_likelihood" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_hazard_analysis_risk_assessment_matrix_axis_likelihood]"
+                      dataType="i4"
+                      name="lo_hazard_analysis_risk_assessment_matrix_axis_likelihood" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[hazard_identification_number]"
+                      dataType="nText"
+                      name="hazard_identification_number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[if_other_hazard_category_please_specify]"
+                      dataType="nText"
+                      name="if_other_hazard_category_please_specify" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[immediate_action_taken]"
+                      dataType="nText"
+                      name="immediate_action_taken" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[latitude]"
+                      dataType="r8"
+                      name="latitude" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[longitude]"
+                      dataType="r8"
+                      name="longitude" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[map_data]"
+                      dataType="nText"
+                      name="map_data" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[potential_severity]"
+                      dataType="nText"
+                      name="potential_severity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_potential_severity]"
+                      dataType="nText"
+                      name="li_potential_severity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_potential_severity]"
+                      dataType="i4"
+                      name="lo_potential_severity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[summary]"
+                      dataType="nText"
+                      name="summary" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sys_has_open_actions]"
+                      dataType="nText"
+                      name="sys_has_open_actions" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_sys_has_open_actions]"
+                      dataType="nText"
+                      name="li_sys_has_open_actions" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_sys_has_open_actions]"
+                      dataType="i4"
+                      name="lo_sys_has_open_actions" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sys_legacy_hazard_identification_id]"
+                      dataType="nText"
+                      name="sys_legacy_hazard_identification_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[change_severity]"
+                      dataType="nText"
+                      name="change_severity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_change_severity]"
+                      dataType="nText"
+                      name="li_change_severity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_change_severity]"
+                      dataType="i4"
+                      name="lo_change_severity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sys_form_initialised]"
+                      dataType="nText"
+                      name="sys_form_initialised" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_sys_form_initialised]"
+                      dataType="nText"
+                      name="li_sys_form_initialised" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_sys_form_initialised]"
+                      dataType="i4"
+                      name="lo_sys_form_initialised" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sys_show_severity_history]"
+                      dataType="nText"
+                      name="sys_show_severity_history" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_sys_show_severity_history]"
+                      dataType="nText"
+                      name="li_sys_show_severity_history" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_sys_show_severity_history]"
+                      dataType="i4"
+                      name="lo_sys_show_severity_history" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[severity_change_history]"
+                      dataType="nText"
+                      name="severity_change_history" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[severity_change_reason]"
+                      dataType="nText"
+                      name="severity_change_reason" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sys_initial_potential_severity]"
+                      dataType="nText"
+                      name="sys_initial_potential_severity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_sys_initial_potential_severity]"
+                      dataType="nText"
+                      name="li_sys_initial_potential_severity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_sys_initial_potential_severity]"
+                      dataType="i4"
+                      name="lo_sys_initial_potential_severity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sys_new_potential_severity]"
+                      dataType="nText"
+                      name="sys_new_potential_severity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_sys_new_potential_severity]"
+                      dataType="nText"
+                      name="li_sys_new_potential_severity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_sys_new_potential_severity]"
+                      dataType="i4"
+                      name="lo_sys_new_potential_severity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sys_previous_potential_severity]"
+                      dataType="nText"
+                      name="sys_previous_potential_severity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_sys_previous_potential_severity]"
+                      dataType="nText"
+                      name="li_sys_previous_potential_severity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_sys_previous_potential_severity]"
+                      dataType="i4"
+                      name="lo_sys_previous_potential_severity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_completed_by]"
+                      dataType="i4"
+                      name="dwk_completed_by" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_entered_by]"
+                      dataType="i4"
+                      name="dwk_entered_by" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_entity_responsible]"
+                      dataType="i4"
+                      name="dwk_entity_responsible" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_hazard_register]"
+                      dataType="i4"
+                      name="dwk_hazard_register" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_hazard_register_owner]"
+                      dataType="i4"
+                      name="dwk_hazard_register_owner" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_identified_by]"
+                      dataType="i4"
+                      name="dwk_identified_by" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_location]"
+                      dataType="i4"
+                      name="dwk_location" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_responsible_supervisor]"
+                      dataType="i4"
+                      name="dwk_responsible_supervisor" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_sys_logged_on_person]"
+                      dataType="i4"
+                      name="dwk_sys_logged_on_person" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[si_status]"
+                      dataType="nText"
+                      name="si_status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sn_status]"
+                      dataType="nText"
+                      name="sn_status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[si_base_state]"
+                      dataType="nText"
+                      name="si_base_state" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sn_base_state]"
+                      dataType="nText"
+                      name="sn_base_state" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[UniqueId]"
+                      dataType="nText"
+                      name="UniqueId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[bms_ID]"
+                      dataType="nText"
+                      name="bms_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[bms_LastModified]"
+                      dataType="dbTimeStampOffset"
+                      name="bms_LastModified"
+                      scale="7" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\OData Source.Outputs[Error output]"
+                  isErrorOut="true"
+                  name="Error output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwi_hazard_identification]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwi_hazard_identification]"
+                      name="dwi_hazard_identification" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[date_identified]"
+                      dataType="dbTimeStampOffset"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[date_identified]"
+                      name="date_identified"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[detailed_description]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[detailed_description]"
+                      name="detailed_description" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[entered_date]"
+                      dataType="dbTimeStampOffset"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[entered_date]"
+                      name="entered_date"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[entered_time]"
+                      dataType="dbTime2"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[entered_time]"
+                      name="entered_time"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[exact_location]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[exact_location]"
+                      name="exact_location" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[hazard_analysis_close_this_hazard]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[hazard_analysis_close_this_hazard]"
+                      name="hazard_analysis_close_this_hazard" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_hazard_analysis_close_this_hazard]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_hazard_analysis_close_this_hazard]"
+                      name="li_hazard_analysis_close_this_hazard" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_hazard_analysis_close_this_hazard]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_hazard_analysis_close_this_hazard]"
+                      name="lo_hazard_analysis_close_this_hazard" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[hazard_analysis_comments]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[hazard_analysis_comments]"
+                      name="hazard_analysis_comments" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[hazard_analysis_completion_date]"
+                      dataType="dbTimeStampOffset"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[hazard_analysis_completion_date]"
+                      name="hazard_analysis_completion_date"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register]"
+                      name="hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register]"
+                      name="li_hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register]"
+                      name="lo_hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[hazard_analysis_is_this_hazard_managed_by_physical_controls]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[hazard_analysis_is_this_hazard_managed_by_physical_controls]"
+                      name="hazard_analysis_is_this_hazard_managed_by_physical_controls" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_hazard_analysis_is_this_hazard_managed_by_physical_controls]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_hazard_analysis_is_this_hazard_managed_by_physical_controls]"
+                      name="li_hazard_analysis_is_this_hazard_managed_by_physical_controls" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_hazard_analysis_is_this_hazard_managed_by_physical_controls]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_hazard_analysis_is_this_hazard_managed_by_physical_controls]"
+                      name="lo_hazard_analysis_is_this_hazard_managed_by_physical_controls" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures]"
+                      name="hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures]"
+                      name="li_hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures]"
+                      name="lo_hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[hazard_analysis_risk_assessment]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[hazard_analysis_risk_assessment]"
+                      name="hazard_analysis_risk_assessment" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[hazard_analysis_risk_assessment_matrix_axis_consequence]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[hazard_analysis_risk_assessment_matrix_axis_consequence]"
+                      name="hazard_analysis_risk_assessment_matrix_axis_consequence" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_hazard_analysis_risk_assessment_matrix_axis_consequence]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_hazard_analysis_risk_assessment_matrix_axis_consequence]"
+                      name="li_hazard_analysis_risk_assessment_matrix_axis_consequence" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_hazard_analysis_risk_assessment_matrix_axis_consequence]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_hazard_analysis_risk_assessment_matrix_axis_consequence]"
+                      name="lo_hazard_analysis_risk_assessment_matrix_axis_consequence" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[hazard_analysis_risk_assessment_matrix_axis_likelihood]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[hazard_analysis_risk_assessment_matrix_axis_likelihood]"
+                      name="hazard_analysis_risk_assessment_matrix_axis_likelihood" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_hazard_analysis_risk_assessment_matrix_axis_likelihood]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_hazard_analysis_risk_assessment_matrix_axis_likelihood]"
+                      name="li_hazard_analysis_risk_assessment_matrix_axis_likelihood" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_hazard_analysis_risk_assessment_matrix_axis_likelihood]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_hazard_analysis_risk_assessment_matrix_axis_likelihood]"
+                      name="lo_hazard_analysis_risk_assessment_matrix_axis_likelihood" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[hazard_identification_number]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[hazard_identification_number]"
+                      name="hazard_identification_number" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[if_other_hazard_category_please_specify]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[if_other_hazard_category_please_specify]"
+                      name="if_other_hazard_category_please_specify" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[immediate_action_taken]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[immediate_action_taken]"
+                      name="immediate_action_taken" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[latitude]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[latitude]"
+                      name="latitude" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[longitude]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[longitude]"
+                      name="longitude" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[map_data]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[map_data]"
+                      name="map_data" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[potential_severity]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[potential_severity]"
+                      name="potential_severity" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_potential_severity]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_potential_severity]"
+                      name="li_potential_severity" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_potential_severity]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_potential_severity]"
+                      name="lo_potential_severity" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[summary]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[summary]"
+                      name="summary" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sys_has_open_actions]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sys_has_open_actions]"
+                      name="sys_has_open_actions" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_sys_has_open_actions]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_sys_has_open_actions]"
+                      name="li_sys_has_open_actions" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_sys_has_open_actions]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_sys_has_open_actions]"
+                      name="lo_sys_has_open_actions" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sys_legacy_hazard_identification_id]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sys_legacy_hazard_identification_id]"
+                      name="sys_legacy_hazard_identification_id" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[change_severity]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[change_severity]"
+                      name="change_severity" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_change_severity]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_change_severity]"
+                      name="li_change_severity" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_change_severity]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_change_severity]"
+                      name="lo_change_severity" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sys_form_initialised]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sys_form_initialised]"
+                      name="sys_form_initialised" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_sys_form_initialised]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_sys_form_initialised]"
+                      name="li_sys_form_initialised" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_sys_form_initialised]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_sys_form_initialised]"
+                      name="lo_sys_form_initialised" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sys_show_severity_history]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sys_show_severity_history]"
+                      name="sys_show_severity_history" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_sys_show_severity_history]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_sys_show_severity_history]"
+                      name="li_sys_show_severity_history" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_sys_show_severity_history]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_sys_show_severity_history]"
+                      name="lo_sys_show_severity_history" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[severity_change_history]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[severity_change_history]"
+                      name="severity_change_history" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[severity_change_reason]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[severity_change_reason]"
+                      name="severity_change_reason" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sys_initial_potential_severity]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sys_initial_potential_severity]"
+                      name="sys_initial_potential_severity" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_sys_initial_potential_severity]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_sys_initial_potential_severity]"
+                      name="li_sys_initial_potential_severity" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_sys_initial_potential_severity]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_sys_initial_potential_severity]"
+                      name="lo_sys_initial_potential_severity" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sys_new_potential_severity]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sys_new_potential_severity]"
+                      name="sys_new_potential_severity" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_sys_new_potential_severity]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_sys_new_potential_severity]"
+                      name="li_sys_new_potential_severity" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_sys_new_potential_severity]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_sys_new_potential_severity]"
+                      name="lo_sys_new_potential_severity" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sys_previous_potential_severity]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sys_previous_potential_severity]"
+                      name="sys_previous_potential_severity" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_sys_previous_potential_severity]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_sys_previous_potential_severity]"
+                      name="li_sys_previous_potential_severity" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_sys_previous_potential_severity]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_sys_previous_potential_severity]"
+                      name="lo_sys_previous_potential_severity" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_completed_by]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_completed_by]"
+                      name="dwk_completed_by" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_entered_by]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_entered_by]"
+                      name="dwk_entered_by" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_entity_responsible]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_entity_responsible]"
+                      name="dwk_entity_responsible" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_hazard_register]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_hazard_register]"
+                      name="dwk_hazard_register" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_hazard_register_owner]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_hazard_register_owner]"
+                      name="dwk_hazard_register_owner" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_identified_by]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_identified_by]"
+                      name="dwk_identified_by" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_location]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_location]"
+                      name="dwk_location" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_responsible_supervisor]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_responsible_supervisor]"
+                      name="dwk_responsible_supervisor" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_sys_logged_on_person]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_sys_logged_on_person]"
+                      name="dwk_sys_logged_on_person" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[si_status]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[si_status]"
+                      name="si_status" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sn_status]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sn_status]"
+                      name="sn_status" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[si_base_state]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[si_base_state]"
+                      name="si_base_state" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sn_base_state]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sn_base_state]"
+                      name="sn_base_state" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[UniqueId]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[UniqueId]"
+                      name="UniqueId" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[bms_ID]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[bms_ID]"
+                      name="bms_ID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[bms_LastModified]"
+                      dataType="dbTimeStampOffset"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[bms_LastModified]"
+                      name="bms_LastModified"
+                      scale="7" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Soteria].[hazard_identification]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{32607A35-9E2D-48A3-A769-1E4A93E191AF}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[JHAUAWDWHSQLNP1.WAREHOUSE]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dwi_hazard_identification]"
+                      cachedDataType="i4"
+                      cachedName="dwi_hazard_identification"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwi_hazard_identification]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwi_hazard_identification]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[date_identified]"
+                      cachedDataType="dbTimeStampOffset"
+                      cachedName="date_identified"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_identified]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[date_identified]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[detailed_description]"
+                      cachedDataType="nText"
+                      cachedName="detailed_description"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[detailed_description]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[detailed_description]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[entered_date]"
+                      cachedDataType="dbTimeStampOffset"
+                      cachedName="entered_date"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[entered_date]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[entered_date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[entered_time]"
+                      cachedDataType="dbTime2"
+                      cachedName="entered_time"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[entered_time]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[entered_time]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[exact_location]"
+                      cachedDataType="nText"
+                      cachedName="exact_location"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[exact_location]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[exact_location]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[hazard_analysis_close_this_hazard]"
+                      cachedDataType="nText"
+                      cachedName="hazard_analysis_close_this_hazard"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hazard_analysis_close_this_hazard]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[hazard_analysis_close_this_hazard]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[li_hazard_analysis_close_this_hazard]"
+                      cachedDataType="nText"
+                      cachedName="li_hazard_analysis_close_this_hazard"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_hazard_analysis_close_this_hazard]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_hazard_analysis_close_this_hazard]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[lo_hazard_analysis_close_this_hazard]"
+                      cachedDataType="i4"
+                      cachedName="lo_hazard_analysis_close_this_hazard"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_hazard_analysis_close_this_hazard]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_hazard_analysis_close_this_hazard]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[hazard_analysis_comments]"
+                      cachedDataType="nText"
+                      cachedName="hazard_analysis_comments"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hazard_analysis_comments]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[hazard_analysis_comments]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[hazard_analysis_completion_date]"
+                      cachedDataType="dbTimeStampOffset"
+                      cachedName="hazard_analysis_completion_date"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hazard_analysis_completion_date]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[hazard_analysis_completion_date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register]"
+                      cachedDataType="nText"
+                      cachedName="hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[li_hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register]"
+                      cachedDataType="nText"
+                      cachedName="li_hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[lo_hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register]"
+                      cachedDataType="i4"
+                      cachedName="lo_hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[hazard_analysis_is_this_hazard_managed_by_physical_controls]"
+                      cachedDataType="nText"
+                      cachedName="hazard_analysis_is_this_hazard_managed_by_physical_controls"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hazard_analysis_is_this_hazard_managed_by_physical_controls]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[hazard_analysis_is_this_hazard_managed_by_physical_controls]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[li_hazard_analysis_is_this_hazard_managed_by_physical_controls]"
+                      cachedDataType="nText"
+                      cachedName="li_hazard_analysis_is_this_hazard_managed_by_physical_controls"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_hazard_analysis_is_this_hazard_managed_by_physical_controls]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_hazard_analysis_is_this_hazard_managed_by_physical_controls]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[lo_hazard_analysis_is_this_hazard_managed_by_physical_controls]"
+                      cachedDataType="i4"
+                      cachedName="lo_hazard_analysis_is_this_hazard_managed_by_physical_controls"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_hazard_analysis_is_this_hazard_managed_by_physical_controls]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_hazard_analysis_is_this_hazard_managed_by_physical_controls]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures]"
+                      cachedDataType="nText"
+                      cachedName="hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[li_hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures]"
+                      cachedDataType="nText"
+                      cachedName="li_hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[lo_hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures]"
+                      cachedDataType="i4"
+                      cachedName="lo_hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[hazard_analysis_risk_assessment]"
+                      cachedDataType="nText"
+                      cachedName="hazard_analysis_risk_assessment"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hazard_analysis_risk_assessment]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[hazard_analysis_risk_assessment]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[hazard_analysis_risk_assessment_matrix_axis_consequence]"
+                      cachedDataType="nText"
+                      cachedName="hazard_analysis_risk_assessment_matrix_axis_consequence"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hazard_analysis_risk_assessment_matrix_axis_consequence]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[hazard_analysis_risk_assessment_matrix_axis_consequence]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[li_hazard_analysis_risk_assessment_matrix_axis_consequence]"
+                      cachedDataType="nText"
+                      cachedName="li_hazard_analysis_risk_assessment_matrix_axis_consequence"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_hazard_analysis_risk_assessment_matrix_axis_consequence]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_hazard_analysis_risk_assessment_matrix_axis_consequence]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[lo_hazard_analysis_risk_assessment_matrix_axis_consequence]"
+                      cachedDataType="i4"
+                      cachedName="lo_hazard_analysis_risk_assessment_matrix_axis_consequence"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_hazard_analysis_risk_assessment_matrix_axis_consequence]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_hazard_analysis_risk_assessment_matrix_axis_consequence]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[hazard_analysis_risk_assessment_matrix_axis_likelihood]"
+                      cachedDataType="nText"
+                      cachedName="hazard_analysis_risk_assessment_matrix_axis_likelihood"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hazard_analysis_risk_assessment_matrix_axis_likelihood]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[hazard_analysis_risk_assessment_matrix_axis_likelihood]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[li_hazard_analysis_risk_assessment_matrix_axis_likelihood]"
+                      cachedDataType="nText"
+                      cachedName="li_hazard_analysis_risk_assessment_matrix_axis_likelihood"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_hazard_analysis_risk_assessment_matrix_axis_likelihood]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_hazard_analysis_risk_assessment_matrix_axis_likelihood]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[lo_hazard_analysis_risk_assessment_matrix_axis_likelihood]"
+                      cachedDataType="i4"
+                      cachedName="lo_hazard_analysis_risk_assessment_matrix_axis_likelihood"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_hazard_analysis_risk_assessment_matrix_axis_likelihood]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_hazard_analysis_risk_assessment_matrix_axis_likelihood]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[hazard_identification_number]"
+                      cachedDataType="nText"
+                      cachedName="hazard_identification_number"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hazard_identification_number]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[hazard_identification_number]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[if_other_hazard_category_please_specify]"
+                      cachedDataType="nText"
+                      cachedName="if_other_hazard_category_please_specify"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[if_other_hazard_category_please_specify]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[if_other_hazard_category_please_specify]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[immediate_action_taken]"
+                      cachedDataType="nText"
+                      cachedName="immediate_action_taken"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[immediate_action_taken]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[immediate_action_taken]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[latitude]"
+                      cachedDataType="r8"
+                      cachedName="latitude"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[latitude]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[latitude]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[longitude]"
+                      cachedDataType="r8"
+                      cachedName="longitude"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[longitude]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[longitude]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[map_data]"
+                      cachedDataType="nText"
+                      cachedName="map_data"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[map_data]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[map_data]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[potential_severity]"
+                      cachedDataType="nText"
+                      cachedName="potential_severity"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[potential_severity]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[potential_severity]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[li_potential_severity]"
+                      cachedDataType="nText"
+                      cachedName="li_potential_severity"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_potential_severity]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_potential_severity]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[lo_potential_severity]"
+                      cachedDataType="i4"
+                      cachedName="lo_potential_severity"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_potential_severity]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_potential_severity]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[summary]"
+                      cachedDataType="nText"
+                      cachedName="summary"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[summary]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[summary]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sys_has_open_actions]"
+                      cachedDataType="nText"
+                      cachedName="sys_has_open_actions"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sys_has_open_actions]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_has_open_actions]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[li_sys_has_open_actions]"
+                      cachedDataType="nText"
+                      cachedName="li_sys_has_open_actions"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_sys_has_open_actions]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_sys_has_open_actions]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[lo_sys_has_open_actions]"
+                      cachedDataType="i4"
+                      cachedName="lo_sys_has_open_actions"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_sys_has_open_actions]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_sys_has_open_actions]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sys_legacy_hazard_identification_id]"
+                      cachedDataType="nText"
+                      cachedName="sys_legacy_hazard_identification_id"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sys_legacy_hazard_identification_id]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_legacy_hazard_identification_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[change_severity]"
+                      cachedDataType="nText"
+                      cachedName="change_severity"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[change_severity]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[change_severity]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[li_change_severity]"
+                      cachedDataType="nText"
+                      cachedName="li_change_severity"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_change_severity]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_change_severity]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[lo_change_severity]"
+                      cachedDataType="i4"
+                      cachedName="lo_change_severity"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_change_severity]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_change_severity]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sys_form_initialised]"
+                      cachedDataType="nText"
+                      cachedName="sys_form_initialised"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sys_form_initialised]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_form_initialised]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[li_sys_form_initialised]"
+                      cachedDataType="nText"
+                      cachedName="li_sys_form_initialised"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_sys_form_initialised]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_sys_form_initialised]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[lo_sys_form_initialised]"
+                      cachedDataType="i4"
+                      cachedName="lo_sys_form_initialised"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_sys_form_initialised]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_sys_form_initialised]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sys_show_severity_history]"
+                      cachedDataType="nText"
+                      cachedName="sys_show_severity_history"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sys_show_severity_history]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_show_severity_history]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[li_sys_show_severity_history]"
+                      cachedDataType="nText"
+                      cachedName="li_sys_show_severity_history"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_sys_show_severity_history]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_sys_show_severity_history]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[lo_sys_show_severity_history]"
+                      cachedDataType="i4"
+                      cachedName="lo_sys_show_severity_history"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_sys_show_severity_history]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_sys_show_severity_history]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[severity_change_history]"
+                      cachedDataType="nText"
+                      cachedName="severity_change_history"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[severity_change_history]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[severity_change_history]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[severity_change_reason]"
+                      cachedDataType="nText"
+                      cachedName="severity_change_reason"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[severity_change_reason]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[severity_change_reason]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sys_initial_potential_severity]"
+                      cachedDataType="nText"
+                      cachedName="sys_initial_potential_severity"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sys_initial_potential_severity]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_initial_potential_severity]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[li_sys_initial_potential_severity]"
+                      cachedDataType="nText"
+                      cachedName="li_sys_initial_potential_severity"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_sys_initial_potential_severity]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_sys_initial_potential_severity]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[lo_sys_initial_potential_severity]"
+                      cachedDataType="i4"
+                      cachedName="lo_sys_initial_potential_severity"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_sys_initial_potential_severity]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_sys_initial_potential_severity]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sys_new_potential_severity]"
+                      cachedDataType="nText"
+                      cachedName="sys_new_potential_severity"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sys_new_potential_severity]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_new_potential_severity]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[li_sys_new_potential_severity]"
+                      cachedDataType="nText"
+                      cachedName="li_sys_new_potential_severity"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_sys_new_potential_severity]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_sys_new_potential_severity]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[lo_sys_new_potential_severity]"
+                      cachedDataType="i4"
+                      cachedName="lo_sys_new_potential_severity"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_sys_new_potential_severity]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_sys_new_potential_severity]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sys_previous_potential_severity]"
+                      cachedDataType="nText"
+                      cachedName="sys_previous_potential_severity"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sys_previous_potential_severity]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_previous_potential_severity]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[li_sys_previous_potential_severity]"
+                      cachedDataType="nText"
+                      cachedName="li_sys_previous_potential_severity"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_sys_previous_potential_severity]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_sys_previous_potential_severity]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[lo_sys_previous_potential_severity]"
+                      cachedDataType="i4"
+                      cachedName="lo_sys_previous_potential_severity"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_sys_previous_potential_severity]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_sys_previous_potential_severity]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dwk_completed_by]"
+                      cachedDataType="i4"
+                      cachedName="dwk_completed_by"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_completed_by]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_completed_by]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dwk_entered_by]"
+                      cachedDataType="i4"
+                      cachedName="dwk_entered_by"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_entered_by]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_entered_by]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dwk_entity_responsible]"
+                      cachedDataType="i4"
+                      cachedName="dwk_entity_responsible"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_entity_responsible]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_entity_responsible]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dwk_hazard_register]"
+                      cachedDataType="i4"
+                      cachedName="dwk_hazard_register"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_hazard_register]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_hazard_register]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dwk_hazard_register_owner]"
+                      cachedDataType="i4"
+                      cachedName="dwk_hazard_register_owner"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_hazard_register_owner]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_hazard_register_owner]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dwk_identified_by]"
+                      cachedDataType="i4"
+                      cachedName="dwk_identified_by"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_identified_by]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_identified_by]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dwk_location]"
+                      cachedDataType="i4"
+                      cachedName="dwk_location"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_location]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_location]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dwk_responsible_supervisor]"
+                      cachedDataType="i4"
+                      cachedName="dwk_responsible_supervisor"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_responsible_supervisor]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_responsible_supervisor]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dwk_sys_logged_on_person]"
+                      cachedDataType="i4"
+                      cachedName="dwk_sys_logged_on_person"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_sys_logged_on_person]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_sys_logged_on_person]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[si_status]"
+                      cachedDataType="nText"
+                      cachedName="si_status"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[si_status]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[si_status]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sn_status]"
+                      cachedDataType="nText"
+                      cachedName="sn_status"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sn_status]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sn_status]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[si_base_state]"
+                      cachedDataType="nText"
+                      cachedName="si_base_state"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[si_base_state]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[si_base_state]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sn_base_state]"
+                      cachedDataType="nText"
+                      cachedName="sn_base_state"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sn_base_state]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sn_base_state]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UniqueId]"
+                      cachedDataType="nText"
+                      cachedName="UniqueId"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UniqueId]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[UniqueId]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[bms_ID]"
+                      cachedDataType="nText"
+                      cachedName="bms_ID"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bms_ID]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[bms_ID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[bms_LastModified]"
+                      cachedDataType="dbTimeStampOffset"
+                      cachedName="bms_LastModified"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bms_LastModified]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[bms_LastModified]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwi_hazard_identification]"
+                      dataType="i4"
+                      name="dwi_hazard_identification" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_identified]"
+                      dataType="dbTimeStampOffset"
+                      name="date_identified"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[detailed_description]"
+                      dataType="nText"
+                      name="detailed_description" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[entered_date]"
+                      dataType="dbTimeStampOffset"
+                      name="entered_date"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[entered_time]"
+                      dataType="dbTime2"
+                      name="entered_time"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[exact_location]"
+                      dataType="nText"
+                      name="exact_location" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hazard_analysis_close_this_hazard]"
+                      dataType="nText"
+                      name="hazard_analysis_close_this_hazard" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_hazard_analysis_close_this_hazard]"
+                      dataType="nText"
+                      name="li_hazard_analysis_close_this_hazard" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_hazard_analysis_close_this_hazard]"
+                      dataType="i4"
+                      name="lo_hazard_analysis_close_this_hazard" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hazard_analysis_comments]"
+                      dataType="nText"
+                      name="hazard_analysis_comments" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hazard_analysis_completion_date]"
+                      dataType="dbTimeStampOffset"
+                      name="hazard_analysis_completion_date"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register]"
+                      dataType="nText"
+                      name="hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register]"
+                      dataType="nText"
+                      name="li_hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register]"
+                      dataType="i4"
+                      name="lo_hazard_analysis_does_this_hazard_need_to_be_entered_into_the_hazard_register" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hazard_analysis_is_this_hazard_managed_by_physical_controls]"
+                      dataType="nText"
+                      name="hazard_analysis_is_this_hazard_managed_by_physical_controls" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_hazard_analysis_is_this_hazard_managed_by_physical_controls]"
+                      dataType="nText"
+                      name="li_hazard_analysis_is_this_hazard_managed_by_physical_controls" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_hazard_analysis_is_this_hazard_managed_by_physical_controls]"
+                      dataType="i4"
+                      name="lo_hazard_analysis_is_this_hazard_managed_by_physical_controls" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures]"
+                      dataType="nText"
+                      name="hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures]"
+                      dataType="nText"
+                      name="li_hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures]"
+                      dataType="i4"
+                      name="lo_hazard_analysis_is_this_hazard_managed_by_standard_operating_procedures" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hazard_analysis_risk_assessment]"
+                      dataType="nText"
+                      name="hazard_analysis_risk_assessment" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hazard_analysis_risk_assessment_matrix_axis_consequence]"
+                      dataType="nText"
+                      name="hazard_analysis_risk_assessment_matrix_axis_consequence" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_hazard_analysis_risk_assessment_matrix_axis_consequence]"
+                      dataType="nText"
+                      name="li_hazard_analysis_risk_assessment_matrix_axis_consequence" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_hazard_analysis_risk_assessment_matrix_axis_consequence]"
+                      dataType="i4"
+                      name="lo_hazard_analysis_risk_assessment_matrix_axis_consequence" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hazard_analysis_risk_assessment_matrix_axis_likelihood]"
+                      dataType="nText"
+                      name="hazard_analysis_risk_assessment_matrix_axis_likelihood" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_hazard_analysis_risk_assessment_matrix_axis_likelihood]"
+                      dataType="nText"
+                      name="li_hazard_analysis_risk_assessment_matrix_axis_likelihood" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_hazard_analysis_risk_assessment_matrix_axis_likelihood]"
+                      dataType="i4"
+                      name="lo_hazard_analysis_risk_assessment_matrix_axis_likelihood" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hazard_identification_number]"
+                      dataType="nText"
+                      name="hazard_identification_number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[if_other_hazard_category_please_specify]"
+                      dataType="nText"
+                      name="if_other_hazard_category_please_specify" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[immediate_action_taken]"
+                      dataType="nText"
+                      name="immediate_action_taken" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[latitude]"
+                      dataType="r8"
+                      name="latitude" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[longitude]"
+                      dataType="r8"
+                      name="longitude" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[map_data]"
+                      dataType="nText"
+                      name="map_data" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[potential_severity]"
+                      dataType="nText"
+                      name="potential_severity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_potential_severity]"
+                      dataType="nText"
+                      name="li_potential_severity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_potential_severity]"
+                      dataType="i4"
+                      name="lo_potential_severity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[summary]"
+                      dataType="nText"
+                      name="summary" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sys_has_open_actions]"
+                      dataType="nText"
+                      name="sys_has_open_actions" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_sys_has_open_actions]"
+                      dataType="nText"
+                      name="li_sys_has_open_actions" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_sys_has_open_actions]"
+                      dataType="i4"
+                      name="lo_sys_has_open_actions" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sys_legacy_hazard_identification_id]"
+                      dataType="nText"
+                      name="sys_legacy_hazard_identification_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[change_severity]"
+                      dataType="nText"
+                      name="change_severity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_change_severity]"
+                      dataType="nText"
+                      name="li_change_severity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_change_severity]"
+                      dataType="i4"
+                      name="lo_change_severity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sys_form_initialised]"
+                      dataType="nText"
+                      name="sys_form_initialised" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_sys_form_initialised]"
+                      dataType="nText"
+                      name="li_sys_form_initialised" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_sys_form_initialised]"
+                      dataType="i4"
+                      name="lo_sys_form_initialised" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sys_show_severity_history]"
+                      dataType="nText"
+                      name="sys_show_severity_history" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_sys_show_severity_history]"
+                      dataType="nText"
+                      name="li_sys_show_severity_history" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_sys_show_severity_history]"
+                      dataType="i4"
+                      name="lo_sys_show_severity_history" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[severity_change_history]"
+                      dataType="nText"
+                      name="severity_change_history" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[severity_change_reason]"
+                      dataType="nText"
+                      name="severity_change_reason" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sys_initial_potential_severity]"
+                      dataType="nText"
+                      name="sys_initial_potential_severity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_sys_initial_potential_severity]"
+                      dataType="nText"
+                      name="li_sys_initial_potential_severity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_sys_initial_potential_severity]"
+                      dataType="i4"
+                      name="lo_sys_initial_potential_severity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sys_new_potential_severity]"
+                      dataType="nText"
+                      name="sys_new_potential_severity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_sys_new_potential_severity]"
+                      dataType="nText"
+                      name="li_sys_new_potential_severity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_sys_new_potential_severity]"
+                      dataType="i4"
+                      name="lo_sys_new_potential_severity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sys_previous_potential_severity]"
+                      dataType="nText"
+                      name="sys_previous_potential_severity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_sys_previous_potential_severity]"
+                      dataType="nText"
+                      name="li_sys_previous_potential_severity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_sys_previous_potential_severity]"
+                      dataType="i4"
+                      name="lo_sys_previous_potential_severity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_completed_by]"
+                      dataType="i4"
+                      name="dwk_completed_by" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_entered_by]"
+                      dataType="i4"
+                      name="dwk_entered_by" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_entity_responsible]"
+                      dataType="i4"
+                      name="dwk_entity_responsible" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_hazard_register]"
+                      dataType="i4"
+                      name="dwk_hazard_register" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_hazard_register_owner]"
+                      dataType="i4"
+                      name="dwk_hazard_register_owner" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_identified_by]"
+                      dataType="i4"
+                      name="dwk_identified_by" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_location]"
+                      dataType="i4"
+                      name="dwk_location" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_responsible_supervisor]"
+                      dataType="i4"
+                      name="dwk_responsible_supervisor" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_sys_logged_on_person]"
+                      dataType="i4"
+                      name="dwk_sys_logged_on_person" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[si_status]"
+                      dataType="nText"
+                      name="si_status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sn_status]"
+                      dataType="nText"
+                      name="sn_status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[si_base_state]"
+                      dataType="nText"
+                      name="si_base_state" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sn_base_state]"
+                      dataType="nText"
+                      name="sn_base_state" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UniqueId]"
+                      dataType="nText"
+                      name="UniqueId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bms_ID]"
+                      dataType="nText"
+                      name="bms_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bms_LastModified]"
+                      dataType="dbTimeStampOffset"
+                      name="bms_LastModified"
+                      scale="7" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Output]"
+              endId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Output"
+              startId="Package\Data Flow Task\OData Source.Outputs[Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="151.5,42"
+          Id="Package\Data Flow Task"
+          TopLeft="70.25,66.75" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Data Flow Task\OData Source"
+          TopLeft="82.5,55.75" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Data Flow Task\OLE DB Destination"
+          TopLeft="205.5,192" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Output]"
+          TopLeft="154.5,97.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="136.5,94.25"
+              Start="0,0"
+              End="136.5,86.75">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.125" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,43.125"
+                    Point2="0,47.125"
+                    Point3="4,47.125" />
+                  <mssgle:LineSegment
+                    End="132.5,47.125" />
+                  <mssgle:CubicBezierSegment
+                    Point1="132.5,47.125"
+                    Point2="136.5,47.125"
+                    Point3="136.5,51.125" />
+                  <mssgle:LineSegment
+                    End="136.5,86.75" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
