@@ -1,0 +1,1481 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/14/2021 2:13:26 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="AN000529"
+  DTS:CreatorName="JHG\smendu"
+  DTS:DTSID="{3B771C85-8D00-44C5-8506-952079729919}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.113"
+  DTS:LocaleID="3081"
+  DTS:ObjectName="audit_finding_ETL_package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{80CDB19E-271B-47C3-8FA7-B826CEB6C480}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{D9B6F9E6-D753-427E-923A-70AFDB141E92}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\OData Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="OData Source Component;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Read data from OData services"
+              name="OData Source"
+              usesDispositions="true">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Name of the collection to be retrieved from the service."
+                  expressionType="Notify"
+                  name="CollectionName">audit_finding</property>
+                <property
+                  dataType="System.Int32"
+                  description="The default maximum length for a string that has no maxlength specified in the schema."
+                  name="DefaultStringLength">4000</property>
+                <property
+                  dataType="System.String"
+                  description="Query in the url. "
+                  expressionType="Notify"
+                  name="Query"></property>
+                <property
+                  dataType="System.String"
+                  description="Resource path of the collection to be retrieved from the service."
+                  expressionType="Notify"
+                  name="ResourcePath"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="When set to true, use the resource path as requested collection; otherwise, use the collection name."
+                  expressionType="Notify"
+                  name="UseResourcePath">false</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.OData</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OData Source.Connections[Connection]"
+                  connectionManagerID="{90FAE95A-EC7E-4E7C-8873-7921E61F762F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OData Source]"
+                  description="Connection to OData Service"
+                  name="Connection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OData Source.Outputs[Output]"
+                  name="Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwi_audit_finding]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwi_audit_finding]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwi_audit_finding]"
+                      name="dwi_audit_finding"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[completion_comments]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[completion_comments]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[completion_comments]"
+                      name="completion_comments"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[date_closed]"
+                      dataType="dbTimeStampOffset"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[date_closed]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[date_closed]"
+                      name="date_closed"
+                      scale="7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[date_of_finding]"
+                      dataType="dbTimeStampOffset"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[date_of_finding]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[date_of_finding]"
+                      name="date_of_finding"
+                      scale="7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[date_to_be_rectified]"
+                      dataType="dbTimeStampOffset"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[date_to_be_rectified]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[date_to_be_rectified]"
+                      name="date_to_be_rectified"
+                      scale="7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[details]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[details]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[details]"
+                      name="details"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[finding_number]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[finding_number]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[finding_number]"
+                      name="finding_number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[finding_status]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[finding_status]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[finding_status]"
+                      name="finding_status"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_finding_status]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_finding_status]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_finding_status]"
+                      name="li_finding_status"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_finding_status]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_finding_status]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_finding_status]"
+                      name="lo_finding_status"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[finding_summary]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[finding_summary]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[finding_summary]"
+                      name="finding_summary"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[finding_type]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[finding_type]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[finding_type]"
+                      name="finding_type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_finding_type]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_finding_type]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_finding_type]"
+                      name="li_finding_type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_finding_type]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_finding_type]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_finding_type]"
+                      name="lo_finding_type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sysq_questionanswer]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sysq_questionanswer]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sysq_questionanswer]"
+                      name="sysq_questionanswer"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sysq_questionnairename]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sysq_questionnairename]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sysq_questionnairename]"
+                      name="sysq_questionnairename"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sysq_questionresult]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sysq_questionresult]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sysq_questionresult]"
+                      name="sysq_questionresult"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sysq_questiontext]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sysq_questiontext]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sysq_questiontext]"
+                      name="sysq_questiontext"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sysq_sectionname]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sysq_sectionname]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sysq_sectionname]"
+                      name="sysq_sectionname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_all_actions_complete_email_sent]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sys_all_actions_complete_email_sent]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_all_actions_complete_email_sent]"
+                      name="sys_all_actions_complete_email_sent"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_sys_all_actions_complete_email_sent]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_sys_all_actions_complete_email_sent]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_sys_all_actions_complete_email_sent]"
+                      name="li_sys_all_actions_complete_email_sent"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_sys_all_actions_complete_email_sent]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_sys_all_actions_complete_email_sent]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_sys_all_actions_complete_email_sent]"
+                      name="lo_sys_all_actions_complete_email_sent"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_date_created]"
+                      dataType="dbTimeStampOffset"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sys_date_created]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_date_created]"
+                      name="sys_date_created"
+                      scale="7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_legacy_id]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sys_legacy_id]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_legacy_id]"
+                      name="sys_legacy_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_raised_from_questionnaire]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sys_raised_from_questionnaire]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_raised_from_questionnaire]"
+                      name="sys_raised_from_questionnaire"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_sys_raised_from_questionnaire]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_sys_raised_from_questionnaire]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_sys_raised_from_questionnaire]"
+                      name="li_sys_raised_from_questionnaire"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_sys_raised_from_questionnaire]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_sys_raised_from_questionnaire]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_sys_raised_from_questionnaire]"
+                      name="lo_sys_raised_from_questionnaire"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_raw_questionnaire_data]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sys_raw_questionnaire_data]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_raw_questionnaire_data]"
+                      name="sys_raw_questionnaire_data"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_analytics_send_finding_owner_email]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sys_analytics_send_finding_owner_email]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_analytics_send_finding_owner_email]"
+                      name="sys_analytics_send_finding_owner_email"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_sys_analytics_send_finding_owner_email]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_sys_analytics_send_finding_owner_email]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_sys_analytics_send_finding_owner_email]"
+                      name="li_sys_analytics_send_finding_owner_email"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_sys_analytics_send_finding_owner_email]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_sys_analytics_send_finding_owner_email]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_sys_analytics_send_finding_owner_email]"
+                      name="lo_sys_analytics_send_finding_owner_email"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_audit_as_a_source_of_audit_finding]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_audit_as_a_source_of_audit_finding]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_audit_as_a_source_of_audit_finding]"
+                      name="dwk_audit_as_a_source_of_audit_finding"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_finding_owner]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_finding_owner]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_finding_owner]"
+                      name="dwk_finding_owner"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_closed_by]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_closed_by]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_closed_by]"
+                      name="dwk_closed_by"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[si_status]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[si_status]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[si_status]"
+                      name="si_status"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sn_status]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sn_status]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sn_status]"
+                      name="sn_status"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[si_base_state]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[si_base_state]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[si_base_state]"
+                      name="si_base_state"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sn_base_state]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sn_base_state]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sn_base_state]"
+                      name="sn_base_state"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[UniqueId]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[UniqueId]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[UniqueId]"
+                      name="UniqueId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[bms_ID]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[bms_ID]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[bms_ID]"
+                      name="bms_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[bms_LastModified]"
+                      dataType="dbTimeStampOffset"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[bms_LastModified]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[bms_LastModified]"
+                      name="bms_LastModified"
+                      scale="7"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwi_audit_finding]"
+                      dataType="i4"
+                      name="dwi_audit_finding" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[completion_comments]"
+                      dataType="nText"
+                      name="completion_comments" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[date_closed]"
+                      dataType="dbTimeStampOffset"
+                      name="date_closed"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[date_of_finding]"
+                      dataType="dbTimeStampOffset"
+                      name="date_of_finding"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[date_to_be_rectified]"
+                      dataType="dbTimeStampOffset"
+                      name="date_to_be_rectified"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[details]"
+                      dataType="nText"
+                      name="details" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[finding_number]"
+                      dataType="nText"
+                      name="finding_number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[finding_status]"
+                      dataType="nText"
+                      name="finding_status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_finding_status]"
+                      dataType="nText"
+                      name="li_finding_status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_finding_status]"
+                      dataType="i4"
+                      name="lo_finding_status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[finding_summary]"
+                      dataType="nText"
+                      name="finding_summary" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[finding_type]"
+                      dataType="nText"
+                      name="finding_type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_finding_type]"
+                      dataType="nText"
+                      name="li_finding_type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_finding_type]"
+                      dataType="i4"
+                      name="lo_finding_type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sysq_questionanswer]"
+                      dataType="nText"
+                      name="sysq_questionanswer" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sysq_questionnairename]"
+                      dataType="nText"
+                      name="sysq_questionnairename" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sysq_questionresult]"
+                      dataType="nText"
+                      name="sysq_questionresult" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sysq_questiontext]"
+                      dataType="nText"
+                      name="sysq_questiontext" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sysq_sectionname]"
+                      dataType="nText"
+                      name="sysq_sectionname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sys_all_actions_complete_email_sent]"
+                      dataType="nText"
+                      name="sys_all_actions_complete_email_sent" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_sys_all_actions_complete_email_sent]"
+                      dataType="nText"
+                      name="li_sys_all_actions_complete_email_sent" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_sys_all_actions_complete_email_sent]"
+                      dataType="i4"
+                      name="lo_sys_all_actions_complete_email_sent" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sys_date_created]"
+                      dataType="dbTimeStampOffset"
+                      name="sys_date_created"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sys_legacy_id]"
+                      dataType="nText"
+                      name="sys_legacy_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sys_raised_from_questionnaire]"
+                      dataType="nText"
+                      name="sys_raised_from_questionnaire" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_sys_raised_from_questionnaire]"
+                      dataType="nText"
+                      name="li_sys_raised_from_questionnaire" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_sys_raised_from_questionnaire]"
+                      dataType="i4"
+                      name="lo_sys_raised_from_questionnaire" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sys_raw_questionnaire_data]"
+                      dataType="nText"
+                      name="sys_raw_questionnaire_data" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sys_analytics_send_finding_owner_email]"
+                      dataType="nText"
+                      name="sys_analytics_send_finding_owner_email" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[li_sys_analytics_send_finding_owner_email]"
+                      dataType="nText"
+                      name="li_sys_analytics_send_finding_owner_email" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[lo_sys_analytics_send_finding_owner_email]"
+                      dataType="i4"
+                      name="lo_sys_analytics_send_finding_owner_email" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_audit_as_a_source_of_audit_finding]"
+                      dataType="i4"
+                      name="dwk_audit_as_a_source_of_audit_finding" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_finding_owner]"
+                      dataType="i4"
+                      name="dwk_finding_owner" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[dwk_closed_by]"
+                      dataType="i4"
+                      name="dwk_closed_by" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[si_status]"
+                      dataType="nText"
+                      name="si_status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sn_status]"
+                      dataType="nText"
+                      name="sn_status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[si_base_state]"
+                      dataType="nText"
+                      name="si_base_state" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[sn_base_state]"
+                      dataType="nText"
+                      name="sn_base_state" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[UniqueId]"
+                      dataType="nText"
+                      name="UniqueId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[bms_ID]"
+                      dataType="nText"
+                      name="bms_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Output].ExternalColumns[bms_LastModified]"
+                      dataType="dbTimeStampOffset"
+                      name="bms_LastModified"
+                      scale="7" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\OData Source.Outputs[Error output]"
+                  isErrorOut="true"
+                  name="Error output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwi_audit_finding]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwi_audit_finding]"
+                      name="dwi_audit_finding" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[completion_comments]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[completion_comments]"
+                      name="completion_comments" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[date_closed]"
+                      dataType="dbTimeStampOffset"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[date_closed]"
+                      name="date_closed"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[date_of_finding]"
+                      dataType="dbTimeStampOffset"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[date_of_finding]"
+                      name="date_of_finding"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[date_to_be_rectified]"
+                      dataType="dbTimeStampOffset"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[date_to_be_rectified]"
+                      name="date_to_be_rectified"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[details]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[details]"
+                      name="details" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[finding_number]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[finding_number]"
+                      name="finding_number" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[finding_status]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[finding_status]"
+                      name="finding_status" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_finding_status]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_finding_status]"
+                      name="li_finding_status" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_finding_status]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_finding_status]"
+                      name="lo_finding_status" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[finding_summary]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[finding_summary]"
+                      name="finding_summary" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[finding_type]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[finding_type]"
+                      name="finding_type" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_finding_type]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_finding_type]"
+                      name="li_finding_type" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_finding_type]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_finding_type]"
+                      name="lo_finding_type" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sysq_questionanswer]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sysq_questionanswer]"
+                      name="sysq_questionanswer" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sysq_questionnairename]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sysq_questionnairename]"
+                      name="sysq_questionnairename" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sysq_questionresult]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sysq_questionresult]"
+                      name="sysq_questionresult" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sysq_questiontext]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sysq_questiontext]"
+                      name="sysq_questiontext" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sysq_sectionname]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sysq_sectionname]"
+                      name="sysq_sectionname" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sys_all_actions_complete_email_sent]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sys_all_actions_complete_email_sent]"
+                      name="sys_all_actions_complete_email_sent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_sys_all_actions_complete_email_sent]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_sys_all_actions_complete_email_sent]"
+                      name="li_sys_all_actions_complete_email_sent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_sys_all_actions_complete_email_sent]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_sys_all_actions_complete_email_sent]"
+                      name="lo_sys_all_actions_complete_email_sent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sys_date_created]"
+                      dataType="dbTimeStampOffset"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sys_date_created]"
+                      name="sys_date_created"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sys_legacy_id]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sys_legacy_id]"
+                      name="sys_legacy_id" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sys_raised_from_questionnaire]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sys_raised_from_questionnaire]"
+                      name="sys_raised_from_questionnaire" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_sys_raised_from_questionnaire]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_sys_raised_from_questionnaire]"
+                      name="li_sys_raised_from_questionnaire" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_sys_raised_from_questionnaire]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_sys_raised_from_questionnaire]"
+                      name="lo_sys_raised_from_questionnaire" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sys_raw_questionnaire_data]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sys_raw_questionnaire_data]"
+                      name="sys_raw_questionnaire_data" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sys_analytics_send_finding_owner_email]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sys_analytics_send_finding_owner_email]"
+                      name="sys_analytics_send_finding_owner_email" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_sys_analytics_send_finding_owner_email]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[li_sys_analytics_send_finding_owner_email]"
+                      name="li_sys_analytics_send_finding_owner_email" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_sys_analytics_send_finding_owner_email]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[lo_sys_analytics_send_finding_owner_email]"
+                      name="lo_sys_analytics_send_finding_owner_email" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_audit_as_a_source_of_audit_finding]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_audit_as_a_source_of_audit_finding]"
+                      name="dwk_audit_as_a_source_of_audit_finding" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_finding_owner]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_finding_owner]"
+                      name="dwk_finding_owner" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_closed_by]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[dwk_closed_by]"
+                      name="dwk_closed_by" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[si_status]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[si_status]"
+                      name="si_status" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sn_status]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sn_status]"
+                      name="sn_status" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[si_base_state]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[si_base_state]"
+                      name="si_base_state" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sn_base_state]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[sn_base_state]"
+                      name="sn_base_state" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[UniqueId]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[UniqueId]"
+                      name="UniqueId" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[bms_ID]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[bms_ID]"
+                      name="bms_ID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[bms_LastModified]"
+                      dataType="dbTimeStampOffset"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Error output].Columns[bms_LastModified]"
+                      name="bms_LastModified"
+                      scale="7" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Soteria].[audit_finding]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{861C8A50-5C77-49AF-B297-DA5302DCDDB7}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[JHAUAWDWHSQLNP1.WAREHOUSE]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dwi_audit_finding]"
+                      cachedDataType="i4"
+                      cachedName="dwi_audit_finding"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwi_audit_finding]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwi_audit_finding]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[completion_comments]"
+                      cachedDataType="nText"
+                      cachedName="completion_comments"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[completion_comments]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[completion_comments]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[date_closed]"
+                      cachedDataType="dbTimeStampOffset"
+                      cachedName="date_closed"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_closed]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[date_closed]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[date_of_finding]"
+                      cachedDataType="dbTimeStampOffset"
+                      cachedName="date_of_finding"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_of_finding]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[date_of_finding]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[date_to_be_rectified]"
+                      cachedDataType="dbTimeStampOffset"
+                      cachedName="date_to_be_rectified"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_to_be_rectified]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[date_to_be_rectified]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[details]"
+                      cachedDataType="nText"
+                      cachedName="details"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[details]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[details]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[finding_number]"
+                      cachedDataType="nText"
+                      cachedName="finding_number"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[finding_number]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[finding_number]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[finding_status]"
+                      cachedDataType="nText"
+                      cachedName="finding_status"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[finding_status]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[finding_status]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[li_finding_status]"
+                      cachedDataType="nText"
+                      cachedName="li_finding_status"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_finding_status]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_finding_status]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[lo_finding_status]"
+                      cachedDataType="i4"
+                      cachedName="lo_finding_status"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_finding_status]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_finding_status]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[finding_summary]"
+                      cachedDataType="nText"
+                      cachedName="finding_summary"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[finding_summary]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[finding_summary]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[finding_type]"
+                      cachedDataType="nText"
+                      cachedName="finding_type"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[finding_type]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[finding_type]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[li_finding_type]"
+                      cachedDataType="nText"
+                      cachedName="li_finding_type"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_finding_type]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_finding_type]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[lo_finding_type]"
+                      cachedDataType="i4"
+                      cachedName="lo_finding_type"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_finding_type]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_finding_type]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sysq_questionanswer]"
+                      cachedDataType="nText"
+                      cachedName="sysq_questionanswer"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sysq_questionanswer]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sysq_questionanswer]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sysq_questionnairename]"
+                      cachedDataType="nText"
+                      cachedName="sysq_questionnairename"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sysq_questionnairename]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sysq_questionnairename]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sysq_questionresult]"
+                      cachedDataType="nText"
+                      cachedName="sysq_questionresult"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sysq_questionresult]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sysq_questionresult]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sysq_questiontext]"
+                      cachedDataType="nText"
+                      cachedName="sysq_questiontext"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sysq_questiontext]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sysq_questiontext]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sysq_sectionname]"
+                      cachedDataType="nText"
+                      cachedName="sysq_sectionname"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sysq_sectionname]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sysq_sectionname]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sys_all_actions_complete_email_sent]"
+                      cachedDataType="nText"
+                      cachedName="sys_all_actions_complete_email_sent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sys_all_actions_complete_email_sent]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_all_actions_complete_email_sent]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[li_sys_all_actions_complete_email_sent]"
+                      cachedDataType="nText"
+                      cachedName="li_sys_all_actions_complete_email_sent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_sys_all_actions_complete_email_sent]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_sys_all_actions_complete_email_sent]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[lo_sys_all_actions_complete_email_sent]"
+                      cachedDataType="i4"
+                      cachedName="lo_sys_all_actions_complete_email_sent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_sys_all_actions_complete_email_sent]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_sys_all_actions_complete_email_sent]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sys_date_created]"
+                      cachedDataType="dbTimeStampOffset"
+                      cachedName="sys_date_created"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sys_date_created]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_date_created]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sys_legacy_id]"
+                      cachedDataType="nText"
+                      cachedName="sys_legacy_id"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sys_legacy_id]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_legacy_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sys_raised_from_questionnaire]"
+                      cachedDataType="nText"
+                      cachedName="sys_raised_from_questionnaire"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sys_raised_from_questionnaire]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_raised_from_questionnaire]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[li_sys_raised_from_questionnaire]"
+                      cachedDataType="nText"
+                      cachedName="li_sys_raised_from_questionnaire"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_sys_raised_from_questionnaire]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_sys_raised_from_questionnaire]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[lo_sys_raised_from_questionnaire]"
+                      cachedDataType="i4"
+                      cachedName="lo_sys_raised_from_questionnaire"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_sys_raised_from_questionnaire]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_sys_raised_from_questionnaire]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sys_raw_questionnaire_data]"
+                      cachedDataType="nText"
+                      cachedName="sys_raw_questionnaire_data"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sys_raw_questionnaire_data]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_raw_questionnaire_data]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sys_analytics_send_finding_owner_email]"
+                      cachedDataType="nText"
+                      cachedName="sys_analytics_send_finding_owner_email"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sys_analytics_send_finding_owner_email]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sys_analytics_send_finding_owner_email]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[li_sys_analytics_send_finding_owner_email]"
+                      cachedDataType="nText"
+                      cachedName="li_sys_analytics_send_finding_owner_email"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_sys_analytics_send_finding_owner_email]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[li_sys_analytics_send_finding_owner_email]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[lo_sys_analytics_send_finding_owner_email]"
+                      cachedDataType="i4"
+                      cachedName="lo_sys_analytics_send_finding_owner_email"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_sys_analytics_send_finding_owner_email]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[lo_sys_analytics_send_finding_owner_email]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dwk_audit_as_a_source_of_audit_finding]"
+                      cachedDataType="i4"
+                      cachedName="dwk_audit_as_a_source_of_audit_finding"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_audit_as_a_source_of_audit_finding]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_audit_as_a_source_of_audit_finding]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dwk_finding_owner]"
+                      cachedDataType="i4"
+                      cachedName="dwk_finding_owner"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_finding_owner]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_finding_owner]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dwk_closed_by]"
+                      cachedDataType="i4"
+                      cachedName="dwk_closed_by"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_closed_by]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[dwk_closed_by]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[si_status]"
+                      cachedDataType="nText"
+                      cachedName="si_status"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[si_status]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[si_status]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sn_status]"
+                      cachedDataType="nText"
+                      cachedName="sn_status"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sn_status]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sn_status]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[si_base_state]"
+                      cachedDataType="nText"
+                      cachedName="si_base_state"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[si_base_state]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[si_base_state]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sn_base_state]"
+                      cachedDataType="nText"
+                      cachedName="sn_base_state"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sn_base_state]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[sn_base_state]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UniqueId]"
+                      cachedDataType="nText"
+                      cachedName="UniqueId"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UniqueId]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[UniqueId]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[bms_ID]"
+                      cachedDataType="nText"
+                      cachedName="bms_ID"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bms_ID]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[bms_ID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[bms_LastModified]"
+                      cachedDataType="dbTimeStampOffset"
+                      cachedName="bms_LastModified"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bms_LastModified]"
+                      lineageId="Package\Data Flow Task\OData Source.Outputs[Output].Columns[bms_LastModified]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwi_audit_finding]"
+                      dataType="i4"
+                      name="dwi_audit_finding" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[completion_comments]"
+                      dataType="nText"
+                      name="completion_comments" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_closed]"
+                      dataType="dbTimeStampOffset"
+                      name="date_closed"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_of_finding]"
+                      dataType="dbTimeStampOffset"
+                      name="date_of_finding"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_to_be_rectified]"
+                      dataType="dbTimeStampOffset"
+                      name="date_to_be_rectified"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[details]"
+                      dataType="nText"
+                      name="details" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[finding_number]"
+                      dataType="nText"
+                      name="finding_number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[finding_status]"
+                      dataType="nText"
+                      name="finding_status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_finding_status]"
+                      dataType="nText"
+                      name="li_finding_status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_finding_status]"
+                      dataType="i4"
+                      name="lo_finding_status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[finding_summary]"
+                      dataType="nText"
+                      name="finding_summary" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[finding_type]"
+                      dataType="nText"
+                      name="finding_type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_finding_type]"
+                      dataType="nText"
+                      name="li_finding_type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_finding_type]"
+                      dataType="i4"
+                      name="lo_finding_type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sysq_questionanswer]"
+                      dataType="nText"
+                      name="sysq_questionanswer" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sysq_questionnairename]"
+                      dataType="nText"
+                      name="sysq_questionnairename" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sysq_questionresult]"
+                      dataType="nText"
+                      name="sysq_questionresult" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sysq_questiontext]"
+                      dataType="nText"
+                      name="sysq_questiontext" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sysq_sectionname]"
+                      dataType="nText"
+                      name="sysq_sectionname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sys_all_actions_complete_email_sent]"
+                      dataType="nText"
+                      name="sys_all_actions_complete_email_sent" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_sys_all_actions_complete_email_sent]"
+                      dataType="nText"
+                      name="li_sys_all_actions_complete_email_sent" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_sys_all_actions_complete_email_sent]"
+                      dataType="i4"
+                      name="lo_sys_all_actions_complete_email_sent" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sys_date_created]"
+                      dataType="dbTimeStampOffset"
+                      name="sys_date_created"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sys_legacy_id]"
+                      dataType="nText"
+                      name="sys_legacy_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sys_raised_from_questionnaire]"
+                      dataType="nText"
+                      name="sys_raised_from_questionnaire" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_sys_raised_from_questionnaire]"
+                      dataType="nText"
+                      name="li_sys_raised_from_questionnaire" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_sys_raised_from_questionnaire]"
+                      dataType="i4"
+                      name="lo_sys_raised_from_questionnaire" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sys_raw_questionnaire_data]"
+                      dataType="nText"
+                      name="sys_raw_questionnaire_data" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sys_analytics_send_finding_owner_email]"
+                      dataType="nText"
+                      name="sys_analytics_send_finding_owner_email" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_sys_analytics_send_finding_owner_email]"
+                      dataType="nText"
+                      name="li_sys_analytics_send_finding_owner_email" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_sys_analytics_send_finding_owner_email]"
+                      dataType="i4"
+                      name="lo_sys_analytics_send_finding_owner_email" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_audit_as_a_source_of_audit_finding]"
+                      dataType="i4"
+                      name="dwk_audit_as_a_source_of_audit_finding" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_finding_owner]"
+                      dataType="i4"
+                      name="dwk_finding_owner" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_closed_by]"
+                      dataType="i4"
+                      name="dwk_closed_by" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[si_status]"
+                      dataType="nText"
+                      name="si_status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sn_status]"
+                      dataType="nText"
+                      name="sn_status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[si_base_state]"
+                      dataType="nText"
+                      name="si_base_state" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sn_base_state]"
+                      dataType="nText"
+                      name="sn_base_state" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UniqueId]"
+                      dataType="nText"
+                      name="UniqueId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bms_ID]"
+                      dataType="nText"
+                      name="bms_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bms_LastModified]"
+                      dataType="dbTimeStampOffset"
+                      name="bms_LastModified"
+                      scale="7" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Output]"
+              endId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Output"
+              startId="Package\Data Flow Task\OData Source.Outputs[Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="151.5,42"
+          Id="Package\Data Flow Task"
+          TopLeft="81,91" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Data Flow Task\OData Source"
+          TopLeft="94.75,47.25" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Data Flow Task\OLE DB Destination"
+          TopLeft="271,298.5" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Output]"
+          TopLeft="166.75,89.25">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="189.75,209.25"
+              Start="0,0"
+              End="189.75,201.75">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,100.625" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,100.625"
+                    Point2="0,104.625"
+                    Point3="4,104.625" />
+                  <mssgle:LineSegment
+                    End="185.75,104.625" />
+                  <mssgle:CubicBezierSegment
+                    Point1="185.75,104.625"
+                    Point2="189.75,104.625"
+                    Point3="189.75,108.625" />
+                  <mssgle:LineSegment
+                    End="189.75,201.75" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
