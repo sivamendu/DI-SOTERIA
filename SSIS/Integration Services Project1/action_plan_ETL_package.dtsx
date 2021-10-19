@@ -11,8 +11,8 @@
   DTS:LocaleID="3081"
   DTS:ObjectName="action_plan_ETL_package"
   DTS:PackageType="5"
-  DTS:VersionBuild="17"
-  DTS:VersionGUID="{EC7C80A9-3358-4196-AC64-602CAFB7AFD4}">
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{0A5E6466-41CC-4235-95CE-F7C216F9B7FA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
