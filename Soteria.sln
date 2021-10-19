@@ -11,6 +11,8 @@ Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Audits", "Integration Servi
 EndProject
 Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Hazards", "Integration Services Project4\Hazards.dtproj", "{4F141891-B8D3-40B2-93B2-8C8A528F8A20}"
 EndProject
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Integration Services Project5", "Integration Services Project5\Integration Services Project5.dtproj", "{1F482540-F2C7-4321-844D-358D66DD5A24}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,22 @@ Global
 		{4F141891-B8D3-40B2-93B2-8C8A528F8A20}.Release|Any CPU.Build.0 = Development
 		{4F141891-B8D3-40B2-93B2-8C8A528F8A20}.Release|x86.ActiveCfg = Development
 		{4F141891-B8D3-40B2-93B2-8C8A528F8A20}.Release|x86.Build.0 = Development
+		{1F482540-F2C7-4321-844D-358D66DD5A24}.Debug|Any CPU.ActiveCfg = Development
+		{1F482540-F2C7-4321-844D-358D66DD5A24}.Debug|Any CPU.Build.0 = Development
+		{1F482540-F2C7-4321-844D-358D66DD5A24}.Debug|x86.ActiveCfg = Development
+		{1F482540-F2C7-4321-844D-358D66DD5A24}.Debug|x86.Build.0 = Development
+		{1F482540-F2C7-4321-844D-358D66DD5A24}.DebugLocal|Any CPU.ActiveCfg = Development
+		{1F482540-F2C7-4321-844D-358D66DD5A24}.DebugLocal|Any CPU.Build.0 = Development
+		{1F482540-F2C7-4321-844D-358D66DD5A24}.DebugLocal|x86.ActiveCfg = Development
+		{1F482540-F2C7-4321-844D-358D66DD5A24}.DebugLocal|x86.Build.0 = Development
+		{1F482540-F2C7-4321-844D-358D66DD5A24}.Development|Any CPU.ActiveCfg = Development
+		{1F482540-F2C7-4321-844D-358D66DD5A24}.Development|Any CPU.Build.0 = Development
+		{1F482540-F2C7-4321-844D-358D66DD5A24}.Development|x86.ActiveCfg = Development
+		{1F482540-F2C7-4321-844D-358D66DD5A24}.Development|x86.Build.0 = Development
+		{1F482540-F2C7-4321-844D-358D66DD5A24}.Release|Any CPU.ActiveCfg = Development
+		{1F482540-F2C7-4321-844D-358D66DD5A24}.Release|Any CPU.Build.0 = Development
+		{1F482540-F2C7-4321-844D-358D66DD5A24}.Release|x86.ActiveCfg = Development
+		{1F482540-F2C7-4321-844D-358D66DD5A24}.Release|x86.Build.0 = Development
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
