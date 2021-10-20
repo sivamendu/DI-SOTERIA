@@ -1,7 +1,7 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:ObjectName="OData Source"
-  DTS:DTSID="{EC011DA1-5508-424B-BC0F-19F8F1F7AFE0}"
+  DTS:DTSID="{BEE7DA5D-E3E0-4346-AA70-7ADDCE0FBE91}"
   DTS:CreationName="ODATA">
   <DTS:ObjectData>
     <ODataConnectionManager

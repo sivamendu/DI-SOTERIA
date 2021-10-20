@@ -13,6 +13,8 @@ Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Hazards", "Integration Serv
 EndProject
 Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Incidents", "Incidents\Incidents.dtproj", "{886FCB5E-AE5A-4995-96FA-E874D5249EE4}"
 EndProject
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Injury", "Integration Services Project5\Injury.dtproj", "{489CE532-9130-417A-99D7-F430B85B5208}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -105,6 +107,22 @@ Global
 		{886FCB5E-AE5A-4995-96FA-E874D5249EE4}.Release|Any CPU.Build.0 = Development
 		{886FCB5E-AE5A-4995-96FA-E874D5249EE4}.Release|x86.ActiveCfg = Development
 		{886FCB5E-AE5A-4995-96FA-E874D5249EE4}.Release|x86.Build.0 = Development
+		{489CE532-9130-417A-99D7-F430B85B5208}.Debug|Any CPU.ActiveCfg = Development
+		{489CE532-9130-417A-99D7-F430B85B5208}.Debug|Any CPU.Build.0 = Development
+		{489CE532-9130-417A-99D7-F430B85B5208}.Debug|x86.ActiveCfg = Development
+		{489CE532-9130-417A-99D7-F430B85B5208}.Debug|x86.Build.0 = Development
+		{489CE532-9130-417A-99D7-F430B85B5208}.DebugLocal|Any CPU.ActiveCfg = Development
+		{489CE532-9130-417A-99D7-F430B85B5208}.DebugLocal|Any CPU.Build.0 = Development
+		{489CE532-9130-417A-99D7-F430B85B5208}.DebugLocal|x86.ActiveCfg = Development
+		{489CE532-9130-417A-99D7-F430B85B5208}.DebugLocal|x86.Build.0 = Development
+		{489CE532-9130-417A-99D7-F430B85B5208}.Development|Any CPU.ActiveCfg = Development
+		{489CE532-9130-417A-99D7-F430B85B5208}.Development|Any CPU.Build.0 = Development
+		{489CE532-9130-417A-99D7-F430B85B5208}.Development|x86.ActiveCfg = Development
+		{489CE532-9130-417A-99D7-F430B85B5208}.Development|x86.Build.0 = Development
+		{489CE532-9130-417A-99D7-F430B85B5208}.Release|Any CPU.ActiveCfg = Development
+		{489CE532-9130-417A-99D7-F430B85B5208}.Release|Any CPU.Build.0 = Development
+		{489CE532-9130-417A-99D7-F430B85B5208}.Release|x86.ActiveCfg = Development
+		{489CE532-9130-417A-99D7-F430B85B5208}.Release|x86.Build.0 = Development
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
