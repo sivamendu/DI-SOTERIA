@@ -1,0 +1,1237 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/20/2021 11:39:40 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="AN000529"
+  DTS:CreatorName="JHG\smendu"
+  DTS:DTSID="{12630309-30C1-41BA-8B35-EB594B7E3B53}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.113"
+  DTS:LocaleID="3081"
+  DTS:ObjectName="Date"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{615F3C9B-FAF9-4110-8464-2E52850239EC}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\dn_date"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{7E782E01-688D-4D51-B7BA-C5F4E9AA1FFB}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="dn_date"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\dn_date\dn_date"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="OData Source Component;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Read data from OData services"
+              name="dn_date"
+              usesDispositions="true">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Name of the collection to be retrieved from the service."
+                  expressionType="Notify"
+                  name="CollectionName">dn_date</property>
+                <property
+                  dataType="System.Int32"
+                  description="The default maximum length for a string that has no maxlength specified in the schema."
+                  name="DefaultStringLength">4000</property>
+                <property
+                  dataType="System.String"
+                  description="Query in the url. "
+                  expressionType="Notify"
+                  name="Query"></property>
+                <property
+                  dataType="System.String"
+                  description="Resource path of the collection to be retrieved from the service."
+                  expressionType="Notify"
+                  name="ResourcePath"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="When set to true, use the resource path as requested collection; otherwise, use the collection name."
+                  expressionType="Notify"
+                  name="UseResourcePath">false</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.OData</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\dn_date\dn_date.Connections[Connection]"
+                  connectionManagerID="{EB6552D6-5238-4E27-AFFB-86FD30816723}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OData Source]"
+                  description="Connection to OData Service"
+                  name="Connection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\dn_date\dn_date.Outputs[Output]"
+                  name="Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].Columns[dwi_date]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[dwi_date]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[dwi_date]"
+                      name="dwi_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].Columns[date_value]"
+                      dataType="dbTimeStampOffset"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[date_value]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[date_value]"
+                      name="date_value"
+                      scale="7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].Columns[date_short]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[date_short]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[date_short]"
+                      name="date_short"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].Columns[date_medium]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[date_medium]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[date_medium]"
+                      name="date_medium"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].Columns[date_long]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[date_long]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[date_long]"
+                      name="date_long"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].Columns[date_full]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[date_full]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[date_full]"
+                      name="date_full"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].Columns[day_in_year]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[day_in_year]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[day_in_year]"
+                      name="day_in_year"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].Columns[day_in_month]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[day_in_month]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[day_in_month]"
+                      name="day_in_month"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].Columns[day_in_week]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[day_in_week]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[day_in_week]"
+                      name="day_in_week"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].Columns[day_in_week_starting_sunday]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[day_in_week_starting_sunday]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[day_in_week_starting_sunday]"
+                      name="day_in_week_starting_sunday"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].Columns[day_of_week_in_month]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[day_of_week_in_month]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[day_of_week_in_month]"
+                      name="day_of_week_in_month"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].Columns[is_working_day]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[is_working_day]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[is_working_day]"
+                      name="is_working_day"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].Columns[is_weekend]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[is_weekend]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[is_weekend]"
+                      name="is_weekend"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].Columns[is_first_day_in_month]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[is_first_day_in_month]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[is_first_day_in_month]"
+                      name="is_first_day_in_month"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].Columns[is_last_day_in_month]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[is_last_day_in_month]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[is_last_day_in_month]"
+                      name="is_last_day_in_month"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].Columns[day_abbreviation]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[day_abbreviation]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[day_abbreviation]"
+                      name="day_abbreviation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].Columns[day_name]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[day_name]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[day_name]"
+                      name="day_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].Columns[week_in_year]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[week_in_year]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[week_in_year]"
+                      name="week_in_year"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].Columns[week_in_month]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[week_in_month]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[week_in_month]"
+                      name="week_in_month"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].Columns[is_first_day_in_week]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[is_first_day_in_week]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[is_first_day_in_week]"
+                      name="is_first_day_in_week"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].Columns[is_last_day_in_week]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[is_last_day_in_week]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[is_last_day_in_week]"
+                      name="is_last_day_in_week"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].Columns[month_number]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[month_number]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[month_number]"
+                      name="month_number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].Columns[month_abbreviation]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[month_abbreviation]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[month_abbreviation]"
+                      name="month_abbreviation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].Columns[month_name]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[month_name]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[month_name]"
+                      name="month_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].Columns[year2]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[year2]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[year2]"
+                      name="year2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].Columns[year4]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[year4]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[year4]"
+                      name="year4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].Columns[quarter_name]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[quarter_name]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[quarter_name]"
+                      name="quarter_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].Columns[quarter_number]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[quarter_number]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[quarter_number]"
+                      name="quarter_number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].Columns[year_quarter]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[year_quarter]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[year_quarter]"
+                      name="year_quarter"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].Columns[year_month_number]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[year_month_number]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[year_month_number]"
+                      name="year_month_number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].Columns[year_month_abbreviation]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[year_month_abbreviation]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[year_month_abbreviation]"
+                      name="year_month_abbreviation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].Columns[days_count]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[days_count]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[days_count]"
+                      name="days_count"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].Columns[working_days_count]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[working_days_count]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[working_days_count]"
+                      name="working_days_count"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[dwi_date]"
+                      dataType="i4"
+                      name="dwi_date" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[date_value]"
+                      dataType="dbTimeStampOffset"
+                      name="date_value"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[date_short]"
+                      dataType="nText"
+                      name="date_short" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[date_medium]"
+                      dataType="nText"
+                      name="date_medium" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[date_long]"
+                      dataType="nText"
+                      name="date_long" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[date_full]"
+                      dataType="nText"
+                      name="date_full" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[day_in_year]"
+                      dataType="i4"
+                      name="day_in_year" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[day_in_month]"
+                      dataType="i4"
+                      name="day_in_month" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[day_in_week]"
+                      dataType="i4"
+                      name="day_in_week" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[day_in_week_starting_sunday]"
+                      dataType="i4"
+                      name="day_in_week_starting_sunday" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[day_of_week_in_month]"
+                      dataType="i4"
+                      name="day_of_week_in_month" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[is_working_day]"
+                      dataType="nText"
+                      name="is_working_day" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[is_weekend]"
+                      dataType="nText"
+                      name="is_weekend" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[is_first_day_in_month]"
+                      dataType="nText"
+                      name="is_first_day_in_month" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[is_last_day_in_month]"
+                      dataType="nText"
+                      name="is_last_day_in_month" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[day_abbreviation]"
+                      dataType="nText"
+                      name="day_abbreviation" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[day_name]"
+                      dataType="nText"
+                      name="day_name" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[week_in_year]"
+                      dataType="i4"
+                      name="week_in_year" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[week_in_month]"
+                      dataType="i4"
+                      name="week_in_month" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[is_first_day_in_week]"
+                      dataType="nText"
+                      name="is_first_day_in_week" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[is_last_day_in_week]"
+                      dataType="nText"
+                      name="is_last_day_in_week" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[month_number]"
+                      dataType="i4"
+                      name="month_number" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[month_abbreviation]"
+                      dataType="nText"
+                      name="month_abbreviation" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[month_name]"
+                      dataType="nText"
+                      name="month_name" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[year2]"
+                      dataType="nText"
+                      name="year2" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[year4]"
+                      dataType="i4"
+                      name="year4" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[quarter_name]"
+                      dataType="nText"
+                      name="quarter_name" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[quarter_number]"
+                      dataType="i4"
+                      name="quarter_number" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[year_quarter]"
+                      dataType="nText"
+                      name="year_quarter" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[year_month_number]"
+                      dataType="nText"
+                      name="year_month_number" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[year_month_abbreviation]"
+                      dataType="nText"
+                      name="year_month_abbreviation" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[days_count]"
+                      dataType="i4"
+                      name="days_count" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\dn_date.Outputs[Output].ExternalColumns[working_days_count]"
+                      dataType="i4"
+                      name="working_days_count" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\dn_date\dn_date.Outputs[Error output]"
+                  isErrorOut="true"
+                  name="Error output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Error output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\dn_date\dn_date.Outputs[Error output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Error output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\dn_date\dn_date.Outputs[Error output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Error output].Columns[dwi_date]"
+                      dataType="i4"
+                      lineageId="Package\dn_date\dn_date.Outputs[Error output].Columns[dwi_date]"
+                      name="dwi_date" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Error output].Columns[date_value]"
+                      dataType="dbTimeStampOffset"
+                      lineageId="Package\dn_date\dn_date.Outputs[Error output].Columns[date_value]"
+                      name="date_value"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Error output].Columns[date_short]"
+                      dataType="nText"
+                      lineageId="Package\dn_date\dn_date.Outputs[Error output].Columns[date_short]"
+                      name="date_short" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Error output].Columns[date_medium]"
+                      dataType="nText"
+                      lineageId="Package\dn_date\dn_date.Outputs[Error output].Columns[date_medium]"
+                      name="date_medium" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Error output].Columns[date_long]"
+                      dataType="nText"
+                      lineageId="Package\dn_date\dn_date.Outputs[Error output].Columns[date_long]"
+                      name="date_long" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Error output].Columns[date_full]"
+                      dataType="nText"
+                      lineageId="Package\dn_date\dn_date.Outputs[Error output].Columns[date_full]"
+                      name="date_full" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Error output].Columns[day_in_year]"
+                      dataType="i4"
+                      lineageId="Package\dn_date\dn_date.Outputs[Error output].Columns[day_in_year]"
+                      name="day_in_year" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Error output].Columns[day_in_month]"
+                      dataType="i4"
+                      lineageId="Package\dn_date\dn_date.Outputs[Error output].Columns[day_in_month]"
+                      name="day_in_month" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Error output].Columns[day_in_week]"
+                      dataType="i4"
+                      lineageId="Package\dn_date\dn_date.Outputs[Error output].Columns[day_in_week]"
+                      name="day_in_week" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Error output].Columns[day_in_week_starting_sunday]"
+                      dataType="i4"
+                      lineageId="Package\dn_date\dn_date.Outputs[Error output].Columns[day_in_week_starting_sunday]"
+                      name="day_in_week_starting_sunday" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Error output].Columns[day_of_week_in_month]"
+                      dataType="i4"
+                      lineageId="Package\dn_date\dn_date.Outputs[Error output].Columns[day_of_week_in_month]"
+                      name="day_of_week_in_month" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Error output].Columns[is_working_day]"
+                      dataType="nText"
+                      lineageId="Package\dn_date\dn_date.Outputs[Error output].Columns[is_working_day]"
+                      name="is_working_day" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Error output].Columns[is_weekend]"
+                      dataType="nText"
+                      lineageId="Package\dn_date\dn_date.Outputs[Error output].Columns[is_weekend]"
+                      name="is_weekend" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Error output].Columns[is_first_day_in_month]"
+                      dataType="nText"
+                      lineageId="Package\dn_date\dn_date.Outputs[Error output].Columns[is_first_day_in_month]"
+                      name="is_first_day_in_month" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Error output].Columns[is_last_day_in_month]"
+                      dataType="nText"
+                      lineageId="Package\dn_date\dn_date.Outputs[Error output].Columns[is_last_day_in_month]"
+                      name="is_last_day_in_month" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Error output].Columns[day_abbreviation]"
+                      dataType="nText"
+                      lineageId="Package\dn_date\dn_date.Outputs[Error output].Columns[day_abbreviation]"
+                      name="day_abbreviation" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Error output].Columns[day_name]"
+                      dataType="nText"
+                      lineageId="Package\dn_date\dn_date.Outputs[Error output].Columns[day_name]"
+                      name="day_name" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Error output].Columns[week_in_year]"
+                      dataType="i4"
+                      lineageId="Package\dn_date\dn_date.Outputs[Error output].Columns[week_in_year]"
+                      name="week_in_year" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Error output].Columns[week_in_month]"
+                      dataType="i4"
+                      lineageId="Package\dn_date\dn_date.Outputs[Error output].Columns[week_in_month]"
+                      name="week_in_month" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Error output].Columns[is_first_day_in_week]"
+                      dataType="nText"
+                      lineageId="Package\dn_date\dn_date.Outputs[Error output].Columns[is_first_day_in_week]"
+                      name="is_first_day_in_week" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Error output].Columns[is_last_day_in_week]"
+                      dataType="nText"
+                      lineageId="Package\dn_date\dn_date.Outputs[Error output].Columns[is_last_day_in_week]"
+                      name="is_last_day_in_week" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Error output].Columns[month_number]"
+                      dataType="i4"
+                      lineageId="Package\dn_date\dn_date.Outputs[Error output].Columns[month_number]"
+                      name="month_number" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Error output].Columns[month_abbreviation]"
+                      dataType="nText"
+                      lineageId="Package\dn_date\dn_date.Outputs[Error output].Columns[month_abbreviation]"
+                      name="month_abbreviation" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Error output].Columns[month_name]"
+                      dataType="nText"
+                      lineageId="Package\dn_date\dn_date.Outputs[Error output].Columns[month_name]"
+                      name="month_name" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Error output].Columns[year2]"
+                      dataType="nText"
+                      lineageId="Package\dn_date\dn_date.Outputs[Error output].Columns[year2]"
+                      name="year2" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Error output].Columns[year4]"
+                      dataType="i4"
+                      lineageId="Package\dn_date\dn_date.Outputs[Error output].Columns[year4]"
+                      name="year4" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Error output].Columns[quarter_name]"
+                      dataType="nText"
+                      lineageId="Package\dn_date\dn_date.Outputs[Error output].Columns[quarter_name]"
+                      name="quarter_name" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Error output].Columns[quarter_number]"
+                      dataType="i4"
+                      lineageId="Package\dn_date\dn_date.Outputs[Error output].Columns[quarter_number]"
+                      name="quarter_number" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Error output].Columns[year_quarter]"
+                      dataType="nText"
+                      lineageId="Package\dn_date\dn_date.Outputs[Error output].Columns[year_quarter]"
+                      name="year_quarter" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Error output].Columns[year_month_number]"
+                      dataType="nText"
+                      lineageId="Package\dn_date\dn_date.Outputs[Error output].Columns[year_month_number]"
+                      name="year_month_number" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Error output].Columns[year_month_abbreviation]"
+                      dataType="nText"
+                      lineageId="Package\dn_date\dn_date.Outputs[Error output].Columns[year_month_abbreviation]"
+                      name="year_month_abbreviation" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Error output].Columns[days_count]"
+                      dataType="i4"
+                      lineageId="Package\dn_date\dn_date.Outputs[Error output].Columns[days_count]"
+                      name="days_count" />
+                    <outputColumn
+                      refId="Package\dn_date\dn_date.Outputs[Error output].Columns[working_days_count]"
+                      dataType="i4"
+                      lineageId="Package\dn_date\dn_date.Outputs[Error output].Columns[working_days_count]"
+                      name="working_days_count" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\dn_date\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Soteria].[dn_date]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\dn_date\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{DF9381F6-E3BF-42C8-97C5-F9347DFCB4A0}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[JHAUAWDWHSQLNP1.WAREHOUSE]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dwi_date]"
+                      cachedDataType="i4"
+                      cachedName="dwi_date"
+                      externalMetadataColumnId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwi_date]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[dwi_date]" />
+                    <inputColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[date_value]"
+                      cachedDataType="dbTimeStampOffset"
+                      cachedName="date_value"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_value]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[date_value]" />
+                    <inputColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[date_short]"
+                      cachedDataType="nText"
+                      cachedName="date_short"
+                      externalMetadataColumnId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_short]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[date_short]" />
+                    <inputColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[date_medium]"
+                      cachedDataType="nText"
+                      cachedName="date_medium"
+                      externalMetadataColumnId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_medium]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[date_medium]" />
+                    <inputColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[date_long]"
+                      cachedDataType="nText"
+                      cachedName="date_long"
+                      externalMetadataColumnId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_long]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[date_long]" />
+                    <inputColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[date_full]"
+                      cachedDataType="nText"
+                      cachedName="date_full"
+                      externalMetadataColumnId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_full]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[date_full]" />
+                    <inputColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[day_in_year]"
+                      cachedDataType="i4"
+                      cachedName="day_in_year"
+                      externalMetadataColumnId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[day_in_year]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[day_in_year]" />
+                    <inputColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[day_in_month]"
+                      cachedDataType="i4"
+                      cachedName="day_in_month"
+                      externalMetadataColumnId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[day_in_month]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[day_in_month]" />
+                    <inputColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[day_in_week]"
+                      cachedDataType="i4"
+                      cachedName="day_in_week"
+                      externalMetadataColumnId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[day_in_week]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[day_in_week]" />
+                    <inputColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[day_in_week_starting_sunday]"
+                      cachedDataType="i4"
+                      cachedName="day_in_week_starting_sunday"
+                      externalMetadataColumnId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[day_in_week_starting_sunday]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[day_in_week_starting_sunday]" />
+                    <inputColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[day_of_week_in_month]"
+                      cachedDataType="i4"
+                      cachedName="day_of_week_in_month"
+                      externalMetadataColumnId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[day_of_week_in_month]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[day_of_week_in_month]" />
+                    <inputColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[is_working_day]"
+                      cachedDataType="nText"
+                      cachedName="is_working_day"
+                      externalMetadataColumnId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[is_working_day]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[is_working_day]" />
+                    <inputColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[is_weekend]"
+                      cachedDataType="nText"
+                      cachedName="is_weekend"
+                      externalMetadataColumnId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[is_weekend]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[is_weekend]" />
+                    <inputColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[is_first_day_in_month]"
+                      cachedDataType="nText"
+                      cachedName="is_first_day_in_month"
+                      externalMetadataColumnId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[is_first_day_in_month]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[is_first_day_in_month]" />
+                    <inputColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[is_last_day_in_month]"
+                      cachedDataType="nText"
+                      cachedName="is_last_day_in_month"
+                      externalMetadataColumnId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[is_last_day_in_month]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[is_last_day_in_month]" />
+                    <inputColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[day_abbreviation]"
+                      cachedDataType="nText"
+                      cachedName="day_abbreviation"
+                      externalMetadataColumnId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[day_abbreviation]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[day_abbreviation]" />
+                    <inputColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[day_name]"
+                      cachedDataType="nText"
+                      cachedName="day_name"
+                      externalMetadataColumnId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[day_name]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[day_name]" />
+                    <inputColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[week_in_year]"
+                      cachedDataType="i4"
+                      cachedName="week_in_year"
+                      externalMetadataColumnId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[week_in_year]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[week_in_year]" />
+                    <inputColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[week_in_month]"
+                      cachedDataType="i4"
+                      cachedName="week_in_month"
+                      externalMetadataColumnId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[week_in_month]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[week_in_month]" />
+                    <inputColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[is_first_day_in_week]"
+                      cachedDataType="nText"
+                      cachedName="is_first_day_in_week"
+                      externalMetadataColumnId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[is_first_day_in_week]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[is_first_day_in_week]" />
+                    <inputColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[is_last_day_in_week]"
+                      cachedDataType="nText"
+                      cachedName="is_last_day_in_week"
+                      externalMetadataColumnId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[is_last_day_in_week]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[is_last_day_in_week]" />
+                    <inputColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[month_number]"
+                      cachedDataType="i4"
+                      cachedName="month_number"
+                      externalMetadataColumnId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[month_number]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[month_number]" />
+                    <inputColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[month_abbreviation]"
+                      cachedDataType="nText"
+                      cachedName="month_abbreviation"
+                      externalMetadataColumnId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[month_abbreviation]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[month_abbreviation]" />
+                    <inputColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[month_name]"
+                      cachedDataType="nText"
+                      cachedName="month_name"
+                      externalMetadataColumnId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[month_name]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[month_name]" />
+                    <inputColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[year2]"
+                      cachedDataType="nText"
+                      cachedName="year2"
+                      externalMetadataColumnId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[year2]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[year2]" />
+                    <inputColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[year4]"
+                      cachedDataType="i4"
+                      cachedName="year4"
+                      externalMetadataColumnId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[year4]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[year4]" />
+                    <inputColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[quarter_name]"
+                      cachedDataType="nText"
+                      cachedName="quarter_name"
+                      externalMetadataColumnId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[quarter_name]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[quarter_name]" />
+                    <inputColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[quarter_number]"
+                      cachedDataType="i4"
+                      cachedName="quarter_number"
+                      externalMetadataColumnId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[quarter_number]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[quarter_number]" />
+                    <inputColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[year_quarter]"
+                      cachedDataType="nText"
+                      cachedName="year_quarter"
+                      externalMetadataColumnId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[year_quarter]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[year_quarter]" />
+                    <inputColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[year_month_number]"
+                      cachedDataType="nText"
+                      cachedName="year_month_number"
+                      externalMetadataColumnId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[year_month_number]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[year_month_number]" />
+                    <inputColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[year_month_abbreviation]"
+                      cachedDataType="nText"
+                      cachedName="year_month_abbreviation"
+                      externalMetadataColumnId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[year_month_abbreviation]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[year_month_abbreviation]" />
+                    <inputColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[days_count]"
+                      cachedDataType="i4"
+                      cachedName="days_count"
+                      externalMetadataColumnId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[days_count]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[days_count]" />
+                    <inputColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[working_days_count]"
+                      cachedDataType="i4"
+                      cachedName="working_days_count"
+                      externalMetadataColumnId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[working_days_count]"
+                      lineageId="Package\dn_date\dn_date.Outputs[Output].Columns[working_days_count]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwi_date]"
+                      dataType="i4"
+                      name="dwi_date" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_value]"
+                      dataType="dbTimeStampOffset"
+                      name="date_value"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_short]"
+                      dataType="nText"
+                      name="date_short" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_medium]"
+                      dataType="nText"
+                      name="date_medium" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_long]"
+                      dataType="nText"
+                      name="date_long" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_full]"
+                      dataType="nText"
+                      name="date_full" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[day_in_year]"
+                      dataType="i4"
+                      name="day_in_year" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[day_in_month]"
+                      dataType="i4"
+                      name="day_in_month" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[day_in_week]"
+                      dataType="i4"
+                      name="day_in_week" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[day_in_week_starting_sunday]"
+                      dataType="i4"
+                      name="day_in_week_starting_sunday" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[day_of_week_in_month]"
+                      dataType="i4"
+                      name="day_of_week_in_month" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[is_working_day]"
+                      dataType="nText"
+                      name="is_working_day" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[is_weekend]"
+                      dataType="nText"
+                      name="is_weekend" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[is_first_day_in_month]"
+                      dataType="nText"
+                      name="is_first_day_in_month" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[is_last_day_in_month]"
+                      dataType="nText"
+                      name="is_last_day_in_month" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[day_abbreviation]"
+                      dataType="nText"
+                      name="day_abbreviation" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[day_name]"
+                      dataType="nText"
+                      name="day_name" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[week_in_year]"
+                      dataType="i4"
+                      name="week_in_year" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[week_in_month]"
+                      dataType="i4"
+                      name="week_in_month" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[is_first_day_in_week]"
+                      dataType="nText"
+                      name="is_first_day_in_week" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[is_last_day_in_week]"
+                      dataType="nText"
+                      name="is_last_day_in_week" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[month_number]"
+                      dataType="i4"
+                      name="month_number" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[month_abbreviation]"
+                      dataType="nText"
+                      name="month_abbreviation" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[month_name]"
+                      dataType="nText"
+                      name="month_name" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[year2]"
+                      dataType="nText"
+                      name="year2" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[year4]"
+                      dataType="i4"
+                      name="year4" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[quarter_name]"
+                      dataType="nText"
+                      name="quarter_name" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[quarter_number]"
+                      dataType="i4"
+                      name="quarter_number" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[year_quarter]"
+                      dataType="nText"
+                      name="year_quarter" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[year_month_number]"
+                      dataType="nText"
+                      name="year_month_number" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[year_month_abbreviation]"
+                      dataType="nText"
+                      name="year_month_abbreviation" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[days_count]"
+                      dataType="i4"
+                      name="days_count" />
+                    <externalMetadataColumn
+                      refId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[working_days_count]"
+                      dataType="i4"
+                      name="working_days_count" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\dn_date\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\dn_date\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\dn_date\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\dn_date\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\dn_date\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\dn_date.Paths[Output]"
+              endId="Package\dn_date\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Output"
+              startId="Package\dn_date\dn_date.Outputs[Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="117.5,42"
+          Id="Package\dn_date"
+          TopLeft="45,25" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\dn_date">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="117.5,42"
+          Id="Package\dn_date\dn_date"
+          TopLeft="81.25,17.5" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\dn_date\OLE DB Destination"
+          TopLeft="189.5,125.5" />
+        <EdgeLayout
+          Id="Package\dn_date.Paths[Output]"
+          TopLeft="140,59.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="135,66"
+              Start="0,0"
+              End="135,58.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29"
+                    Point2="0,33"
+                    Point3="4,33" />
+                  <mssgle:LineSegment
+                    End="131,33" />
+                  <mssgle:CubicBezierSegment
+                    Point1="131,33"
+                    Point2="135,33"
+                    Point3="135,37" />
+                  <mssgle:LineSegment
+                    End="135,58.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\dn_date\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
