@@ -9,9 +9,10 @@
       Url="https://jhg.nonprod.e360.saiglobal.com/test_ReportingAPI/odata/"
       ConnectionString="Service Document Url=https://jhg.nonprod.e360.saiglobal.com/test_ReportingAPI/odata/;Include Atom Elements=Auto;Include Expanded Entities=False;Integrated Security=False;User ID=soteria_reportingapi;Persist Security Info=False;Time Out=600;Schema Sample Size=25;Retry Count=5;Retry Sleep=100;Keep Alive=False;Max Received Message Size=4398046511104"
       MicrosoftOnlineServicesAuth="False"
-      AuthType="BasicAuthentication">
+      AuthType="BasicAuthentication"
+      ConnectByProxy="False">
       <Password
-        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAFE+70/WpnUKwcs0OucTP7AAAAAACAAAAAAADZgAAwAAAABAAAABu6ISQIMdcmjyGoAjHsTCxAAAAAASAAACgAAAAEAAAAHUJEUDShVatpoiRvoxJyfQ4AAAA+fQMTJJYl0OjCPmfQrwzIMVYTrDZZDfMnMbQ0Ucd9FzJm71kom6Tj2TzrLmoCqHB3iFUR1rl/j0UAAAAjCv9rDucZbh3FuyjbyyzaJeSU2Y=</Password>
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAF769Hp61JUKbFByu9PyanQAAAAACAAAAAAADZgAAwAAAABAAAAA1tu0Faw0JSj9xpASBrgadAAAAAASAAACgAAAAEAAAAOYYvOythfC42rVJH4RsTuA4AAAAu2mBsP+hwXtzMeJWtHcbzD479MTL2fx4nN8n5Ztw/DyMr5HIkv/3MHIW7f1kVEuHp+QHVYY9r5IUAAAAA/H9x2IR8ZwnP10QfPDCrU56HPw=</Password>
     </ODataConnectionManager>
   </DTS:ObjectData>
 </DTS:ConnectionManager>

@@ -11,8 +11,8 @@
   DTS:LocaleID="3081"
   DTS:ObjectName="incident_formal_root_cause_analysis"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{82FDE8A8-1707-4FB1-BB08-8760F652546A}">
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{DC986285-7043-4E74-8BAD-402BE0BDB095}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -3364,10 +3364,6 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="176,42"
-          Id="Package\Incident Formal Root Cause Analysis"
-          TopLeft="68,22" />
-        <NodeLayout
           Size="151,42"
           Id="Package\Environment Reasons"
           TopLeft="142,102" />
@@ -3375,6 +3371,10 @@
           Size="160,42"
           Id="Package\Humans Reasons"
           TopLeft="222,178" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Incident Formal Root Cause Analysis"
+          TopLeft="68,21" />
         <NodeLayout
           Size="151,42"
           Id="Package\Machines Reasons"
@@ -3393,30 +3393,30 @@
           TopLeft="538,498" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="156,64">
+          TopLeft="156,63">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="61.5,38"
+              EndConnector="61.5,39"
               Start="0,0"
-              End="61.5,30.5">
+              End="61.5,31.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15" />
+                    End="0,15.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,15"
-                    Point2="0,19"
-                    Point3="4,19" />
+                    Point1="0,15.5"
+                    Point2="0,19.5"
+                    Point3="4,19.5" />
                   <mssgle:LineSegment
-                    End="57.5,19" />
+                    End="57.5,19.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="57.5,19"
-                    Point2="61.5,19"
-                    Point3="61.5,23" />
+                    Point1="57.5,19.5"
+                    Point2="61.5,19.5"
+                    Point3="61.5,23.5" />
                   <mssgle:LineSegment
-                    End="61.5,30.5" />
+                    End="61.5,31.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3599,69 +3599,6 @@
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Incident Formal Root Cause Analysis">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="144,42"
-          Id="Package\Incident Formal Root Cause Analysis\OData Source"
-          TopLeft="319,100" />
-        <NodeLayout
-          Size="171,42"
-          Id="Package\Incident Formal Root Cause Analysis\OLE DB Destination"
-          TopLeft="498,251" />
-        <EdgeLayout
-          Id="Package\Incident Formal Root Cause Analysis.Paths[Output]"
-          TopLeft="391,142">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="192.5,109"
-              Start="0,0"
-              End="192.5,101.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,50.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,50.5"
-                    Point2="0,54.5"
-                    Point3="4,54.5" />
-                  <mssgle:LineSegment
-                    End="188.5,54.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="188.5,54.5"
-                    Point2="192.5,54.5"
-                    Point3="192.5,58.5" />
-                  <mssgle:LineSegment
-                    End="192.5,101.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Incident Formal Root Cause Analysis\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
     design-time-name="Package\Environment Reasons">
     <LayoutInfo>
       <GraphLayout
@@ -3776,6 +3713,69 @@
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\Humans Reasons\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Incident Formal Root Cause Analysis">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Incident Formal Root Cause Analysis\OData Source"
+          TopLeft="319,100" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Incident Formal Root Cause Analysis\OLE DB Destination"
+          TopLeft="498,251" />
+        <EdgeLayout
+          Id="Package\Incident Formal Root Cause Analysis.Paths[Output]"
+          TopLeft="391,142">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="192.5,109"
+              Start="0,0"
+              End="192.5,101.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,50.5"
+                    Point2="0,54.5"
+                    Point3="4,54.5" />
+                  <mssgle:LineSegment
+                    End="188.5,54.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="188.5,54.5"
+                    Point2="192.5,54.5"
+                    Point3="192.5,58.5" />
+                  <mssgle:LineSegment
+                    End="192.5,101.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Incident Formal Root Cause Analysis\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
