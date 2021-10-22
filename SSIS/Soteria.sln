@@ -21,6 +21,8 @@ Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Time", "Integration Service
 EndProject
 Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Geography codes", "Integration Services Project9\Geography codes.dtproj", "{F736AFF8-AEE2-4851-BED8-812B626AD667}"
 EndProject
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "AOD Testing", "Integration Services Project10\AOD Testing.dtproj", "{F0F452FF-4A13-4605-B312-84A7472E9B6A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -177,6 +179,22 @@ Global
 		{F736AFF8-AEE2-4851-BED8-812B626AD667}.Release|Any CPU.Build.0 = Development
 		{F736AFF8-AEE2-4851-BED8-812B626AD667}.Release|x86.ActiveCfg = Development
 		{F736AFF8-AEE2-4851-BED8-812B626AD667}.Release|x86.Build.0 = Development
+		{F0F452FF-4A13-4605-B312-84A7472E9B6A}.Debug|Any CPU.ActiveCfg = Development
+		{F0F452FF-4A13-4605-B312-84A7472E9B6A}.Debug|Any CPU.Build.0 = Development
+		{F0F452FF-4A13-4605-B312-84A7472E9B6A}.Debug|x86.ActiveCfg = Development
+		{F0F452FF-4A13-4605-B312-84A7472E9B6A}.Debug|x86.Build.0 = Development
+		{F0F452FF-4A13-4605-B312-84A7472E9B6A}.DebugLocal|Any CPU.ActiveCfg = Development
+		{F0F452FF-4A13-4605-B312-84A7472E9B6A}.DebugLocal|Any CPU.Build.0 = Development
+		{F0F452FF-4A13-4605-B312-84A7472E9B6A}.DebugLocal|x86.ActiveCfg = Development
+		{F0F452FF-4A13-4605-B312-84A7472E9B6A}.DebugLocal|x86.Build.0 = Development
+		{F0F452FF-4A13-4605-B312-84A7472E9B6A}.Development|Any CPU.ActiveCfg = Development
+		{F0F452FF-4A13-4605-B312-84A7472E9B6A}.Development|Any CPU.Build.0 = Development
+		{F0F452FF-4A13-4605-B312-84A7472E9B6A}.Development|x86.ActiveCfg = Development
+		{F0F452FF-4A13-4605-B312-84A7472E9B6A}.Development|x86.Build.0 = Development
+		{F0F452FF-4A13-4605-B312-84A7472E9B6A}.Release|Any CPU.ActiveCfg = Development
+		{F0F452FF-4A13-4605-B312-84A7472E9B6A}.Release|Any CPU.Build.0 = Development
+		{F0F452FF-4A13-4605-B312-84A7472E9B6A}.Release|x86.ActiveCfg = Development
+		{F0F452FF-4A13-4605-B312-84A7472E9B6A}.Release|x86.Build.0 = Development
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
