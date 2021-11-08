@@ -11,8 +11,8 @@
   DTS:LocaleID="3081"
   DTS:ObjectName="incident"
   DTS:PackageType="5"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{CCF6599E-6DDA-463C-9C6A-9D79453D036A}">
+  DTS:VersionBuild="26"
+  DTS:VersionGUID="{5A9B805A-C2A3-4C34-9950-6FC8C754AB12}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -509,7 +509,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[soteria].[incident_formal_root_cause_analysis_consequences]</property>
+                  name="OpenRowset">[Soteria].[incident_consequences]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -1235,14 +1235,13 @@
                       scale="7"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Incident\OData Source.Outputs[Output].Columns[entered_time]"
-                      dataType="dbTime2"
+                      refId="Package\Incident\OData Source.Outputs[Output].Columns[entered_time_as_text]"
+                      dataType="nText"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Incident\OData Source.Outputs[Output].ExternalColumns[entered_time]"
-                      lineageId="Package\Incident\OData Source.Outputs[Output].Columns[entered_time]"
-                      name="entered_time"
-                      scale="7"
+                      externalMetadataColumnId="Package\Incident\OData Source.Outputs[Output].ExternalColumns[entered_time_as_text]"
+                      lineageId="Package\Incident\OData Source.Outputs[Output].Columns[entered_time_as_text]"
+                      name="entered_time_as_text"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Incident\OData Source.Outputs[Output].Columns[exact_location]"
@@ -1280,16 +1279,6 @@
                       externalMetadataColumnId="Package\Incident\OData Source.Outputs[Output].ExternalColumns[incident_number]"
                       lineageId="Package\Incident\OData Source.Outputs[Output].Columns[incident_number]"
                       name="incident_number"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Incident\OData Source.Outputs[Output].Columns[incident_time]"
-                      dataType="dbTime2"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Incident\OData Source.Outputs[Output].ExternalColumns[incident_time]"
-                      lineageId="Package\Incident\OData Source.Outputs[Output].Columns[incident_time]"
-                      name="incident_time"
-                      scale="7"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Incident\OData Source.Outputs[Output].Columns[investigation_due_date]"
@@ -1392,6 +1381,15 @@
                       name="latitude"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
+                      refId="Package\Incident\OData Source.Outputs[Output].Columns[location_details]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Incident\OData Source.Outputs[Output].ExternalColumns[location_details]"
+                      lineageId="Package\Incident\OData Source.Outputs[Output].Columns[location_details]"
+                      name="location_details"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
                       refId="Package\Incident\OData Source.Outputs[Output].Columns[longitude]"
                       dataType="r8"
                       errorOrTruncationOperation="Conversion"
@@ -1444,16 +1442,6 @@
                       externalMetadataColumnId="Package\Incident\OData Source.Outputs[Output].ExternalColumns[reported_date]"
                       lineageId="Package\Incident\OData Source.Outputs[Output].Columns[reported_date]"
                       name="reported_date"
-                      scale="7"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Incident\OData Source.Outputs[Output].Columns[reported_time]"
-                      dataType="dbTime2"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Incident\OData Source.Outputs[Output].ExternalColumns[reported_time]"
-                      lineageId="Package\Incident\OData Source.Outputs[Output].Columns[reported_time]"
-                      name="reported_time"
                       scale="7"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
@@ -1582,6 +1570,16 @@
                       externalMetadataColumnId="Package\Incident\OData Source.Outputs[Output].ExternalColumns[lo_zz_potential_severity]"
                       lineageId="Package\Incident\OData Source.Outputs[Output].Columns[lo_zz_potential_severity]"
                       name="lo_zz_potential_severity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Incident\OData Source.Outputs[Output].Columns[sys_external_data_import_date]"
+                      dataType="dbTimeStampOffset"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Incident\OData Source.Outputs[Output].ExternalColumns[sys_external_data_import_date]"
+                      lineageId="Package\Incident\OData Source.Outputs[Output].Columns[sys_external_data_import_date]"
+                      name="sys_external_data_import_date"
+                      scale="7"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Incident\OData Source.Outputs[Output].Columns[sys_has_injuries_missing_days_lost_records]"
@@ -1719,6 +1717,60 @@
                       name="lo_sys_has_open_actions"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
+                      refId="Package\Incident\OData Source.Outputs[Output].Columns[sys_is_external_import]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Incident\OData Source.Outputs[Output].ExternalColumns[sys_is_external_import]"
+                      lineageId="Package\Incident\OData Source.Outputs[Output].Columns[sys_is_external_import]"
+                      name="sys_is_external_import"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Incident\OData Source.Outputs[Output].Columns[li_sys_is_external_import]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Incident\OData Source.Outputs[Output].ExternalColumns[li_sys_is_external_import]"
+                      lineageId="Package\Incident\OData Source.Outputs[Output].Columns[li_sys_is_external_import]"
+                      name="li_sys_is_external_import"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Incident\OData Source.Outputs[Output].Columns[lo_sys_is_external_import]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Incident\OData Source.Outputs[Output].ExternalColumns[lo_sys_is_external_import]"
+                      lineageId="Package\Incident\OData Source.Outputs[Output].Columns[lo_sys_is_external_import]"
+                      name="lo_sys_is_external_import"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Incident\OData Source.Outputs[Output].Columns[sys_is_jhet_import]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Incident\OData Source.Outputs[Output].ExternalColumns[sys_is_jhet_import]"
+                      lineageId="Package\Incident\OData Source.Outputs[Output].Columns[sys_is_jhet_import]"
+                      name="sys_is_jhet_import"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Incident\OData Source.Outputs[Output].Columns[li_sys_is_jhet_import]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Incident\OData Source.Outputs[Output].ExternalColumns[li_sys_is_jhet_import]"
+                      lineageId="Package\Incident\OData Source.Outputs[Output].Columns[li_sys_is_jhet_import]"
+                      name="li_sys_is_jhet_import"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Incident\OData Source.Outputs[Output].Columns[lo_sys_is_jhet_import]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Incident\OData Source.Outputs[Output].ExternalColumns[lo_sys_is_jhet_import]"
+                      lineageId="Package\Incident\OData Source.Outputs[Output].Columns[lo_sys_is_jhet_import]"
+                      name="lo_sys_is_jhet_import"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
                       refId="Package\Incident\OData Source.Outputs[Output].Columns[sys_legacy_incident_number]"
                       dataType="nText"
                       errorOrTruncationOperation="Conversion"
@@ -1753,6 +1805,24 @@
                       externalMetadataColumnId="Package\Incident\OData Source.Outputs[Output].ExternalColumns[lo_sys_rail_safety_action_controller_required]"
                       lineageId="Package\Incident\OData Source.Outputs[Output].Columns[lo_sys_rail_safety_action_controller_required]"
                       name="lo_sys_rail_safety_action_controller_required"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Incident\OData Source.Outputs[Output].Columns[incident_time_as_text]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Incident\OData Source.Outputs[Output].ExternalColumns[incident_time_as_text]"
+                      lineageId="Package\Incident\OData Source.Outputs[Output].Columns[incident_time_as_text]"
+                      name="incident_time_as_text"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Incident\OData Source.Outputs[Output].Columns[reported_time_as_text]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Incident\OData Source.Outputs[Output].ExternalColumns[reported_time_as_text]"
+                      lineageId="Package\Incident\OData Source.Outputs[Output].Columns[reported_time_as_text]"
+                      name="reported_time_as_text"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Incident\OData Source.Outputs[Output].Columns[dwk_entity_responsible]"
@@ -1972,6 +2042,10 @@
                       name="entered_time"
                       scale="7" />
                     <externalMetadataColumn
+                      refId="Package\Incident\OData Source.Outputs[Output].ExternalColumns[entered_time_as_text]"
+                      dataType="nText"
+                      name="entered_time_as_text" />
+                    <externalMetadataColumn
                       refId="Package\Incident\OData Source.Outputs[Output].ExternalColumns[exact_location]"
                       dataType="nText"
                       name="exact_location" />
@@ -2038,6 +2112,10 @@
                       refId="Package\Incident\OData Source.Outputs[Output].ExternalColumns[latitude]"
                       dataType="r8"
                       name="latitude" />
+                    <externalMetadataColumn
+                      refId="Package\Incident\OData Source.Outputs[Output].ExternalColumns[location_details]"
+                      dataType="nText"
+                      name="location_details" />
                     <externalMetadataColumn
                       refId="Package\Incident\OData Source.Outputs[Output].ExternalColumns[longitude]"
                       dataType="r8"
@@ -2126,6 +2204,11 @@
                       dataType="i4"
                       name="lo_zz_potential_severity" />
                     <externalMetadataColumn
+                      refId="Package\Incident\OData Source.Outputs[Output].ExternalColumns[sys_external_data_import_date]"
+                      dataType="dbTimeStampOffset"
+                      name="sys_external_data_import_date"
+                      scale="7" />
+                    <externalMetadataColumn
                       refId="Package\Incident\OData Source.Outputs[Output].ExternalColumns[sys_has_injuries_missing_days_lost_records]"
                       dataType="nText"
                       name="sys_has_injuries_missing_days_lost_records" />
@@ -2186,6 +2269,30 @@
                       dataType="i4"
                       name="lo_sys_has_open_actions" />
                     <externalMetadataColumn
+                      refId="Package\Incident\OData Source.Outputs[Output].ExternalColumns[sys_is_external_import]"
+                      dataType="nText"
+                      name="sys_is_external_import" />
+                    <externalMetadataColumn
+                      refId="Package\Incident\OData Source.Outputs[Output].ExternalColumns[li_sys_is_external_import]"
+                      dataType="nText"
+                      name="li_sys_is_external_import" />
+                    <externalMetadataColumn
+                      refId="Package\Incident\OData Source.Outputs[Output].ExternalColumns[lo_sys_is_external_import]"
+                      dataType="i4"
+                      name="lo_sys_is_external_import" />
+                    <externalMetadataColumn
+                      refId="Package\Incident\OData Source.Outputs[Output].ExternalColumns[sys_is_jhet_import]"
+                      dataType="nText"
+                      name="sys_is_jhet_import" />
+                    <externalMetadataColumn
+                      refId="Package\Incident\OData Source.Outputs[Output].ExternalColumns[li_sys_is_jhet_import]"
+                      dataType="nText"
+                      name="li_sys_is_jhet_import" />
+                    <externalMetadataColumn
+                      refId="Package\Incident\OData Source.Outputs[Output].ExternalColumns[lo_sys_is_jhet_import]"
+                      dataType="i4"
+                      name="lo_sys_is_jhet_import" />
+                    <externalMetadataColumn
                       refId="Package\Incident\OData Source.Outputs[Output].ExternalColumns[sys_legacy_incident_number]"
                       dataType="nText"
                       name="sys_legacy_incident_number" />
@@ -2201,6 +2308,14 @@
                       refId="Package\Incident\OData Source.Outputs[Output].ExternalColumns[lo_sys_rail_safety_action_controller_required]"
                       dataType="i4"
                       name="lo_sys_rail_safety_action_controller_required" />
+                    <externalMetadataColumn
+                      refId="Package\Incident\OData Source.Outputs[Output].ExternalColumns[incident_time_as_text]"
+                      dataType="nText"
+                      name="incident_time_as_text" />
+                    <externalMetadataColumn
+                      refId="Package\Incident\OData Source.Outputs[Output].ExternalColumns[reported_time_as_text]"
+                      dataType="nText"
+                      name="reported_time_as_text" />
                     <externalMetadataColumn
                       refId="Package\Incident\OData Source.Outputs[Output].ExternalColumns[dwk_entity_responsible]"
                       dataType="i4"
@@ -2379,6 +2494,11 @@
                       name="entered_time"
                       scale="7" />
                     <outputColumn
+                      refId="Package\Incident\OData Source.Outputs[Error output].Columns[entered_time_as_text]"
+                      dataType="nText"
+                      lineageId="Package\Incident\OData Source.Outputs[Error output].Columns[entered_time_as_text]"
+                      name="entered_time_as_text" />
+                    <outputColumn
                       refId="Package\Incident\OData Source.Outputs[Error output].Columns[exact_location]"
                       dataType="nText"
                       lineageId="Package\Incident\OData Source.Outputs[Error output].Columns[exact_location]"
@@ -2461,6 +2581,11 @@
                       dataType="r8"
                       lineageId="Package\Incident\OData Source.Outputs[Error output].Columns[latitude]"
                       name="latitude" />
+                    <outputColumn
+                      refId="Package\Incident\OData Source.Outputs[Error output].Columns[location_details]"
+                      dataType="nText"
+                      lineageId="Package\Incident\OData Source.Outputs[Error output].Columns[location_details]"
+                      name="location_details" />
                     <outputColumn
                       refId="Package\Incident\OData Source.Outputs[Error output].Columns[longitude]"
                       dataType="r8"
@@ -2570,6 +2695,12 @@
                       lineageId="Package\Incident\OData Source.Outputs[Error output].Columns[lo_zz_potential_severity]"
                       name="lo_zz_potential_severity" />
                     <outputColumn
+                      refId="Package\Incident\OData Source.Outputs[Error output].Columns[sys_external_data_import_date]"
+                      dataType="dbTimeStampOffset"
+                      lineageId="Package\Incident\OData Source.Outputs[Error output].Columns[sys_external_data_import_date]"
+                      name="sys_external_data_import_date"
+                      scale="7" />
+                    <outputColumn
                       refId="Package\Incident\OData Source.Outputs[Error output].Columns[sys_has_injuries_missing_days_lost_records]"
                       dataType="nText"
                       lineageId="Package\Incident\OData Source.Outputs[Error output].Columns[sys_has_injuries_missing_days_lost_records]"
@@ -2645,6 +2776,36 @@
                       lineageId="Package\Incident\OData Source.Outputs[Error output].Columns[lo_sys_has_open_actions]"
                       name="lo_sys_has_open_actions" />
                     <outputColumn
+                      refId="Package\Incident\OData Source.Outputs[Error output].Columns[sys_is_external_import]"
+                      dataType="nText"
+                      lineageId="Package\Incident\OData Source.Outputs[Error output].Columns[sys_is_external_import]"
+                      name="sys_is_external_import" />
+                    <outputColumn
+                      refId="Package\Incident\OData Source.Outputs[Error output].Columns[li_sys_is_external_import]"
+                      dataType="nText"
+                      lineageId="Package\Incident\OData Source.Outputs[Error output].Columns[li_sys_is_external_import]"
+                      name="li_sys_is_external_import" />
+                    <outputColumn
+                      refId="Package\Incident\OData Source.Outputs[Error output].Columns[lo_sys_is_external_import]"
+                      dataType="i4"
+                      lineageId="Package\Incident\OData Source.Outputs[Error output].Columns[lo_sys_is_external_import]"
+                      name="lo_sys_is_external_import" />
+                    <outputColumn
+                      refId="Package\Incident\OData Source.Outputs[Error output].Columns[sys_is_jhet_import]"
+                      dataType="nText"
+                      lineageId="Package\Incident\OData Source.Outputs[Error output].Columns[sys_is_jhet_import]"
+                      name="sys_is_jhet_import" />
+                    <outputColumn
+                      refId="Package\Incident\OData Source.Outputs[Error output].Columns[li_sys_is_jhet_import]"
+                      dataType="nText"
+                      lineageId="Package\Incident\OData Source.Outputs[Error output].Columns[li_sys_is_jhet_import]"
+                      name="li_sys_is_jhet_import" />
+                    <outputColumn
+                      refId="Package\Incident\OData Source.Outputs[Error output].Columns[lo_sys_is_jhet_import]"
+                      dataType="i4"
+                      lineageId="Package\Incident\OData Source.Outputs[Error output].Columns[lo_sys_is_jhet_import]"
+                      name="lo_sys_is_jhet_import" />
+                    <outputColumn
                       refId="Package\Incident\OData Source.Outputs[Error output].Columns[sys_legacy_incident_number]"
                       dataType="nText"
                       lineageId="Package\Incident\OData Source.Outputs[Error output].Columns[sys_legacy_incident_number]"
@@ -2664,6 +2825,16 @@
                       dataType="i4"
                       lineageId="Package\Incident\OData Source.Outputs[Error output].Columns[lo_sys_rail_safety_action_controller_required]"
                       name="lo_sys_rail_safety_action_controller_required" />
+                    <outputColumn
+                      refId="Package\Incident\OData Source.Outputs[Error output].Columns[incident_time_as_text]"
+                      dataType="nText"
+                      lineageId="Package\Incident\OData Source.Outputs[Error output].Columns[incident_time_as_text]"
+                      name="incident_time_as_text" />
+                    <outputColumn
+                      refId="Package\Incident\OData Source.Outputs[Error output].Columns[reported_time_as_text]"
+                      dataType="nText"
+                      lineageId="Package\Incident\OData Source.Outputs[Error output].Columns[reported_time_as_text]"
+                      name="reported_time_as_text" />
                     <outputColumn
                       refId="Package\Incident\OData Source.Outputs[Error output].Columns[dwk_entity_responsible]"
                       dataType="i4"
@@ -2927,12 +3098,11 @@
                       externalMetadataColumnId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[entered_date]"
                       lineageId="Package\Incident\OData Source.Outputs[Output].Columns[entered_date]" />
                     <inputColumn
-                      refId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[entered_time]"
-                      cachedDataType="dbTime2"
-                      cachedName="entered_time"
-                      cachedScale="7"
-                      externalMetadataColumnId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[entered_time]"
-                      lineageId="Package\Incident\OData Source.Outputs[Output].Columns[entered_time]" />
+                      refId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[entered_time_as_text]"
+                      cachedDataType="nText"
+                      cachedName="entered_time_as_text"
+                      externalMetadataColumnId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[entered_time_as_text]"
+                      lineageId="Package\Incident\OData Source.Outputs[Output].Columns[entered_time_as_text]" />
                     <inputColumn
                       refId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[exact_location]"
                       cachedDataType="nText"
@@ -2958,13 +3128,6 @@
                       cachedName="incident_number"
                       externalMetadataColumnId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[incident_number]"
                       lineageId="Package\Incident\OData Source.Outputs[Output].Columns[incident_number]" />
-                    <inputColumn
-                      refId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[incident_time]"
-                      cachedDataType="dbTime2"
-                      cachedName="incident_time"
-                      cachedScale="7"
-                      externalMetadataColumnId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[incident_time]"
-                      lineageId="Package\Incident\OData Source.Outputs[Output].Columns[incident_time]" />
                     <inputColumn
                       refId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[investigation_due_date]"
                       cachedDataType="dbTimeStampOffset"
@@ -3033,6 +3196,12 @@
                       externalMetadataColumnId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[latitude]"
                       lineageId="Package\Incident\OData Source.Outputs[Output].Columns[latitude]" />
                     <inputColumn
+                      refId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[location_details]"
+                      cachedDataType="nText"
+                      cachedName="location_details"
+                      externalMetadataColumnId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[location_details]"
+                      lineageId="Package\Incident\OData Source.Outputs[Output].Columns[location_details]" />
+                    <inputColumn
                       refId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[longitude]"
                       cachedDataType="r8"
                       cachedName="longitude"
@@ -3069,13 +3238,6 @@
                       cachedScale="7"
                       externalMetadataColumnId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[reported_date]"
                       lineageId="Package\Incident\OData Source.Outputs[Output].Columns[reported_date]" />
-                    <inputColumn
-                      refId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[reported_time]"
-                      cachedDataType="dbTime2"
-                      cachedName="reported_time"
-                      cachedScale="7"
-                      externalMetadataColumnId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[reported_time]"
-                      lineageId="Package\Incident\OData Source.Outputs[Output].Columns[reported_time]" />
                     <inputColumn
                       refId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sign_off_comments]"
                       cachedDataType="nText"
@@ -3161,6 +3323,13 @@
                       cachedName="lo_zz_potential_severity"
                       externalMetadataColumnId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_zz_potential_severity]"
                       lineageId="Package\Incident\OData Source.Outputs[Output].Columns[lo_zz_potential_severity]" />
+                    <inputColumn
+                      refId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sys_external_data_import_date]"
+                      cachedDataType="dbTimeStampOffset"
+                      cachedName="sys_external_data_import_date"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sys_external_data_import_date]"
+                      lineageId="Package\Incident\OData Source.Outputs[Output].Columns[sys_external_data_import_date]" />
                     <inputColumn
                       refId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sys_has_injuries_missing_days_lost_records]"
                       cachedDataType="nText"
@@ -3252,6 +3421,42 @@
                       externalMetadataColumnId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_sys_has_open_actions]"
                       lineageId="Package\Incident\OData Source.Outputs[Output].Columns[lo_sys_has_open_actions]" />
                     <inputColumn
+                      refId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sys_is_external_import]"
+                      cachedDataType="nText"
+                      cachedName="sys_is_external_import"
+                      externalMetadataColumnId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sys_is_external_import]"
+                      lineageId="Package\Incident\OData Source.Outputs[Output].Columns[sys_is_external_import]" />
+                    <inputColumn
+                      refId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[li_sys_is_external_import]"
+                      cachedDataType="nText"
+                      cachedName="li_sys_is_external_import"
+                      externalMetadataColumnId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_sys_is_external_import]"
+                      lineageId="Package\Incident\OData Source.Outputs[Output].Columns[li_sys_is_external_import]" />
+                    <inputColumn
+                      refId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[lo_sys_is_external_import]"
+                      cachedDataType="i4"
+                      cachedName="lo_sys_is_external_import"
+                      externalMetadataColumnId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_sys_is_external_import]"
+                      lineageId="Package\Incident\OData Source.Outputs[Output].Columns[lo_sys_is_external_import]" />
+                    <inputColumn
+                      refId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sys_is_jhet_import]"
+                      cachedDataType="nText"
+                      cachedName="sys_is_jhet_import"
+                      externalMetadataColumnId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sys_is_jhet_import]"
+                      lineageId="Package\Incident\OData Source.Outputs[Output].Columns[sys_is_jhet_import]" />
+                    <inputColumn
+                      refId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[li_sys_is_jhet_import]"
+                      cachedDataType="nText"
+                      cachedName="li_sys_is_jhet_import"
+                      externalMetadataColumnId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_sys_is_jhet_import]"
+                      lineageId="Package\Incident\OData Source.Outputs[Output].Columns[li_sys_is_jhet_import]" />
+                    <inputColumn
+                      refId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[lo_sys_is_jhet_import]"
+                      cachedDataType="i4"
+                      cachedName="lo_sys_is_jhet_import"
+                      externalMetadataColumnId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_sys_is_jhet_import]"
+                      lineageId="Package\Incident\OData Source.Outputs[Output].Columns[lo_sys_is_jhet_import]" />
+                    <inputColumn
                       refId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sys_legacy_incident_number]"
                       cachedDataType="nText"
                       cachedName="sys_legacy_incident_number"
@@ -3275,6 +3480,18 @@
                       cachedName="lo_sys_rail_safety_action_controller_required"
                       externalMetadataColumnId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_sys_rail_safety_action_controller_required]"
                       lineageId="Package\Incident\OData Source.Outputs[Output].Columns[lo_sys_rail_safety_action_controller_required]" />
+                    <inputColumn
+                      refId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[incident_time_as_text]"
+                      cachedDataType="nText"
+                      cachedName="incident_time_as_text"
+                      externalMetadataColumnId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[incident_time_as_text]"
+                      lineageId="Package\Incident\OData Source.Outputs[Output].Columns[incident_time_as_text]" />
+                    <inputColumn
+                      refId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[reported_time_as_text]"
+                      cachedDataType="nText"
+                      cachedName="reported_time_as_text"
+                      externalMetadataColumnId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[reported_time_as_text]"
+                      lineageId="Package\Incident\OData Source.Outputs[Output].Columns[reported_time_as_text]" />
                     <inputColumn
                       refId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dwk_entity_responsible]"
                       cachedDataType="i4"
@@ -3444,9 +3661,13 @@
                       scale="7" />
                     <externalMetadataColumn
                       refId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[entered_time]"
-                      dataType="dbTime2"
+                      dataType="dbTimeStampOffset"
                       name="entered_time"
                       scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[entered_time_as_text]"
+                      dataType="nText"
+                      name="entered_time_as_text" />
                     <externalMetadataColumn
                       refId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[exact_location]"
                       dataType="nText"
@@ -3466,7 +3687,7 @@
                       name="incident_number" />
                     <externalMetadataColumn
                       refId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[incident_time]"
-                      dataType="dbTime2"
+                      dataType="dbTimeStampOffset"
                       name="incident_time"
                       scale="7" />
                     <externalMetadataColumn
@@ -3515,6 +3736,10 @@
                       dataType="r8"
                       name="latitude" />
                     <externalMetadataColumn
+                      refId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[location_details]"
+                      dataType="nText"
+                      name="location_details" />
+                    <externalMetadataColumn
                       refId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[longitude]"
                       dataType="r8"
                       name="longitude" />
@@ -3541,7 +3766,7 @@
                       scale="7" />
                     <externalMetadataColumn
                       refId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[reported_time]"
-                      dataType="dbTime2"
+                      dataType="dbTimeStampOffset"
                       name="reported_time"
                       scale="7" />
                     <externalMetadataColumn
@@ -3601,6 +3826,11 @@
                       refId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_zz_potential_severity]"
                       dataType="i4"
                       name="lo_zz_potential_severity" />
+                    <externalMetadataColumn
+                      refId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sys_external_data_import_date]"
+                      dataType="dbTimeStampOffset"
+                      name="sys_external_data_import_date"
+                      scale="7" />
                     <externalMetadataColumn
                       refId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sys_has_injuries_missing_days_lost_records]"
                       dataType="nText"
@@ -3662,6 +3892,30 @@
                       dataType="i4"
                       name="lo_sys_has_open_actions" />
                     <externalMetadataColumn
+                      refId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sys_is_external_import]"
+                      dataType="nText"
+                      name="sys_is_external_import" />
+                    <externalMetadataColumn
+                      refId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_sys_is_external_import]"
+                      dataType="nText"
+                      name="li_sys_is_external_import" />
+                    <externalMetadataColumn
+                      refId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_sys_is_external_import]"
+                      dataType="i4"
+                      name="lo_sys_is_external_import" />
+                    <externalMetadataColumn
+                      refId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sys_is_jhet_import]"
+                      dataType="nText"
+                      name="sys_is_jhet_import" />
+                    <externalMetadataColumn
+                      refId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[li_sys_is_jhet_import]"
+                      dataType="nText"
+                      name="li_sys_is_jhet_import" />
+                    <externalMetadataColumn
+                      refId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_sys_is_jhet_import]"
+                      dataType="i4"
+                      name="lo_sys_is_jhet_import" />
+                    <externalMetadataColumn
                       refId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sys_legacy_incident_number]"
                       dataType="nText"
                       name="sys_legacy_incident_number" />
@@ -3677,6 +3931,14 @@
                       refId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lo_sys_rail_safety_action_controller_required]"
                       dataType="i4"
                       name="lo_sys_rail_safety_action_controller_required" />
+                    <externalMetadataColumn
+                      refId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[incident_time_as_text]"
+                      dataType="nText"
+                      name="incident_time_as_text" />
+                    <externalMetadataColumn
+                      refId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[reported_time_as_text]"
+                      dataType="nText"
+                      name="reported_time_as_text" />
                     <externalMetadataColumn
                       refId="Package\Incident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dwk_entity_responsible]"
                       dataType="i4"
@@ -3781,6 +4043,7 @@
       DTS:refId="Package\Interested Stakeholders"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{0267676a-9aaa-484f-ade9-29061da5039b}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -4074,6 +4337,7 @@
       DTS:refId="Package\Job Being Performed"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{96d7a24d-df72-410e-b2cf-8795ffcb9a5b}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -4367,6 +4631,7 @@
       DTS:refId="Package\People Notified"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{ccb93af1-39e2-4e1f-963a-06832e544497}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -4660,6 +4925,7 @@
       DTS:refId="Package\Related Processes"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{82964491-9903-4cb2-a780-238dd522bb8e}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -4953,6 +5219,7 @@
       DTS:refId="Package\Witnesses"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{80bf94e3-3d8e-4f77-bdff-79fbbe43517e}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -5255,11 +5522,11 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{715E5B34-C0BD-4A64-AD4B-E429E7858501}"
+      DTS:DTSID="{8E821102-4022-46DA-992A-4A845A843444}"
       DTS:From="Package\Company Involved"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
-      DTS:To="Package\Interested Stakeholders" />
+      DTS:To="Package\Consequences" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
@@ -5295,11 +5562,11 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
       DTS:CreationName=""
-      DTS:DTSID="{8058201E-E7AB-49D0-AA18-D239FA93178B}"
-      DTS:From="Package\Witnesses"
+      DTS:DTSID="{0C9C343D-74F3-49AD-B099-26E8895C8ACA}"
+      DTS:From="Package\Global Mandatory Requirements"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 6"
-      DTS:To="Package\Consequences" />
+      DTS:To="Package\Interested Stakeholders" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
       DTS:CreationName=""
@@ -5324,210 +5591,48 @@
         <NodeLayout
           Size="151,42"
           Id="Package\Company Involved"
-          TopLeft="201,170" />
+          TopLeft="104.5,82.75" />
+        <NodeLayout
+          Size="146,42"
+          Id="Package\Consequences"
+          TopLeft="181.5,155.75" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Global Mandatory Requirements"
+          TopLeft="259.5,232.75" />
         <NodeLayout
           Size="117,42"
           Id="Package\Incident"
-          TopLeft="140,83" />
-        <NodeLayout
-          Size="150,42"
-          Id="Package\People Notified"
-          TopLeft="415,420" />
+          TopLeft="42.5,11.75" />
         <NodeLayout
           Size="157,42"
           Id="Package\Interested Stakeholders"
-          TopLeft="266,255" />
+          TopLeft="374.5,308.75" />
         <NodeLayout
           Size="147,42"
           Id="Package\Job Being Performed"
-          TopLeft="338,338" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="198.5,125">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="78,45"
-              Start="0,0"
-              End="78,37.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.5"
-                    Point2="0,22.5"
-                    Point3="4,22.5" />
-                  <mssgle:LineSegment
-                    End="74,22.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="74,22.5"
-                    Point2="78,22.5"
-                    Point3="78,26.5" />
-                  <mssgle:LineSegment
-                    End="78,37.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="276.5,212">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="68,43"
-              Start="0,0"
-              End="68,35.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,17.5"
-                    Point2="0,21.5"
-                    Point3="4,21.5" />
-                  <mssgle:LineSegment
-                    End="64,21.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="64,21.5"
-                    Point2="68,21.5"
-                    Point3="68,25.5" />
-                  <mssgle:LineSegment
-                    End="68,35.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="344.5,297">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="67,41"
-              Start="0,0"
-              End="67,33.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.5"
-                    Point2="0,20.5"
-                    Point3="4,20.5" />
-                  <mssgle:LineSegment
-                    End="63,20.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="63,20.5"
-                    Point2="67,20.5"
-                    Point3="67,24.5" />
-                  <mssgle:LineSegment
-                    End="67,33.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="411.5,380">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="66.5,40"
-              Start="0,0"
-              End="66.5,32.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16"
-                    Point2="0,20"
-                    Point3="4,20" />
-                  <mssgle:LineSegment
-                    End="62.5,20" />
-                  <mssgle:CubicBezierSegment
-                    Point1="62.5,20"
-                    Point2="66.5,20"
-                    Point3="66.5,24" />
-                  <mssgle:LineSegment
-                    End="66.5,32.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="454.5,380.75" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\People Notified"
+          TopLeft="530.5,454.75" />
         <NodeLayout
           Size="164,42"
           Id="Package\Related Processes"
-          TopLeft="500,503" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="490,462">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="92,41"
-              Start="0,0"
-              End="92,33.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.5"
-                    Point2="0,20.5"
-                    Point3="4,20.5" />
-                  <mssgle:LineSegment
-                    End="88,20.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="88,20.5"
-                    Point2="92,20.5"
-                    Point3="92,24.5" />
-                  <mssgle:LineSegment
-                    End="92,33.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="606.5,529.75" />
         <NodeLayout
           Size="126,42"
           Id="Package\Witnesses"
-          TopLeft="587,574" />
+          TopLeft="690.5,603.75" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="582,545">
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="101,53.75">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="68,29"
+              EndConnector="79,29"
               Start="0,0"
-              End="68,21.5">
+              End="79,21.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -5538,13 +5643,13 @@
                     Point2="0,14.5"
                     Point3="4,14.5" />
                   <mssgle:LineSegment
-                    End="64,14.5" />
+                    End="75,14.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="64,14.5"
-                    Point2="68,14.5"
-                    Point3="68,18.5" />
+                    Point1="75,14.5"
+                    Point2="79,14.5"
+                    Point3="79,18.5" />
                   <mssgle:LineSegment
-                    End="68,21.5" />
+                    End="79,21.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5553,57 +5658,15 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="146,42"
-          Id="Package\Consequences"
-          TopLeft="654,641" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 6]"
-          TopLeft="650,616">
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="180,124.75">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="77,25"
+              EndConnector="74.5,31"
               Start="0,0"
-              End="77,17.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,8.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,8.5"
-                    Point2="0,12.5"
-                    Point3="4,12.5" />
-                  <mssgle:LineSegment
-                    End="73,12.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="73,12.5"
-                    Point2="77,12.5"
-                    Point3="77,16.5" />
-                  <mssgle:LineSegment
-                    End="77,17.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="175,42"
-          Id="Package\Global Mandatory Requirements"
-          TopLeft="729,714" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="727,683">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="89.5,31"
-              Start="0,0"
-              End="89.5,23.5">
+              End="74.5,23.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -5614,13 +5677,217 @@
                     Point2="0,15.5"
                     Point3="4,15.5" />
                   <mssgle:LineSegment
-                    End="85.5,15.5" />
+                    End="70.5,15.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="85.5,15.5"
-                    Point2="89.5,15.5"
-                    Point3="89.5,19.5" />
+                    Point1="70.5,15.5"
+                    Point2="74.5,15.5"
+                    Point3="74.5,19.5" />
                   <mssgle:LineSegment
-                    End="89.5,23.5" />
+                    End="74.5,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="453,350.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="75,30"
+              Start="0,0"
+              End="75,22.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11"
+                    Point2="0,15"
+                    Point3="4,15" />
+                  <mssgle:LineSegment
+                    End="71,15" />
+                  <mssgle:CubicBezierSegment
+                    Point1="71,15"
+                    Point2="75,15"
+                    Point3="75,19" />
+                  <mssgle:LineSegment
+                    End="75,22.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="528,422.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="77.5,32"
+              Start="0,0"
+              End="77.5,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12"
+                    Point2="0,16"
+                    Point3="4,16" />
+                  <mssgle:LineSegment
+                    End="73.5,16" />
+                  <mssgle:CubicBezierSegment
+                    Point1="73.5,16"
+                    Point2="77.5,16"
+                    Point3="77.5,20" />
+                  <mssgle:LineSegment
+                    End="77.5,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="605.5,496.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="83,33"
+              Start="0,0"
+              End="83,25.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.5"
+                    Point2="0,16.5"
+                    Point3="4,16.5" />
+                  <mssgle:LineSegment
+                    End="79,16.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="79,16.5"
+                    Point2="83,16.5"
+                    Point3="83,20.5" />
+                  <mssgle:LineSegment
+                    End="83,25.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="688.5,571.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="65,32"
+              Start="0,0"
+              End="65,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12"
+                    Point2="0,16"
+                    Point3="4,16" />
+                  <mssgle:LineSegment
+                    End="61,16" />
+                  <mssgle:CubicBezierSegment
+                    Point1="61,16"
+                    Point2="65,16"
+                    Point3="65,20" />
+                  <mssgle:LineSegment
+                    End="65,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="347,274.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="106,34"
+              Start="0,0"
+              End="106,26.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13"
+                    Point2="0,17"
+                    Point3="4,17" />
+                  <mssgle:LineSegment
+                    End="102,17" />
+                  <mssgle:CubicBezierSegment
+                    Point1="102,17"
+                    Point2="106,17"
+                    Point3="106,21" />
+                  <mssgle:LineSegment
+                    End="106,26.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 7]"
+          TopLeft="254.5,197.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="92.5,35"
+              Start="0,0"
+              End="92.5,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.5"
+                    Point2="0,17.5"
+                    Point3="4,17.5" />
+                  <mssgle:LineSegment
+                    End="88.5,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="88.5,17.5"
+                    Point2="92.5,17.5"
+                    Point3="92.5,21.5" />
+                  <mssgle:LineSegment
+                    End="92.5,27.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5636,15 +5903,15 @@
     design-time-name="Package\Company Involved">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="144,42"
-          Id="Package\Company Involved\OData Source"
-          TopLeft="166,78" />
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="171,42"
           Id="Package\Company Involved\OLE DB Destination"
           TopLeft="318,179" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Company Involved\OData Source"
+          TopLeft="166,78" />
         <EdgeLayout
           Id="Package\Company Involved.Paths[Output]"
           TopLeft="238,120">
@@ -5676,7 +5943,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -5696,388 +5965,10 @@
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\Incident">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="144,42"
-          Id="Package\Incident\OData Source"
-          TopLeft="166,78" />
-        <NodeLayout
-          Size="171,42"
-          Id="Package\Incident\OLE DB Destination"
-          TopLeft="340,231" />
-        <EdgeLayout
-          Id="Package\Incident.Paths[Output]"
-          TopLeft="238,120">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="187.5,111"
-              Start="0,0"
-              End="187.5,103.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,51.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,51.5"
-                    Point2="0,55.5"
-                    Point3="4,55.5" />
-                  <mssgle:LineSegment
-                    End="183.5,55.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="183.5,55.5"
-                    Point2="187.5,55.5"
-                    Point3="187.5,59.5" />
-                  <mssgle:LineSegment
-                    End="187.5,103.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Incident\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\People Notified">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="144,42"
-          Id="Package\People Notified\OData Source"
-          TopLeft="166,78" />
-        <NodeLayout
-          Size="171,42"
-          Id="Package\People Notified\OLE DB Destination"
-          TopLeft="452,215" />
-        <EdgeLayout
-          Id="Package\People Notified.Paths[Output]"
-          TopLeft="238,120">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="299.5,95"
-              Start="0,0"
-              End="299.5,87.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,43.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,43.5"
-                    Point2="0,47.5"
-                    Point3="4,47.5" />
-                  <mssgle:LineSegment
-                    End="295.5,47.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="295.5,47.5"
-                    Point2="299.5,47.5"
-                    Point3="299.5,51.5" />
-                  <mssgle:LineSegment
-                    End="299.5,87.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <TaskHost
-    design-time-name="Package\Interested Stakeholders">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="144,42"
-          Id="Package\Interested Stakeholders\OData Source"
-          TopLeft="166,78" />
-        <NodeLayout
-          Size="171,42"
-          Id="Package\Interested Stakeholders\OLE DB Destination"
-          TopLeft="361,289" />
-        <EdgeLayout
-          Id="Package\Interested Stakeholders.Paths[Output]"
-          TopLeft="238,120">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="208.5,169"
-              Start="0,0"
-              End="208.5,161.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,80.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,80.5"
-                    Point2="0,84.5"
-                    Point3="4,84.5" />
-                  <mssgle:LineSegment
-                    End="204.5,84.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="204.5,84.5"
-                    Point2="208.5,84.5"
-                    Point3="208.5,88.5" />
-                  <mssgle:LineSegment
-                    End="208.5,161.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Interested Stakeholders\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Job Being Performed">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="144,42"
-          Id="Package\Job Being Performed\OData Source"
-          TopLeft="166,78" />
-        <NodeLayout
-          Size="171,42"
-          Id="Package\Job Being Performed\OLE DB Destination"
-          TopLeft="340,270" />
-        <EdgeLayout
-          Id="Package\Job Being Performed.Paths[Output]"
-          TopLeft="238,120">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="187.5,150"
-              Start="0,0"
-              End="187.5,142.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,71" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,71"
-                    Point2="0,75"
-                    Point3="4,75" />
-                  <mssgle:LineSegment
-                    End="183.5,75" />
-                  <mssgle:CubicBezierSegment
-                    Point1="183.5,75"
-                    Point2="187.5,75"
-                    Point3="187.5,79" />
-                  <mssgle:LineSegment
-                    End="187.5,142.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Job Being Performed\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\People Notified\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Related Processes">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="144,42"
-          Id="Package\Related Processes\OData Source"
-          TopLeft="166,78" />
-        <NodeLayout
-          Size="171,42"
-          Id="Package\Related Processes\OLE DB Destination"
-          TopLeft="381,222" />
-        <EdgeLayout
-          Id="Package\Related Processes.Paths[Output]"
-          TopLeft="238,120">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="228.5,102"
-              Start="0,0"
-              End="228.5,94.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,47" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,47"
-                    Point2="0,51"
-                    Point3="4,51" />
-                  <mssgle:LineSegment
-                    End="224.5,51" />
-                  <mssgle:CubicBezierSegment
-                    Point1="224.5,51"
-                    Point2="228.5,51"
-                    Point3="228.5,55" />
-                  <mssgle:LineSegment
-                    End="228.5,94.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Related Processes\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Witnesses">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="144,42"
-          Id="Package\Witnesses\OData Source"
-          TopLeft="166,78" />
-        <NodeLayout
-          Size="171,42"
-          Id="Package\Witnesses\OLE DB Destination"
-          TopLeft="489,273" />
-        <EdgeLayout
-          Id="Package\Witnesses.Paths[Output]"
-          TopLeft="238,120">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="336.5,153"
-              Start="0,0"
-              End="336.5,145.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,72.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,72.5"
-                    Point2="0,76.5"
-                    Point3="4,76.5" />
-                  <mssgle:LineSegment
-                    End="332.5,76.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="332.5,76.5"
-                    Point2="336.5,76.5"
-                    Point3="336.5,80.5" />
-                  <mssgle:LineSegment
-                    End="336.5,145.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Witnesses\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
     design-time-name="Package\Consequences">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="144,42"
           Id="Package\Consequences\OData Source"
@@ -6117,7 +6008,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -6140,7 +6033,7 @@
     design-time-name="Package\Global Mandatory Requirements">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="144,42"
           Id="Package\Global Mandatory Requirements\OData Source"
@@ -6180,7 +6073,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -6188,6 +6083,394 @@
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\Global Mandatory Requirements\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Incident">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Incident\OData Source"
+          TopLeft="215,99" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Incident\OLE DB Destination"
+          TopLeft="484,270" />
+        <EdgeLayout
+          Id="Package\Incident.Paths[Output]"
+          TopLeft="287,141">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="282.5,129"
+              Start="0,0"
+              End="282.5,121.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,60.5"
+                    Point2="0,64.5"
+                    Point3="4,64.5" />
+                  <mssgle:LineSegment
+                    End="278.5,64.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="278.5,64.5"
+                    Point2="282.5,64.5"
+                    Point3="282.5,68.5" />
+                  <mssgle:LineSegment
+                    End="282.5,121.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\Interested Stakeholders">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Interested Stakeholders\OLE DB Destination"
+          TopLeft="361,289" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Interested Stakeholders\OData Source"
+          TopLeft="166,78" />
+        <EdgeLayout
+          Id="Package\Interested Stakeholders.Paths[Output]"
+          TopLeft="238,120">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="208.5,169"
+              Start="0,0"
+              End="208.5,161.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,80.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,80.5"
+                    Point2="0,84.5"
+                    Point3="4,84.5" />
+                  <mssgle:LineSegment
+                    End="204.5,84.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="204.5,84.5"
+                    Point2="208.5,84.5"
+                    Point3="208.5,88.5" />
+                  <mssgle:LineSegment
+                    End="208.5,161.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Interested Stakeholders\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Job Being Performed">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Job Being Performed\OLE DB Destination"
+          TopLeft="340,270" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Job Being Performed\OData Source"
+          TopLeft="166,78" />
+        <EdgeLayout
+          Id="Package\Job Being Performed.Paths[Output]"
+          TopLeft="238,120">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="187.5,150"
+              Start="0,0"
+              End="187.5,142.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,71" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,71"
+                    Point2="0,75"
+                    Point3="4,75" />
+                  <mssgle:LineSegment
+                    End="183.5,75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="183.5,75"
+                    Point2="187.5,75"
+                    Point3="187.5,79" />
+                  <mssgle:LineSegment
+                    End="187.5,142.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Job Being Performed\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\People Notified">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="171,42"
+          Id="Package\People Notified\OLE DB Destination"
+          TopLeft="452,215" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\People Notified\OData Source"
+          TopLeft="166,78" />
+        <EdgeLayout
+          Id="Package\People Notified.Paths[Output]"
+          TopLeft="238,120">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="299.5,95"
+              Start="0,0"
+              End="299.5,87.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,43.5"
+                    Point2="0,47.5"
+                    Point3="4,47.5" />
+                  <mssgle:LineSegment
+                    End="295.5,47.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="295.5,47.5"
+                    Point2="299.5,47.5"
+                    Point3="299.5,51.5" />
+                  <mssgle:LineSegment
+                    End="299.5,87.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\People Notified\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Related Processes">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Related Processes\OLE DB Destination"
+          TopLeft="381,222" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Related Processes\OData Source"
+          TopLeft="166,78" />
+        <EdgeLayout
+          Id="Package\Related Processes.Paths[Output]"
+          TopLeft="238,120">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="228.5,102"
+              Start="0,0"
+              End="228.5,94.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,47"
+                    Point2="0,51"
+                    Point3="4,51" />
+                  <mssgle:LineSegment
+                    End="224.5,51" />
+                  <mssgle:CubicBezierSegment
+                    Point1="224.5,51"
+                    Point2="228.5,51"
+                    Point3="228.5,55" />
+                  <mssgle:LineSegment
+                    End="228.5,94.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Related Processes\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Witnesses">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Witnesses\OLE DB Destination"
+          TopLeft="489,273" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Witnesses\OData Source"
+          TopLeft="166,78" />
+        <EdgeLayout
+          Id="Package\Witnesses.Paths[Output]"
+          TopLeft="238,120">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="336.5,153"
+              Start="0,0"
+              End="336.5,145.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,72.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,72.5"
+                    Point2="0,76.5"
+                    Point3="4,76.5" />
+                  <mssgle:LineSegment
+                    End="332.5,76.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="332.5,76.5"
+                    Point2="336.5,76.5"
+                    Point3="336.5,80.5" />
+                  <mssgle:LineSegment
+                    End="336.5,145.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Witnesses\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Incident\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
