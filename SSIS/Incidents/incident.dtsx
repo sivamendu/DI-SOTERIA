@@ -11,8 +11,8 @@
   DTS:LocaleID="3081"
   DTS:ObjectName="incident"
   DTS:PackageType="5"
-  DTS:VersionBuild="26"
-  DTS:VersionGUID="{5A9B805A-C2A3-4C34-9950-6FC8C754AB12}">
+  DTS:VersionBuild="27"
+  DTS:VersionGUID="{AA1BC743-AA25-4A4B-8450-F48FB1F745B2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -6144,6 +6144,19 @@
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Incident\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Interested Stakeholders">
     <LayoutInfo>
@@ -6458,19 +6471,6 @@
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\Witnesses\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Incident\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
