@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="OData Source"
+  DTS:DTSID="{B20D54EE-1577-4606-BC79-0862DAFF9036}"
+  DTS:CreationName="ODATA">
+  <DTS:ObjectData>
+    <ODataConnectionManager
+      UserName="soteria_reportingapi"
+      Url="https://jhg.nonprod.e360.saiglobal.com/test_ReportingAPI/odata/"
+      ConnectionString="Service Document Url=https://jhg.nonprod.e360.saiglobal.com/test_ReportingAPI/odata/;Include Atom Elements=Auto;Include Expanded Entities=False;Integrated Security=False;User ID=soteria_reportingapi;Persist Security Info=False;Time Out=600;Schema Sample Size=25;Retry Count=5;Retry Sleep=100;Keep Alive=False;Max Received Message Size=4398046511104"
+      MicrosoftOnlineServicesAuth="False"
+      AuthType="BasicAuthentication">
+      <Password
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAFE+70/WpnUKwcs0OucTP7AAAAAACAAAAAAADZgAAwAAAABAAAABeDVRzIWaK230DCBw3x6JVAAAAAASAAACgAAAAEAAAACLRcHXCoKCX3gHuX7dBeYQ4AAAA1oIeWY7I+Rrm4N7oLtGGr5IlFoQgiG3c5NMtoC9vmEIFbh7DuvlInrb6uBKIObjjcWBwWdIidqwUAAAAlTLX/Px8SuH8EtZKe/jOOQXDTbU=</Password>
+    </ODataConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
