@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="WAREHOUSE_ADO_NET"
+  DTS:DTSID="{1855FEC2-4C4C-4B2A-A9FD-6758A68B2A01}"
+  DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=JHAUAWDWHSQLNP1;Initial Catalog=WAREHOUSE;Integrated Security=True;Application Name=SSIS-Incidents-{1855FEC2-4C4C-4B2A-A9FD-6758A68B2A01}JHAUAWDWHSQLNP1.WAREHOUSE1;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

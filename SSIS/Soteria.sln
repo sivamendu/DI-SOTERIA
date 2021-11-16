@@ -23,6 +23,10 @@ Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Geography codes", "Integrat
 EndProject
 Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "AOD Testing", "Integration Services Project10\AOD Testing.dtproj", "{F0F452FF-4A13-4605-B312-84A7472E9B6A}"
 EndProject
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Entity", "Entity\Entity.dtproj", "{2C61520F-A5D4-433F-8AEE-7298338662BB}"
+EndProject
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Person Company - Ref data", "Person\Person Company - Ref data.dtproj", "{3ABC9ED2-C11C-45B0-AD6A-996EC8489637}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -195,6 +199,38 @@ Global
 		{F0F452FF-4A13-4605-B312-84A7472E9B6A}.Release|Any CPU.Build.0 = Development
 		{F0F452FF-4A13-4605-B312-84A7472E9B6A}.Release|x86.ActiveCfg = Development
 		{F0F452FF-4A13-4605-B312-84A7472E9B6A}.Release|x86.Build.0 = Development
+		{2C61520F-A5D4-433F-8AEE-7298338662BB}.Debug|Any CPU.ActiveCfg = Development
+		{2C61520F-A5D4-433F-8AEE-7298338662BB}.Debug|Any CPU.Build.0 = Development
+		{2C61520F-A5D4-433F-8AEE-7298338662BB}.Debug|x86.ActiveCfg = Development
+		{2C61520F-A5D4-433F-8AEE-7298338662BB}.Debug|x86.Build.0 = Development
+		{2C61520F-A5D4-433F-8AEE-7298338662BB}.DebugLocal|Any CPU.ActiveCfg = Development
+		{2C61520F-A5D4-433F-8AEE-7298338662BB}.DebugLocal|Any CPU.Build.0 = Development
+		{2C61520F-A5D4-433F-8AEE-7298338662BB}.DebugLocal|x86.ActiveCfg = Development
+		{2C61520F-A5D4-433F-8AEE-7298338662BB}.DebugLocal|x86.Build.0 = Development
+		{2C61520F-A5D4-433F-8AEE-7298338662BB}.Development|Any CPU.ActiveCfg = Development
+		{2C61520F-A5D4-433F-8AEE-7298338662BB}.Development|Any CPU.Build.0 = Development
+		{2C61520F-A5D4-433F-8AEE-7298338662BB}.Development|x86.ActiveCfg = Development
+		{2C61520F-A5D4-433F-8AEE-7298338662BB}.Development|x86.Build.0 = Development
+		{2C61520F-A5D4-433F-8AEE-7298338662BB}.Release|Any CPU.ActiveCfg = Development
+		{2C61520F-A5D4-433F-8AEE-7298338662BB}.Release|Any CPU.Build.0 = Development
+		{2C61520F-A5D4-433F-8AEE-7298338662BB}.Release|x86.ActiveCfg = Development
+		{2C61520F-A5D4-433F-8AEE-7298338662BB}.Release|x86.Build.0 = Development
+		{3ABC9ED2-C11C-45B0-AD6A-996EC8489637}.Debug|Any CPU.ActiveCfg = Development
+		{3ABC9ED2-C11C-45B0-AD6A-996EC8489637}.Debug|Any CPU.Build.0 = Development
+		{3ABC9ED2-C11C-45B0-AD6A-996EC8489637}.Debug|x86.ActiveCfg = Development
+		{3ABC9ED2-C11C-45B0-AD6A-996EC8489637}.Debug|x86.Build.0 = Development
+		{3ABC9ED2-C11C-45B0-AD6A-996EC8489637}.DebugLocal|Any CPU.ActiveCfg = Development
+		{3ABC9ED2-C11C-45B0-AD6A-996EC8489637}.DebugLocal|Any CPU.Build.0 = Development
+		{3ABC9ED2-C11C-45B0-AD6A-996EC8489637}.DebugLocal|x86.ActiveCfg = Development
+		{3ABC9ED2-C11C-45B0-AD6A-996EC8489637}.DebugLocal|x86.Build.0 = Development
+		{3ABC9ED2-C11C-45B0-AD6A-996EC8489637}.Development|Any CPU.ActiveCfg = Development
+		{3ABC9ED2-C11C-45B0-AD6A-996EC8489637}.Development|Any CPU.Build.0 = Development
+		{3ABC9ED2-C11C-45B0-AD6A-996EC8489637}.Development|x86.ActiveCfg = Development
+		{3ABC9ED2-C11C-45B0-AD6A-996EC8489637}.Development|x86.Build.0 = Development
+		{3ABC9ED2-C11C-45B0-AD6A-996EC8489637}.Release|Any CPU.ActiveCfg = Development
+		{3ABC9ED2-C11C-45B0-AD6A-996EC8489637}.Release|Any CPU.Build.0 = Development
+		{3ABC9ED2-C11C-45B0-AD6A-996EC8489637}.Release|x86.ActiveCfg = Development
+		{3ABC9ED2-C11C-45B0-AD6A-996EC8489637}.Release|x86.Build.0 = Development
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
